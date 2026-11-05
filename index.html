@@ -305,7 +305,8 @@ main[hidden]{display:none}
 .sf-intro{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:96px;align-items:center;padding-block:120px 0}
 .sf-intro h1{font-size:60px;line-height:1.05}
 .sf-intro p{margin:36px 0 0;max-width:520px;font-size:20px;color:var(--text)}
-.sf-intro img{width:100%;max-width:440px;justify-self:end;aspect-ratio:5/7;object-fit:cover}
+.sf-intro video{width:100%;max-width:440px;justify-self:end;aspect-ratio:5/7;object-fit:cover}
+.sf-steps .pic video{max-width:100%;max-height:100%;aspect-ratio:5/7;object-fit:cover}
 .regions{max-width:1240px;margin:0 auto;padding-block:120px 0}
 .regions div{display:grid;grid-template-columns:5fr 1fr 3fr 1fr 1fr;border-top:1px solid var(--ink);font-size:13px;letter-spacing:.16em;text-transform:uppercase}
 .regions span{padding:14px 12px 0;border-left:1px solid #D9D4C9;min-width:0}
@@ -327,7 +328,7 @@ main[hidden]{display:none}
 }
 @media (max-width: 699px){
   .sf-intro{grid-template-columns:1fr;gap:40px;padding-block:56px 0} .sf-intro h1{font-size:36px} .sf-intro p{font-size:17px;margin-top:24px}
-  .sf-intro img{justify-self:start;max-width:260px}
+  .sf-intro video{justify-self:start;max-width:260px}
   .regions{padding-block:72px 0}
   .regions div{grid-template-columns:1fr;font-size:12px}
   .regions span{padding:12px 0;border-left:0;border-bottom:1px solid #D9D4C9}
@@ -624,7 +625,7 @@ main[hidden]{display:none}
       <h1>Un savoir-faire unique en France, des mûriers jusqu'aux carrés</h1>
       <p>SAINT LOUP travaille d'abord avec le vivant, pour produire la seule et unique soie française. L'excellence tient en 11 étapes.</p>
     </div>
-    <img src="img/sf-9.jpg" alt="Papillon de soie peint à la main">
+    <video src="img/sf-butterfly.mp4" poster="img/sf-butterfly-poster.jpg" autoplay muted loop playsinline aria-label="Papillon de soie peint à la main"></video>
   </section>
   <section class="wrap regions" aria-label="Où se fait chaque étape">
     <div><span>Gard · étapes 1 à 5</span><span>Haute-Loire · 6</span><span>Loire · 7, 8, 10</span><span>France · 9</span><span>Rhône · 11</span></div>
@@ -638,7 +639,7 @@ main[hidden]{display:none}
     <li><div class="pic"><img src="img/sf-6.png" alt="Gravure d’un moulin à soie"></div><div class="txt"><div class="hd"><span class="num">6</span><h2>Mouliner le fil</h2></div><p>Les fils de soie sont assemblés, tordus et mis en bobines, afin de pouvoir être tissé de la façon la plus solide et la plus douce à la fois.</p><p class="loc">Localisation : Haute-Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-7.png" alt="Gravure d’un métier à tisser"></div><div class="txt"><div class="hd"><span class="num">7</span><h2>Tisser</h2></div><p>A l'ourdissage, les fils de chaine sont disposés à la verticale, parallèlement les uns aux autres. Sur le métier à tisser, ils sont croisés avec les fils de trame, à l'horizontale.</p><p class="loc">Localisation : Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-8.jpg" alt="Gravure d’une cuve de décreusage"></div><div class="txt"><div class="hd"><span class="num">8</span><h2>Décreuser</h2></div><p>Une fois tissée, la soie est nettoyée au savon de Marseille. Ainsi est retirée la séricine du ver à soie, qui agissait comme une gomme collante du fil dans le cocon.</p><p class="loc">Localisation : Loire, France.</p></div></li>
-    <li><div class="pic"><img src="img/sf-9.jpg" alt="Papillon de soie peint à la main"></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
+    <li><div class="pic"><video src="img/sf-butterfly.mp4" poster="img/sf-butterfly-poster.jpg" autoplay muted loop playsinline aria-label="Papillon de soie peint à la main"></video></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
     <li><div class="pic"><img src="img/sf-10.png" alt="Gravure d’une imprimante textile"></div><div class="txt"><div class="hd"><span class="num">10</span><h2>Imprimer</h2></div><p>L'œuvre est imprimée sur la soie, qui est ensuite apprêtée. En fonction du design, les carrés de la soie SAINT LOUP sont réalisés au cadre "à la lyonnaise" ou en impression numérique.</p><p class="loc">Localisation : Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-11.png" alt="Gravure de mains roulottant le bord d’un carré"></div><div class="txt"><div class="hd"><span class="num">11</span><h2>Roulotter les carrés</h2></div><p>Le tissu de soie est découpé et les bords de chaque foulard sont roulés et cousus avec une grande délicatesse. Le roulottage des carrés de soie SAINT LOUP est réalisé à la main.</p><p class="loc">Localisation : Rhône, France.</p></div></li>
   </ol>
