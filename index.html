@@ -320,6 +320,8 @@ main[hidden]{display:none}
 .sf-steps .num{font-size:72px;line-height:1}
 .sf-steps h2{font-size:34px;line-height:1.15}
 .sf-steps p{margin:28px 0 0;color:var(--text)}
+.sf-steps li.band{position:relative}
+.sf-steps li.band::before{content:"";position:absolute;inset:-72px calc(50% - 50vw);background:#F1ECE2;z-index:-1}
 .sf-steps .loc{padding-top:14px;border-top:1px solid #D9D4C9;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
 @media (max-width: 1023px){
   .sf-intro{gap:56px;padding-block:80px 0} .sf-intro h1{font-size:46px}
@@ -335,6 +337,7 @@ main[hidden]{display:none}
   .sf-steps{gap:72px;padding-block:72px 120px}
   .sf-steps li{grid-template-columns:1fr;gap:24px}
   .sf-steps .pic{aspect-ratio:auto;max-width:240px;justify-content:flex-start}
+  .sf-steps li.band::before{inset:-40px calc(50% - 50vw)}
   .sf-steps .num{font-size:44px} .sf-steps .hd{gap:14px} .sf-steps h2{font-size:24px}
   .sf-steps p{margin-top:18px}
 }
@@ -636,7 +639,7 @@ main[hidden]{display:none}
     <li><div class="pic"><img src="img/sf-6.png" alt="Gravure d’un moulin à soie"></div><div class="txt"><div class="hd"><span class="num">6</span><h2>Mouliner le fil</h2></div><p>Les fils de soie sont assemblés, tordus et mis en bobines, afin de pouvoir être tissé de la façon la plus solide et la plus douce à la fois.</p><p class="loc">Localisation : Haute-Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-7.png" alt="Gravure d’un métier à tisser"></div><div class="txt"><div class="hd"><span class="num">7</span><h2>Tisser</h2></div><p>A l'ourdissage, les fils de chaine sont disposés à la verticale, parallèlement les uns aux autres. Sur le métier à tisser, ils sont croisés avec les fils de trame, à l'horizontale.</p><p class="loc">Localisation : Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-8.jpg" alt="Gravure d’une cuve de décreusage"></div><div class="txt"><div class="hd"><span class="num">8</span><h2>Décreuser</h2></div><p>Une fois tissée, la soie est nettoyée au savon de Marseille. Ainsi est retirée la séricine du ver à soie, qui agissait comme une gomme collante du fil dans le cocon.</p><p class="loc">Localisation : Loire, France.</p></div></li>
-    <li><div class="pic"><video src="img/sf-butterfly.mp4" poster="img/sf-butterfly-poster.jpg" autoplay muted loop playsinline aria-label="Papillon de soie peint à la main"></video></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
+    <li class="band"><div class="pic"><video src="img/sf-butterfly.mp4" poster="img/sf-butterfly-poster.jpg" autoplay muted loop playsinline aria-label="Papillon de soie peint à la main"></video></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
     <li><div class="pic"><img src="img/sf-10.png" alt="Gravure d’une imprimante textile"></div><div class="txt"><div class="hd"><span class="num">10</span><h2>Imprimer</h2></div><p>L'œuvre est imprimée sur la soie, qui est ensuite apprêtée. En fonction du design, les carrés de la soie SAINT LOUP sont réalisés au cadre "à la lyonnaise" ou en impression numérique.</p><p class="loc">Localisation : Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-11.png" alt="Gravure de mains roulottant le bord d’un carré"></div><div class="txt"><div class="hd"><span class="num">11</span><h2>Roulotter les carrés</h2></div><p>Le tissu de soie est découpé et les bords de chaque foulard sont roulés et cousus avec une grande délicatesse. Le roulottage des carrés de soie SAINT LOUP est réalisé à la main.</p><p class="loc">Localisation : Rhône, France.</p></div></li>
   </ol>
