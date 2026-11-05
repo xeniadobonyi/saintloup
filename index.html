@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAINT LOUP</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: one fluid homepage — full-bleed hero, quiet centred sections on a single ivory ground, landscape footer. Single deliberate light look (brand ground). */
+:root{
+  --bg:#FCFAF5; --ink:#030302; --text:#4A4A4A; --soft:#6B6B6B; --line:#D6D0C4; --field:#FFFFFF; --sky:#8FB2DD;
+  --serif: Garamond, "EB Garamond", Baskerville, Caslon, serif;
+  --hh: 88px;
+  --gut-l: max(40px, env(safe-area-inset-left, 0px));
+  --gut-r: max(40px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+@media (max-width: 1023px){ :root{ --hh: 72px; --gut-l: max(32px, env(safe-area-inset-left, 0px)); --gut-r: max(32px, env(safe-area-inset-right, 0px)); } }
+@media (max-width: 699px){ :root{ --hh: 64px; --gut-l: max(20px, env(safe-area-inset-left, 0px)); --gut-r: max(20px, env(safe-area-inset-right, 0px)); } }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;overflow-x:hidden}
+@media (max-width: 699px){ body{font-size:17px} }
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:transparent;transition:background-color 1.2s ease}
+html.solid body::before{background:rgba(252,250,245,.9)}
+a{color:var(--ink)}
+img{display:block;max-width:100%}
+h1,h2{font-weight:400;text-wrap:balance;margin:0}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.narrow{max-width:720px}
+.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;display:inline-block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;height:var(--hh);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;
+  padding-left:calc(var(--gut-l) - 10px);padding-right:calc(var(--gut-r) - 10px);color:#FFFFFF;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  background:rgba(252,250,245,0);-webkit-backdrop-filter:saturate(100%) blur(0px);backdrop-filter:saturate(100%) blur(0px);
+  transition:background-color 1.2s ease,color 1.2s ease,backdrop-filter 1.2s ease,-webkit-backdrop-filter 1.2s ease,box-shadow 1.2s ease}
+html.solid .hdr{color:var(--ink);background:rgba(252,250,245,.34);-webkit-backdrop-filter:saturate(180%) blur(28px);backdrop-filter:saturate(180%) blur(28px);box-shadow:0 12px 32px -18px rgba(3,3,2,.18)}
+.hdr a,.hdr button{color:inherit}
+.hdr svg{filter:drop-shadow(0 1px 6px rgba(20,30,50,.35));transition:filter 1.2s ease}
+html.solid .hdr svg{filter:none}
+.nav{display:flex;flex-wrap:wrap;gap:4px 36px;padding-left:10px}
+.nav a{text-decoration:none;padding:12px 0}
+.nav a:hover{opacity:.65}
+.ib.burger{display:none}
+.logo{font-weight:600;font-size:1.2rem;letter-spacing:normal;text-transform:none;text-decoration:none;white-space:nowrap;min-height:44px;display:flex;align-items:center;opacity:0;transition:opacity 1.6s cubic-bezier(.22,1,.36,1)}
+html.solid .logo{opacity:1}
+.tools{display:flex;justify-content:flex-end;align-items:center;gap:2px}
+.ib{background:none;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.cur{background:none;border:0;font:inherit;letter-spacing:.18em;min-height:44px;padding:0 12px;cursor:pointer}
+@media (max-width: 1023px){
+  .nav,.cur{display:none}
+  .ib.burger{display:flex}
+}
+
+/* Drawer */
+.drawer{position:fixed;inset:0;z-index:60;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 32px) var(--gut-l)}
+.drawer[hidden]{display:none}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;height:calc(var(--hh) - 12px)}
+.drawer nav{display:flex;flex-direction:column;gap:6px;margin-top:48px}
+.drawer nav a{font-size:34px;line-height:1.3;text-decoration:none;padding:6px 0}
+.drawer .foot{margin-top:auto;font-size:14px;color:var(--soft)}
+
+/* Hero */
+.hero{position:relative;margin-top:calc(var(--hh) * -1);height:max(640px, min(135vh, 125vw));overflow:clip;background:var(--sky)}
+.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.pin{position:absolute;inset:0;pointer-events:none}
+.mark{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:700;font-size:clamp(56px,9.5vw,148px);line-height:.9;letter-spacing:.02em;white-space:nowrap;text-shadow:0 2px 48px rgba(20,30,50,.22)}
+.chipwrap{position:absolute;inset:0 0 48px 0;pointer-events:none}
+.chip{position:sticky;top:calc(100svh - 96px);margin-left:var(--gut-l);pointer-events:auto;display:inline-flex;align-items:center;gap:14px;min-height:48px;padding:0 22px;color:#FFFFFF;text-decoration:none;
+  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px);font-size:15px;letter-spacing:.04em;transition:background-color .4s ease}
+.chip:hover{background:rgba(255,255,255,.34)}
+.chip i,.tag i{width:1px;height:14px;background:currentColor;opacity:.45}
+@media (max-width: 699px){
+  .hero{height:100vh;height:100svh;min-height:600px}
+  .hero > img{object-position:62% 40%}
+  .chipwrap{inset:0 0 28px 0}
+  .chip{top:calc(100svh - 72px);min-height:44px;padding:0 18px}
+}
+
+/* Intro */
+.intro{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:48px 120px;align-items:baseline;padding-block:160px 120px}
+.thanks:empty{display:none}
+.intro h1{font-size:60px;line-height:1.05;max-width:640px}
+.intro-side{max-width:420px;min-width:0}
+.intro .lede{margin:0;font-size:20px;color:var(--text)}
+.intro .note{margin:40px 0 12px;font-size:15px;color:var(--soft)}
+.intro .field{margin:0}
+@media (max-width: 1023px){ .intro h1{font-size:48px} }
+@media (max-width: 699px){ .intro{padding-block:88px 88px;gap:28px} .intro h1{font-size:34px} .intro .lede{font-size:17px} .intro .note{margin-top:32px} }
+
+/* Fields */
+.field{display:flex;align-items:center;max-width:340px;margin:0 auto;background:var(--field);border:1px solid var(--line);border-radius:2px;transition:border-color .3s ease,box-shadow .3s ease}
+.field:hover{border-color:#B8B0A2}
+.field:focus-within{border-color:var(--ink);box-shadow:0 0 0 3px rgba(3,3,2,.06)}
+.field input{flex:1;min-width:0;min-height:42px;border:0;outline:none;background:transparent;font:inherit;font-size:16px;color:var(--ink);padding:0 0 0 16px}
+.field input::placeholder{color:#7A746A}
+.field button{background:none;border:0;width:44px;height:42px;margin-right:4px;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.thanks{margin:12px 0 0;font-size:15px;font-style:italic}
+
+/* Products */
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:80px 56px;padding-bottom:200px}
+.product{display:flex;flex-direction:column;align-items:center;gap:22px;text-decoration:none;text-align:center}
+.product img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:opacity .5s ease}
+.product:hover img{opacity:.88}
+.product .meta{display:flex;flex-direction:column;align-items:center;gap:4px}
+.product .name{font-size:24px;line-height:1.2}
+.product .price{font-size:17px}
+.product .ed{margin-top:4px;font-size:14px;letter-spacing:.06em;color:var(--text)}
+@media (max-width: 1023px){ .products{gap:64px 20px} .product .name{font-size:21px} }
+@media (max-width: 699px){ .products{grid-template-columns:1fr;gap:64px;padding-bottom:120px} .product{gap:18px} .product .name{font-size:22px} }
+
+/* Claim */
+.claim{text-align:center;padding-bottom:280px}
+.claim img{width:96px;height:auto;margin:0 auto 40px}
+.claim p{margin:0;font-size:56px;line-height:1.1}
+@media (max-width: 699px){ .claim{padding-bottom:120px} .claim img{width:72px;margin-bottom:28px} .claim p{font-size:36px} }
+
+/* Story blocks */
+.story{max-width:1240px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:120px;align-items:center;padding-bottom:240px}
+.story .copy{max-width:460px;min-width:0}
+.story .copy p{margin:0 0 20px}
+.story .copy p:last-of-type{margin-bottom:48px}
+.story h2{font-size:40px;line-height:1.15;margin-bottom:40px}
+.story .photo{width:100%;aspect-ratio:4/5;object-fit:cover}
+.story .sun{width:36px;height:auto;margin-bottom:40px}
+.story .motif{width:72px;height:auto;margin-bottom:40px}
+.story.tight{padding-bottom:140px}
+.story.rev{padding-bottom:320px}
+@media (max-width: 899px){
+  .story{grid-template-columns:1fr;gap:48px;padding-bottom:140px}
+  .story .copy{max-width:600px}
+  .story.rev .copy{order:-1}
+  .story h2{font-size:32px;margin-bottom:28px}
+}
+@media (max-width: 899px){ .story.tight{padding-bottom:100px} .story.rev{padding-bottom:180px} }
+@media (max-width: 699px){ .story{padding-bottom:120px} .story.tight{padding-bottom:88px} .story.rev{padding-bottom:160px} .story h2{font-size:30px} .story .copy p:last-of-type{margin-bottom:36px} }
+
+/* Process */
+.process{padding-bottom:140px}
+.process h2{font-size:40px;line-height:1.15;margin-bottom:56px;padding-top:20px;border-top:1px solid var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:56px 32px;align-items:start}
+.steps figure{margin:0}
+.steps img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.steps figcaption{margin-top:24px}
+.steps .t{display:flex;align-items:baseline;gap:14px}
+.steps .n{font-size:15px;color:var(--soft)}
+.steps .h{font-size:22px}
+.steps p{margin:10px 0 0;font-size:16px;line-height:1.55;color:var(--text)}
+@media (max-width: 1023px){ .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 24px} }
+@media (max-width: 699px){
+  .process{padding-bottom:88px}
+  .process h2{font-size:30px;margin-bottom:36px}
+  .steps{gap:40px 14px}
+  .steps figcaption{margin-top:14px} .steps .t{gap:8px} .steps .n{font-size:13px} .steps .h{font-size:18px} .steps p{font-size:14px;line-height:1.5}
+}
+
+/* Wear */
+.wear{padding-bottom:200px}
+.wear h2{font-size:64px;line-height:1;margin-bottom:48px}
+.look{margin:0}
+.look .frame{position:relative}
+.look img{width:100%;object-fit:cover}
+.look.wide{margin-inline:calc(50% - 50vw)}
+.look.wide img{height:min(90vh,62vw);min-height:420px;object-position:center 40%}
+.look.wide .tag{left:var(--gut-l);bottom:40px}
+.look.wide figcaption{padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.look.tall img{aspect-ratio:2/3}
+.look figcaption{margin-top:16px;font-size:16px;font-style:italic;color:var(--text)}
+.tag{position:absolute;left:24px;bottom:24px;display:inline-flex;align-items:center;gap:14px;min-height:46px;padding:0 20px;color:var(--ink);text-decoration:none;
+  background:rgba(252,250,245,.62);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px);font-size:15px;letter-spacing:.04em;transition:background-color .4s ease}
+.tag:hover{background:rgba(252,250,245,.88)}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px 40px;margin-top:64px}
+@media (max-width: 1023px){ .wear h2{font-size:52px} }
+@media (max-width: 699px){
+  .wear{padding-bottom:120px} .wear h2{font-size:40px;margin-bottom:32px}
+  .look.wide img{height:auto;min-height:0;aspect-ratio:4/5}
+  .look.wide .tag{bottom:16px}
+  .pair{grid-template-columns:1fr;gap:48px;margin-top:48px}
+  .tag{left:16px;bottom:16px;min-height:44px;padding:0 16px;font-size:14px}
+}
+
+/* Footer */
+.foot{position:relative;min-height:760px;display:flex;flex-direction:column;justify-content:flex-end;color:#FFFFFF;overflow:hidden}
+.foot > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foot .shade{position:absolute;inset:0;background:rgba(20,18,15,.38)}
+.foot .inner{position:relative;width:100%;padding-block:200px calc(48px + env(safe-area-inset-bottom,0px))}
+.foot .line{margin:0 0 160px;text-align:center;font-size:46px;font-style:italic;line-height:1.15}
+.foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:48px;border-top:1px solid rgba(255,255,255,.35);padding-top:48px}
+.foot nav{display:flex;flex-direction:column;gap:2px;font-size:15px}
+.foot nav a{color:#FFFFFF;text-decoration:none;padding:6px 0}
+.foot nav a:hover{color:#E6E1D6}
+.foot .nl{flex:0 1 320px}
+.foot .nl p{margin:0 0 10px;font-size:15px}
+.foot .field{max-width:none}
+.foot .thanks{color:#FFFFFF}
+.foot .copy{margin:64px 0 0;font-size:13px;color:rgba(255,255,255,.85)}
+@media (max-width: 699px){
+  .foot{min-height:700px}
+  .foot .inner{padding-top:120px}
+  .foot .line{font-size:30px;line-height:1.2;margin-bottom:96px}
+  .foot .row{flex-direction:column-reverse;align-items:stretch;gap:32px;padding-top:36px}
+  .foot .nl{flex:none}
+  .foot .copy{margin-top:32px}
+}
+
+/* Product page */
+main[hidden]{display:none}
+.pdp-top{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:auto minmax(320px,440px);justify-content:center;gap:96px;align-items:center;padding-block:24px 0}
+.gal{display:grid;grid-template-columns:72px auto;gap:20px;align-items:start;min-width:0}
+.thumbs{display:flex;flex-direction:column;gap:10px;height:0;min-height:100%;overflow-y:auto;scrollbar-width:none}
+.thumbs::-webkit-scrollbar{display:none}
+.gal{align-items:stretch}
+.thumbs button{padding:0 0 4px;border:0;border-bottom:1px solid transparent;background:none;cursor:pointer;opacity:.55;transition:opacity .3s ease}
+.thumbs button:hover,.thumbs button[aria-selected="true"]{opacity:1}
+.thumbs button[aria-selected="true"]{border-bottom-color:var(--ink)}
+.thumbs img{width:72px;aspect-ratio:2/3;object-fit:cover}
+.stage{position:relative;min-width:0;width:min(calc(100vw - 72px - 20px - 96px - 440px - 80px), max(448px, calc((100svh - var(--hh) - 48px) * .8)), 760px)}
+.stage > img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:opacity .35s ease}
+.stage .ctl{position:absolute;right:20px;bottom:20px;display:flex;align-items:center;gap:8px}
+.glass{background:rgba(252,250,245,.62);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);color:var(--ink)}
+.stage .count{min-width:56px;text-align:center;font-size:14px;padding:11px 14px;font-variant-numeric:tabular-nums}
+.stage .arrow{width:44px;height:44px;border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .3s ease}
+.stage .arrow:hover{background:rgba(252,250,245,.9)}
+.buy{max-width:440px;min-width:0}
+.buy h1{font-size:48px;line-height:1.05}
+.buy .price{margin:14px 0 0;font-size:20px}
+.buy .first{margin:36px 0 0;font-size:21px;line-height:1.4}
+.buy .body{margin:16px 0 0;font-size:17px;color:var(--text)}
+.cta{margin-top:36px;width:100%;min-height:56px;border:0;border-radius:2px;background:var(--ink);color:var(--bg);font:inherit;font-size:13px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background-color .3s ease}
+.cta:hover{background:#2A2925}
+.facts{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 32px;font-size:15px;color:var(--text)}
+.facts span span{color:var(--soft)}
+.origine{max-width:1360px;margin:0 auto;padding-block:160px 0}
+.origine h2,.related h2{text-align:center;font-size:40px;line-height:1.15;margin-bottom:72px}
+.chain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:48px 0;border-top:1px solid #D9D4C9}
+.chain li{position:relative;padding:28px 16px 0 0;min-width:0}
+.chain li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+.chain .k{font-size:22px;line-height:1.2}
+.chain .v{margin-top:8px;font-size:15px;line-height:1.4;color:var(--text)}
+.details{margin-top:160px;display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:4px}
+.details img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.legend{max-width:1240px;margin:0 auto;padding-block:200px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:120px;align-items:center}
+.legend img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.legend .copy{max-width:480px;min-width:0}
+.legend h2{font-size:40px;line-height:1.15;margin-bottom:36px}
+.legend p{margin:0 0 18px;color:var(--text)}
+.related{max-width:1120px;margin:0 auto;padding-block:220px}
+.related .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px 56px}
+@media (max-width: 1200px){ .chain{grid-template-columns:repeat(4,minmax(0,1fr));border-top:0} .chain li{border-top:1px solid #D9D4C9} }
+@media (max-width: 1023px){
+  .pdp-top{grid-template-columns:1fr;gap:56px;justify-content:stretch}
+  .gal{grid-template-columns:1fr}
+  .stage{width:auto}
+  .thumbs{flex-direction:row;order:2;overflow-x:auto;overflow-y:visible;height:auto;min-height:0;scrollbar-width:none}
+  .thumbs::-webkit-scrollbar{display:none}
+  .thumbs img{width:64px}
+  .stage > img{aspect-ratio:4/5}
+  .buy{max-width:620px}
+  .legend{grid-template-columns:1fr;gap:56px;padding-block:140px 0}
+  .legend img{max-width:520px}
+  .origine{padding-block:120px 0}
+  .details{margin-top:120px}
+  .related{padding-block:160px}
+}
+@media (max-width: 699px){
+  .pdp-top{padding-block:8px 0;gap:40px}
+  .stage{margin-inline:calc(var(--gut-l) * -1) calc(var(--gut-r) * -1)}
+  .stage .ctl{right:12px;bottom:12px}
+  .thumbs{gap:8px}
+  .thumbs img{width:52px}
+  .buy h1{font-size:36px}
+  .buy .first{font-size:19px;margin-top:28px}
+  .buy .body{font-size:16px}
+  .cta{margin-top:28px;min-height:54px}
+  .origine{padding-block:96px 0}
+  .origine h2,.related h2{font-size:30px;margin-bottom:40px}
+  .chain{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 0;border-top:0}
+  .chain li{border-top:1px solid #D9D4C9}
+  .chain .k{font-size:19px}
+  .chain .v{font-size:14px}
+  .details{margin-top:96px;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;scrollbar-width:none}
+  .details::-webkit-scrollbar{display:none}
+  .details img{scroll-snap-align:start}
+  .legend{padding-block:96px 0;gap:40px}
+  .legend h2{font-size:30px;margin-bottom:24px}
+  .related{padding-block:120px}
+  .related .grid{gap:16px}
+  .related .product{gap:14px}
+  .related .product .name{font-size:18px}
+  .related .product .price{font-size:15px}
+}
+
+.nav a[aria-current="page"]{border-bottom:1px solid currentColor;padding-bottom:11px}
+.drawer nav a[aria-current="page"]{font-style:italic}
+.eyebrow{margin:0 0 20px;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+
+/* Savoir-faire */
+.sf-intro{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:96px;align-items:center;padding-block:120px 0}
+.sf-intro h1{font-size:60px;line-height:1.05}
+.sf-intro p{margin:36px 0 0;max-width:520px;font-size:20px;color:var(--text)}
+.sf-intro img{width:100%;max-width:440px;justify-self:end;aspect-ratio:5/7;object-fit:cover}
+.regions{max-width:1240px;margin:0 auto;padding-block:120px 0}
+.regions div{display:grid;grid-template-columns:5fr 1fr 3fr 1fr 1fr;border-top:1px solid var(--ink);font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.regions span{padding:14px 12px 0;border-left:1px solid #D9D4C9;min-width:0}
+.regions span:first-child{padding-left:0;border-left:0}
+.sf-steps{list-style:none;max-width:1240px;margin:0 auto;padding-block:160px 200px;display:flex;flex-direction:column;gap:140px}
+.sf-steps li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:96px;align-items:center}
+.sf-steps .pic{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.sf-steps .pic img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+.sf-steps .txt{max-width:560px;min-width:0}
+.sf-steps .hd{display:flex;align-items:baseline;gap:20px}
+.sf-steps .num{font-size:72px;line-height:1}
+.sf-steps h2{font-size:34px;line-height:1.15}
+.sf-steps p{margin:28px 0 0;color:var(--text)}
+.sf-steps .loc{padding-top:14px;border-top:1px solid #D9D4C9;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+@media (max-width: 1023px){
+  .sf-intro{gap:56px;padding-block:80px 0} .sf-intro h1{font-size:46px}
+  .regions div{grid-template-columns:repeat(5,minmax(0,1fr));font-size:11px}
+  .sf-steps{gap:96px;padding-block:120px 160px} .sf-steps li{gap:48px} .sf-steps .num{font-size:56px} .sf-steps h2{font-size:28px}
+}
+@media (max-width: 699px){
+  .sf-intro{grid-template-columns:1fr;gap:40px;padding-block:56px 0} .sf-intro h1{font-size:36px} .sf-intro p{font-size:17px;margin-top:24px}
+  .sf-intro img{justify-self:start;max-width:260px}
+  .regions{padding-block:72px 0}
+  .regions div{grid-template-columns:1fr;font-size:12px}
+  .regions span{padding:12px 0;border-left:0;border-bottom:1px solid #D9D4C9}
+  .sf-steps{gap:72px;padding-block:72px 120px}
+  .sf-steps li{grid-template-columns:1fr;gap:24px}
+  .sf-steps .pic{aspect-ratio:auto;max-width:240px;justify-content:flex-start}
+  .sf-steps .num{font-size:44px} .sf-steps .hd{gap:14px} .sf-steps h2{font-size:24px}
+  .sf-steps p{margin-top:18px}
+}
+
+/* Histoire */
+.hi-hero{position:relative;height:760px;overflow:hidden;background:#6F8EA4}
+.hi-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hi-hero .shade{position:absolute;inset:0;background:rgba(20,18,15,.2)}
+.hi-hero h1{position:absolute;left:0;right:0;bottom:72px;text-align:center;color:#FFFFFF;font-size:96px;line-height:1;text-shadow:0 2px 40px rgba(20,30,50,.25);padding-inline:16px}
+.hi-intro{max-width:760px;margin:0 auto;padding-block:160px 180px;text-align:center}
+.hi-intro .big{margin:0;font-size:30px;line-height:1.35}
+.hi-intro p{margin:24px 0 0;font-size:20px;color:var(--text)}
+.chapters{max-width:1240px;margin:0 auto}
+.chapter{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;border-top:1px solid var(--ink);padding-block:48px 160px}
+.chapter .yr{font-size:140px;line-height:.9}
+.chapter .body{min-width:0}
+.chapter .body > div{max-width:640px}
+.chapter h2{font-size:40px;line-height:1.15;margin-bottom:32px}
+.chapter p{margin:0 0 18px;color:var(--text)}
+.chapter p.lead{color:var(--ink);font-size:22px;line-height:1.4}
+.chapter img{width:100%;margin-top:64px;object-fit:cover}
+.hi-close{text-align:center;padding-block:40px 200px}
+.hi-close p{margin:0;font-size:64px;font-style:italic;line-height:1.1}
+.hi-more{max-width:1240px;margin:0 auto;padding-block:0 200px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:64px;row-gap:120px}
+.hi-more h2{padding-top:24px;border-top:1px solid var(--ink);font-size:32px}
+.hi-more .c{padding-top:24px;border-top:1px solid #D9D4C9;max-width:680px;min-width:0}
+.hi-more .c .lead{margin:0 0 18px;font-size:22px;line-height:1.4}
+.hi-more .c p{margin:0;color:var(--text)}
+.logos{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.logos img{height:72px;width:auto;mix-blend-mode:multiply}
+.logos p{margin:16px 0 0;font-size:15px}
+@media (max-width: 1023px){
+  .hi-hero{height:620px} .hi-hero h1{font-size:72px}
+  .chapter{gap:40px;padding-block:40px 120px} .chapter .yr{font-size:96px}
+  .hi-close p{font-size:52px}
+}
+@media (max-width: 699px){
+  .hi-hero{height:70svh;min-height:440px} .hi-hero h1{font-size:48px;bottom:40px}
+  .hi-intro{padding-block:88px 96px;text-align:left} .hi-intro .big{font-size:24px} .hi-intro p{font-size:17px}
+  .chapter{grid-template-columns:1fr;gap:24px;padding-block:28px 88px} .chapter .yr{font-size:64px}
+  .chapter h2{font-size:28px;margin-bottom:20px} .chapter p.lead{font-size:19px} .chapter img{margin-top:36px}
+  .hi-close{padding-block:16px 120px} .hi-close p{font-size:36px}
+  .hi-more{grid-template-columns:1fr;row-gap:24px;padding-bottom:120px}
+  .hi-more .c{border-top:0;padding-top:0;margin-bottom:56px}
+  .logos{grid-template-columns:1fr;gap:32px} .logos img{height:60px}
+}
+
+/* Inspiration */
+.in-intro{max-width:820px;margin:0 auto;text-align:center;padding-block:140px 0}
+.in-intro h1{font-size:72px;line-height:1.05}
+.in-intro p.lede{margin:32px auto 0;max-width:600px;font-size:20px;color:var(--text)}
+.in-index{max-width:1240px;margin:0 auto;padding-block:72px 0}
+.in-index div{display:flex;flex-wrap:wrap;justify-content:center;gap:0 32px;border-top:1px solid #D9D4C9;border-bottom:1px solid #D9D4C9;padding-block:6px}
+.in-index button{background:none;border:0;font:inherit;font-size:17px;color:var(--ink);padding:10px 0;min-height:44px;cursor:pointer}
+.in-index button:hover{opacity:.6}
+.in-orig{max-width:1240px;margin:0 auto;padding-block:140px 0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:96px;align-items:center;scroll-margin-top:calc(var(--hh) + 24px)}
+.in-orig img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:30% center}
+.in-orig .copy{max-width:440px;min-width:0}
+.in-orig h2{font-size:52px;line-height:1.05;font-style:italic;margin-bottom:32px}
+.in-orig p{margin:0 0 18px;color:var(--text)}
+.in-looks{max-width:1360px;margin:0 auto;padding-block:160px 200px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:96px 40px;align-items:start}
+.in-looks article{min-width:0;scroll-margin-top:calc(var(--hh) + 24px)}
+.in-looks img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.in-looks h2{margin:28px 0 16px;font-size:30px;line-height:1.15}
+.in-looks p{margin:0 0 12px;font-size:17px;color:var(--text)}
+@media (max-width: 1023px){
+  .in-intro{padding-block:96px 0} .in-intro h1{font-size:56px}
+  .in-orig{gap:56px} .in-orig h2{font-size:42px}
+  .in-looks{grid-template-columns:repeat(2,minmax(0,1fr));gap:72px 32px;padding-block:120px 160px}
+}
+@media (max-width: 699px){
+  .in-intro{padding-block:64px 0;text-align:left} .in-intro h1{font-size:40px} .in-intro p.lede{font-size:17px;margin-top:20px}
+  .in-index{padding-block:40px 0}
+  .in-index div{justify-content:flex-start;gap:0 20px}
+  .in-index button{font-size:15px}
+  .in-orig{grid-template-columns:1fr;gap:32px;padding-block:72px 0} .in-orig h2{font-size:36px;margin-bottom:20px}
+  .in-looks{grid-template-columns:1fr;gap:64px;padding-block:88px 120px}
+  .in-looks h2{font-size:26px;margin:20px 0 12px}
+}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+</style>
+
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="https://saintloup.store/collections/all" target="_blank" rel="noopener">Boutique</a>
+      <a href="#savoir-faire" data-view="savoir-faire">Savoir-faire</a>
+      <a href="#histoire" data-view="histoire">Histoire</a>
+      <a href="#inspiration" data-view="inspiration">Inspiration</a>
+    </nav>
+    <button class="ib burger" id="openMenu" type="button" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h18M3 16h18"/></svg></button>
+  </div>
+  <a class="logo" href="#accueil" aria-label="SAINT LOUP, accueil">SAINT LOUP</a>
+  <div class="tools">
+    <button class="cur" type="button">EUR</button>
+    <button class="ib" type="button" aria-label="Rechercher"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+    <button class="ib" type="button" aria-label="Panier, 0 article"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer-top">
+    <span style="font-weight:600;font-size:1.2rem">SAINT LOUP</span>
+    <button class="ib" id="closeMenu" type="button" aria-label="Fermer le menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <nav aria-label="Navigation principale">
+    <a href="https://saintloup.store/collections/all" target="_blank" rel="noopener">Boutique</a>
+    <a href="#savoir-faire" data-view="savoir-faire">Savoir-faire</a>
+    <a href="#histoire" data-view="histoire">Histoire</a>
+    <a href="#inspiration" data-view="inspiration">Inspiration</a>
+  </nav>
+  <p class="foot">EUR · France</p>
+</div>
+
+<main id="view-home">
+  <section class="hero" id="hero">
+    <img src="img/hero.jpg" alt="Bandou SAINT LOUP noué au poignet, main posée sur un cheval blanc">
+    <div class="pin"><div class="mark" aria-hidden="true">SAINT LOUP</div></div>
+    <div class="chipwrap"><a class="chip" href="#bandou">Bandou<i aria-hidden="true"></i>195 €</a></div>
+  </section>
+
+  <section class="wrap intro">
+    <h1>Le premier fil de soie française depuis le siècle dernier</h1>
+    <div class="intro-side">
+    <p class="lede">SAINT LOUP ressuscite le savoir-faire du fil de soie dans le Sud de la France.</p>
+    <p class="note">Nous vous informons par email en avant-première lorsque de nouvelles pièces sont disponibles :</p>
+    <form class="field js-nl" novalidate>
+      <label class="sr" for="nl-1">E-mail</label>
+      <input id="nl-1" type="email" placeholder="E-mail" autocomplete="email" required>
+      <button type="submit" aria-label="S'inscrire"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+    </form>
+    <p class="thanks" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="wrap products" aria-label="Les pièces">
+    <a class="product" href="#bandou">
+      <img src="img/bandou.png" alt="Bandou">
+      <span class="meta"><span class="name">Bandou</span><span class="price">195 €</span><span class="ed">200 exemplaires numérotés</span></span>
+      <span class="caps">Découvrir</span>
+    </a>
+    <a class="product" href="#moucadou-original">
+      <img src="img/moucadou-original.jpg" alt="Moucadou original">
+      <span class="meta"><span class="name">Moucadou original</span><span class="price">345 €</span><span class="ed">50 exemplaires numérotés</span></span>
+      <span class="caps">Découvrir</span>
+    </a>
+    <a class="product" href="#moucadou-bleu">
+      <img src="img/moucadou-bleu.jpg" alt="Moucadou bleu">
+      <span class="meta"><span class="name">Moucadou bleu</span><span class="price">345 €</span><span class="ed">50 exemplaires numérotés</span></span>
+      <span class="caps">Découvrir</span>
+    </a>
+  </section>
+
+  <section class="wrap claim">
+    <img src="img/motif.png" alt="">
+    <p>100% naturel.<br>100% français.</p>
+  </section>
+
+  <section class="wrap story tight">
+    <img class="photo" src="img/sud_brut.jpg" alt="Le Sud brut">
+    <div class="copy">
+      <img class="sun" src="img/sun.png" alt="">
+      <h2>Le Sud brut</h2>
+      <p>Le Sud de la France nourrit des fantasmes d’abondance et de nature luxuriante. Les lavandes de Provence, les fruits gorgés de soleil, les plages des côtes Vermeille et d’Azur.</p>
+      <p>Il existe un autre Sud. Rude, laborieux, retenu. Le Sud brut.</p>
+      <p>Du Pic Saint Loup aux Cévennes, on trouve un pays de garrigue rocailleuse d'où jaillit un thym aux fleurs modestes, à l’ombre des mûriers dont on nourrissait les vers à soie.</p>
+      <p>A l’âge d’or de la soie, les paysans y portaient un <em>moucadou del col</em> ("mouchoir de cou" en occitan).</p>
+      <a class="caps" href="#histoire">Notre histoire</a>
+    </div>
+  </section>
+
+  <section class="wrap process">
+    <h2>Du cocon au fil</h2>
+    <div class="steps">
+      <figure><img src="img/cocon-1.jpg" alt="Cocons de soie dans les mains, au-dessus du bassin"><figcaption><div class="t"><span class="n">I</span><span class="h">Le cocon</span></div><p>Les cocons sont plongés dans l’eau chaude pour assouplir la soie qui les enveloppe.</p></figcaption></figure>
+      <figure><img src="img/cocon-2.jpg" alt="Brins de soie tirés des cocons dans le bassin"><figcaption><div class="t"><span class="n">II</span><span class="h">Le brin</span></div><p>Les brins de plusieurs cocons sont réunis à la main pour former un seul fil.</p></figcaption></figure>
+      <figure><img src="img/cocon-3.jpg" alt="Écheveau de soie sur le dévidoir"><figcaption><div class="t"><span class="n">III</span><span class="h">L’écheveau</span></div><p>Le fil s’enroule sur le dévidoir et forme un écheveau d’un blanc nacré.</p></figcaption></figure>
+      <figure><img src="img/cocon-4.jpg" alt="Fil de soie enroulé sur une bobine"><figcaption><div class="t"><span class="n">IV</span><span class="h">La bobine</span></div><p>Le fil est ensuite rebobiné, prêt à être tissé.</p></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wrap story rev">
+    <div class="copy">
+      <img class="motif" src="img/motif.png" alt="">
+      <h2>Ressuscitons notre patrimoine</h2>
+      <p>L'héritage de la soie française ne tient qu'à un fil.</p>
+      <p>En 1853, la France produisait 26.000 tonnes de soie par an, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p>
+      <p>Puis la filière s'est éteinte dans le silence, à grands coups de délocalisations. La France s'est résignée à importer toute sa soie du bout du monde.</p>
+      <p>Jusqu'à la relance de la soie française par SAINT LOUP, issue de cocons cévenols.</p>
+      <p>Pour cette renaissance, il a suffi de deux papillons amoureux. Leur 500 œufs peuvent tisser 500 cocons. De quoi fabriquer un foulard.</p>
+      <a class="caps" href="#savoir-faire">Notre Savoir-faire</a>
+    </div>
+    <img class="photo" src="img/patrimoine.jpg" alt="Cocons de soie sur un carré SAINT LOUP">
+  </section>
+
+  <section class="wrap wear">
+    <h2>Comment le porter</h2>
+    <figure class="look wide">
+      <div class="frame">
+        <img src="img/porte-bandou.jpg" alt="Bandou noué dans les cheveux, face à la garrigue">
+        <a class="tag" href="#bandou">Bandou<i aria-hidden="true"></i>195 €</a>
+      </div>
+      <figcaption>Noué dans les cheveux</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="look tall">
+        <div class="frame">
+          <img src="img/porte-moucadou.jpg" alt="Moucadou original porté en foulard de tête">
+          <a class="tag" href="#moucadou-original">Moucadou original<i aria-hidden="true"></i>345 €</a>
+        </div>
+        <figcaption>En foulard de tête</figcaption>
+      </figure>
+      <figure class="look tall">
+        <div class="frame">
+          <img src="img/porte-bleu.jpg" alt="Moucadou bleu porté ouvert autour du cou">
+          <a class="tag" href="#moucadou-bleu">Moucadou bleu<i aria-hidden="true"></i>345 €</a>
+        </div>
+        <figcaption>Ouvert autour du cou</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<main id="view-mb" hidden>
+  <section class="wrap pdp-top">
+    <div class="gal">
+      <div class="thumbs" role="tablist" aria-label="Choisir une photo" id="thumbs"></div>
+      <div class="stage">
+        <img id="stageImg" src="img/mb-1.jpg" alt="">
+        <div class="ctl">
+          <span class="count glass" id="count">1 / 7</span>
+          <button class="arrow glass" type="button" id="prev" aria-label="Photo précédente"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></button>
+          <button class="arrow glass" type="button" id="next" aria-label="Photo suivante"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="buy">
+      <h1 id="pName"></h1>
+      <p class="price" id="pPrice"></p>
+      <div id="pCopy"></div>
+      <button class="cta" type="button" id="addCart">Ajouter au panier</button>
+      <div class="facts">
+        <span><span>Dimensions</span><br><span id="pDim" style="color:inherit"></span></span>
+        <span><span>Artiste</span><br><span id="pArt" style="color:inherit"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap origine">
+    <h2>Origine</h2>
+    <ol class="chain">
+      <li><div class="k">Mûriers</div><div class="v">100% français (Gard)</div></li>
+      <li><div class="k">Vers à soie</div><div class="v">100% français (Gard)</div></li>
+      <li><div class="k">Filature</div><div class="v">100% française (Gard)</div></li>
+      <li><div class="k">Moulinage</div><div class="v">100% français (Haute-Loire)</div></li>
+      <li><div class="k">Tissage</div><div class="v">100% français (Loire)</div></li>
+      <li><div class="k">Décreusage</div><div class="v">100% français (Loire)</div></li>
+      <li><div class="k">Impression</div><div class="v">100% française (Loire)</div></li>
+      <li><div class="k">Roulottage</div><div class="v">100% français (Rhône)</div></li>
+    </ol>
+  </section>
+
+  <section class="details" id="pDetails" aria-label="Détails"></section>
+
+  <section class="wrap legend">
+    <img id="pLegendImg" src="img/mb-4.jpg" alt="">
+    <div class="copy">
+      <h2>Légende de Saint Loup</h2>
+      <p>Eté 1095. Les trois frères Loup, Guiral et Clair tombent amoureux de la même femme, Irène. Indécise, elle promet son cœur à celui qui, au cours de la Croisade, se montrera le plus courageux.</p>
+      <p>Selon la légende populaire, à leur retour, les trois chevaliers croisent un long convoi funèbre. Irène s’est consumée d’amour. Inconsolables, ils décident de vivre en ermites au sommet de trois montagnes.</p>
+      <p>A chaque anniversaire de la mort d’Irène, les frères allument un grand feu en sa mémoire. Les années passent et, un à un, ils cessent d’illuminer le Mont Saint-Clair, le Rocher de Saint-Guiral et enfin le Pic Saint-Loup, qui portent encore leur nom.</p>
+      <p>Selon l’artiste, au retour des chevaliers, Irène est bien vivante. Elle a simplement choisi sa liberté. Elle est là sur la face nocturne du Bandou, alors que les trois feux illuminent la nuit.</p>
+    </div>
+  </section>
+
+  <section class="wrap related">
+    <h2>Related items</h2>
+    <div class="grid" id="pRelated"></div>
+  </section>
+</main>
+
+<main id="view-sf" hidden>
+  <section class="wrap sf-intro">
+    <div style="min-width:0">
+      <h1>Un savoir-faire unique en France, des mûriers jusqu'aux carrés</h1>
+      <p>SAINT LOUP travaille d'abord avec le vivant, pour produire la seule et unique soie française. L'excellence tient en 11 étapes.</p>
+    </div>
+    <img src="img/sf-9.jpg" alt="Papillon de soie peint à la main">
+  </section>
+  <section class="wrap regions" aria-label="Où se fait chaque étape">
+    <div><span>Gard · étapes 1 à 5</span><span>Haute-Loire · 6</span><span>Loire · 7, 8, 10</span><span>France · 9</span><span>Rhône · 11</span></div>
+  </section>
+  <ol class="wrap sf-steps">
+    <li><div class="pic"><img src="img/sf-1.png" alt="Gravure d’un mûrier"></div><div class="txt"><div class="hd"><span class="num">1</span><h2>Cultiver les mûriers</h2></div><p>Le ver à soie se nourrit exclusivement de feuilles de mûriers blancs. Il les aime tellement que son surnom, "magnan", signifie "goinfre" en occitan. Les mûriers de la soie SAINT LOUP, localisés dans le Piémont Cévenol, sont cultivés en bio.</p><p class="loc">Localisation : Gard, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-2.png" alt="Gravure d’un sachet de graines de vers à soie"></div><div class="txt"><div class="hd"><span class="num">2</span><h2>Assembler les graines</h2></div><p>Une femelle Bombyx pond 500 œufs, aussi appelés "graines". Ils sont sélectionnés et assemblés en amont de l'élevage. Les souches de la soie SAINT LOUP sont choisies pour leur origine cévenole et leur excellence, mesurée à leur taux de soie.</p><p class="loc">Localisation : Gard, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-3.png" alt="Gravure de vers à soie sur une feuille de mûrier"></div><div class="txt"><div class="hd"><span class="num">3</span><h2>Elever les vers à soie</h2></div><p>Il suffit d'un mois de gourmandise pour que les vers à soie grandissent de 2 millimètres à 8 centimètres environ, en se nourrisant de feuilles de mûrier fraiches trois à quatre fois par jour. Ils tissent ensuite un cocon pour s'y métamorphoser en papillon.</p><p class="loc">Localisation : Gard, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-4.png" alt="Gravure de trois cocons"></div><div class="txt"><div class="hd"><span class="num">4</span><h2>Sélectionner les cocons</h2></div><p>Les cocons des Bombyx sont composés d'un seul fil, continu, d'environ un kilomètre et demi de long. Les cocons de la soie SAINT LOUP sont sélectionnés pour garantir l'excellence du fil de soie qui est ensuite déroulé.</p><p class="loc">Localisation : Gard, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-5.png" alt="Gravure d’une machine à dévider"></div><div class="txt"><div class="hd"><span class="num">5</span><h2>Dévider les cocons</h2></div><p>Les cocons sont dévidés à l'aide d'une machine unique en France. Elle permet de les dérouler sans les casser et de les assembler en un fil continu. La soie française ainsi obtenue, toujours en Cévennes, est le premier fil de soie française depuis le siècle dernier.</p><p class="loc">Localisation : Gard, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-6.png" alt="Gravure d’un moulin à soie"></div><div class="txt"><div class="hd"><span class="num">6</span><h2>Mouliner le fil</h2></div><p>Les fils de soie sont assemblés, tordus et mis en bobines, afin de pouvoir être tissé de la façon la plus solide et la plus douce à la fois.</p><p class="loc">Localisation : Haute-Loire, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-7.png" alt="Gravure d’un métier à tisser"></div><div class="txt"><div class="hd"><span class="num">7</span><h2>Tisser</h2></div><p>A l'ourdissage, les fils de chaine sont disposés à la verticale, parallèlement les uns aux autres. Sur le métier à tisser, ils sont croisés avec les fils de trame, à l'horizontale.</p><p class="loc">Localisation : Loire, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-8.jpg" alt="Gravure d’une cuve de décreusage"></div><div class="txt"><div class="hd"><span class="num">8</span><h2>Décreuser</h2></div><p>Une fois tissée, la soie est nettoyée au savon de Marseille. Ainsi est retirée la séricine du ver à soie, qui agissait comme une gomme collante du fil dans le cocon.</p><p class="loc">Localisation : Loire, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-9.jpg" alt="Papillon de soie peint à la main"></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-10.png" alt="Gravure d’une imprimante textile"></div><div class="txt"><div class="hd"><span class="num">10</span><h2>Imprimer</h2></div><p>L'œuvre est imprimée sur la soie, qui est ensuite apprêtée. En fonction du design, les carrés de la soie SAINT LOUP sont réalisés au cadre "à la lyonnaise" ou en impression numérique.</p><p class="loc">Localisation : Loire, France.</p></div></li>
+    <li><div class="pic"><img src="img/sf-11.png" alt="Gravure de mains roulottant le bord d’un carré"></div><div class="txt"><div class="hd"><span class="num">11</span><h2>Roulotter les carrés</h2></div><p>Le tissu de soie est découpé et les bords de chaque foulard sont roulés et cousus avec une grande délicatesse. Le roulottage des carrés de soie SAINT LOUP est réalisé à la main.</p><p class="loc">Localisation : Rhône, France.</p></div></li>
+  </ol>
+</main>
+
+<main id="view-hi" hidden>
+  <section class="hi-hero">
+    <img src="img/hi-pic.jpg" alt="Le Pic Saint Loup dans les nuages">
+    <div class="shade"></div>
+    <h1>Il était une soie</h1>
+  </section>
+  <section class="wrap hi-intro">
+    <p class="big">Il était une soie française qui, éteinte depuis le siècle dernier, naquit à nouveau.</p>
+    <p>L’histoire d’une relocalisation dans un monde où tout est fait là-bas, consommé ici, en abîmant partout.</p>
+    <p>L'histoire du Sud brut. A l’âge d’or de la soie, les paysans y portaient un <em>moucadou del col</em> ("mouchoir de cou" en occitan).</p>
+  </section>
+  <section class="wrap chapters">
+    <article class="chapter">
+      <div class="yr">1095</div>
+      <div class="body"><div>
+        <h2>La légende de Saint Loup</h2>
+        <p>Eté 1095. Les trois frères Loup, Guiral et Clair tombent amoureux de la même femme, Irène. Indécise, elle promet son cœur à celui qui, au cours de la Croisade, se montrera le plus courageux.</p>
+        <p>Lorsque les trois chevaliers reviennent de Terre Sainte, ils croisent un long convoi funèbre. Irène s'est consumée d’amour. Inconsolables, ils décident de vivre en ermites au sommet de trois montagnes.</p>
+        <p>Loup, revenu avec de la soie d’Orient et de curieuses graines, les offre à ses amis cévenols. Ils étudient minutieusement les chenilles qui en éclosent et leurs cocons.</p>
+        <p>A chaque anniversaire de la mort d’Irène, les frères allument un grand feu en sa mémoire. Les années passent et, un à un, ils cessent d'illuminer le Mont Saint-Clair, le Rocher de Saint-Guiral et le Pic Saint-Loup, qui portent encore leur nom.</p>
+      </div></div>
+    </article>
+    <article class="chapter">
+      <div class="yr">1853</div>
+      <div class="body"><div>
+        <h2>L'âge d'or de la soie</h2>
+        <p>Du XIIe au XIXe siècle, beaucoup de foyers paysans du Sud de la France cultivent des vers à soie.</p>
+        <p>En 1853, la France produit 26.000 tonnes de soie, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p>
+        <p>Puis la production s'éteint. La maladie des vers d’abord, soignée par Pasteur. La concurrence du nylon ensuite, puis les délocalisations. Des milliers d'emplois disparaissent dans le silence.</p>
+        <p class="lead">Plus aucun fil de soie n’est d’origine française. Jusqu'à la création de SAINT LOUP.</p>
+      </div>
+      <img src="img/hi-histoire.jpg" alt="Photographie ancienne de femmes triant les cocons" style="aspect-ratio:3/2;filter:grayscale(1)"></div>
+    </article>
+    <article class="chapter">
+      <div class="yr">2025</div>
+      <div class="body"><div>
+        <h2>La résurrection de la soie</h2>
+        <p class="lead">L'héritage de la soie française ne tient qu'à un fil.</p>
+        <p>Il suffit pourtant de deux papillons amoureux. Avant de mourir, la femelle Bombyx pond 500 œufs, qui deviendront des vers à soie nourris de feuilles de mûrier blanc. Leurs 500 cocons, une fois déroulés, donnent plus de 500 km de soie. De quoi tisser un foulard.</p>
+        <p>En 2025, un retour aux sources est orchestré par Michel, un sériciculteur passionné, et Alexandre, un entrepreneur social ayant grandi au pied du Pic Saint-Loup. Le savoir-faire séricicole se transmet et se réinvente avec excellence, des mûriers jusqu'aux carrés de soie.</p>
+        <p>La même année, SAINT LOUP fabrique le premier foulard de soie française depuis le siècle dernier. En quelques jours, les premiers exemplaires, numérotés, sont en rupture de stock.</p>
+      </div>
+      <img src="img/hi-elisa.jpg" alt="Carré SAINT LOUP déployé au-dessus de la tête" style="aspect-ratio:4/3;object-position:center 30%"></div>
+    </article>
+  </section>
+  <section class="hi-close wrap"><p>L'aventure (re)commence.</p></section>
+  <section class="wrap hi-more">
+    <h2>Presse</h2>
+    <div class="c"><a href="https://saintloup.store/pages/presse" target="_blank" rel="noopener" style="font-size:22px">SAINT LOUP est dans la presse (cliquer ici)</a></div>
+    <h2>Des partenaires engagés</h2>
+    <div class="c">
+      <p class="lead">SAINT LOUP compte sur des alliés bienveillants.</p>
+      <p>Les partenaires de la première heure sont Cévennes En Soie et Michel Costa, Akté Services et Samuel Hervé, REAL Promotion et Guillaume Herrero, ESG Luxe et Julien Blanc, Barbara Reihle et les 300 soutiens du lancement de la première capsule historique de foulards numérotés.</p>
+      <div class="logos">
+        <div><img src="img/hi-bpi.png" alt="La French Touch, Bpifrance"><p>Nous avons le soutien de Bpifrance à travers le dispositif French Touch</p></div>
+        <div><img src="img/hi-fab.jpg" alt="Fabriqué en Occitanie"><p>Nos pièces sont référencées sur la plateforme "Fabriqué en occitanie"</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="view-in" hidden>
+  <section class="wrap in-intro">
+    <p class="eyebrow">SAINT LOUP</p>
+    <h1>Comment porter le carré</h1>
+    <p class="lede">Il existe mille manières de porter un foulard de soie. La meilleure est celle qui vous fait sentir bien. Voici quelques exemples qui peuvent vous inspirer.</p>
+  </section>
+  <nav class="wrap in-index" aria-label="Les sept manières">
+    <div>
+      <button type="button" data-jump="in-original">L'original</button>
+      <button type="button" data-jump="in-bague">Le moucadou bagué</button>
+      <button type="button" data-jump="in-deneuve">Le Deneuve</button>
+      <button type="button" data-jump="in-cowboy">Le cowboy cévenol</button>
+      <button type="button" data-jump="in-bandeau">Le bandeau</button>
+      <button type="button" data-jump="in-dandy">Le dandy du Sud</button>
+      <button type="button" data-jump="in-anse">La doublure d'anse</button>
+    </div>
+  </nav>
+  <section class="wrap in-orig" id="in-original">
+    <img src="img/in-1.jpg" alt="Photographie ancienne d’un paysan cévenol portant un mouchoir de cou">
+    <div class="copy">
+      <p class="eyebrow" style="margin-bottom:12px">L'original</p>
+      <h2>moucadou del col</h2>
+      <p>A l’âge d’or de la soie, les paysans du Sud de la France portaient un moucadou del col (« mouchoir de cou » en occitan).</p>
+      <p>Noué autour du cou avec un double-nœud, le foulard se laisser humblement enfouir dans la chemise.</p>
+    </div>
+  </section>
+  <section class="wrap in-looks">
+    <article id="in-bague"><img src="img/in-2.jpg" alt="Peinture d’une jeune femme au foulard"><h2>Le moucadou bagué</h2><p>On adore porter le carré sans nœud. Il suffit de plier le carré par sa diagonale, puis d'introduire les deux bouts dans un anneau.</p><p>Vous avez peut-être une bague de famille, un vieil anneau oublié dans un coffre au grenier ?</p></article>
+    <article id="in-deneuve"><img src="img/in-3.jpg" alt="Peinture d’une paysanne au foulard noué sur la tête"><h2>Le Deneuve</h2><p>On aurait pu dire Bardot, Babushka, Abuelita...</p><p>Vos cheveux méritent de profiter des vertus de la soie, qui les maintient hydratés.</p></article>
+    <article id="in-cowboy"><img src="img/in-4.jpg" alt="Peinture d’un homme au foulard noué au cou"><h2>Le cowboy cévenol</h2><p>Un pli ou deux.</p><p>Un nœud ou deux, devant ou derrière.</p><p>Simple, efficace.</p></article>
+    <article id="in-bandeau"><img src="img/in-5.jpg" alt="Peinture de femmes dans un paysage"><h2>Le bandeau</h2><p>Lâchez vos cheveux, ou bien coiffez les, et nouez la soie de telle sorte qu'elle vous caresse la nuque.</p><p>C'est beau. Ca tient chaud en hiver, c'est frais en été. C'est excellent pour les cheveux.</p></article>
+    <article id="in-dandy"><img src="img/in-6.jpg" alt="Peinture d’un homme au foulard rouge"><h2>Le dandy du Sud</h2><p>Léger, nonchalant, un nœud de Dandy bouffant permet de mettre en valeur le carré.</p><p>Nœud Ascot, Nœud Demi-Ruche... Laissez-vous aller avec un nœud de cravate inachevé.</p></article>
+    <article id="in-anse"><img src="img/in-7.jpg" alt="Peinture de deux paysannes portant des seaux"><h2>La doublure d'anse</h2><p>Donnez une deuxième vie à votre sac en nouant un carré de part et d'autre de son anse.</p><p>C'est plus simple que d'acheter un nouveau sac.</p></article>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="img/garrigue.jpg" alt="">
+  <div class="shade"></div>
+  <div class="inner wrap">
+    <p class="line">Le Sud brut</p>
+    <div class="row">
+      <nav aria-label="Pied de page">
+        <a href="https://saintloup.store/" target="_blank" rel="noopener">Contacter par email</a>
+        <a href="https://saintloup.store/pages/presse" target="_blank" rel="noopener">Presse</a>
+        <a href="https://saintloup.store/search" target="_blank" rel="noopener">Rechercher sur le site</a>
+      </nav>
+      <div class="nl">
+        <p>S'inscrire à la newsletter</p>
+        <form class="field js-nl" novalidate>
+          <label class="sr" for="nl-2">E-mail</label>
+          <input id="nl-2" type="email" placeholder="E-mail" autocomplete="email" required>
+          <button type="submit" aria-label="S'inscrire"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        </form>
+        <p class="thanks" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="copy">© 2026 SAINT LOUP</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var hero = document.getElementById('hero');
+  var hdr = document.getElementById('hdr');
+  var ticking = false;
+  var P = {
+    'moucadou-bleu': {
+      name: 'Moucadou bleu', price: '345 €', dim: 'Environ 70 cm x 70 cm', art: 'Aline Zalko',
+      first: 'Le premier carré de soie française depuis le siècle dernier.',
+      body: ['Foulard en twill 100% soie française, provenant de vers à soie élevés dans les Cévennes, nourris de feuilles de mûrier bio, dont les cocons ont été dévidés, filés, moulinés, tissés, imprimés et roulottés à la main en France.', '50 exemplaires numérotés en première édition, issus de l\'éducation de vers à soie de 2025, vendus avec un certificat d\'authenticité signé.'],
+      photos: [['img/mb-1.jpg','Moucadou bleu à plat'],['img/mb-2.jpg','Moucadou bleu porté en foulard de tête, de profil'],['img/mb-3.jpg','Moucadou bleu porté ouvert autour du cou'],['img/mb-4.jpg','Moucadou bleu posé sur une chaise paillée'],['img/mb-5.jpg','Détail du motif, papillon et fleurs'],['img/mb-6.jpg','Détail du twill de soie froissé'],['img/mb-7.jpg','Détail de la signature SAINT LOUP dans la bordure']],
+      details: [4,5,6], legend: 3, tile: ['img/moucadou-bleu.jpg', 'Moucadou bleu']
+    },
+    'moucadou-original': {
+      name: 'Moucadou original', price: '345 €', dim: 'Environ 70 cm x 70 cm', art: 'Aline Zalko',
+      first: 'Le premier carré de soie française depuis le siècle dernier.',
+      body: ['Foulard en twill 100% soie française, provenant de vers à soie élevés dans les Cévennes, nourris de feuilles de mûrier bio, dont les cocons ont été dévidés, filés, moulinés, tissés, imprimés et roulottés à la main en France.', '50 exemplaires numérotés en première réédition, issus de l\'éducation de vers à soie de 2025, vendus avec un certificat d\'authenticité signé.'],
+      photos: [['img/mo-1.jpg','Moucadou original à plat'],['img/mo-2.jpg','Moucadou original porté en foulard de tête'],['img/mo-3.jpg','Moucadou original porté noué sur la tête, de dos'],['img/mo-4.jpg','Moucadou original noué autour du cou'],['img/mo-5.jpg','Détail de la bordure signée SAINT LOUP'],['img/mo-6.jpg','Détail du motif floral']],
+      details: [4,5], legend: 2, tile: ['img/moucadou-original.jpg', 'Moucadou original']
+    },
+    'bandou': {
+      name: 'Bandou', price: '195 €', dim: 'Environ 5.5 cm x 87 cm', art: 'Manon Diemer',
+      first: 'Le premier bandeau de soie française depuis le siècle dernier.',
+      body: ['L\'été compte double, alors notre premier Bandou a deux faces. Une face jour qui rend hommage au Sud brut ; une face nuit qui réinvente la légende de Saint Loup autour d\'une femme libre.', 'Une fibre thermorégulatrice, pour vous rafraichir l\'été et vice-versa. Une délicatesse pour les cheveux ou le cou. Un nœud rebelle au poignet ou au sac. Une soie millénaire, mais qui porte une œuvre vibrante d\'aujourd\'hui.', 'Bandeau en twill 100% soie française, provenant de vers à soie élevés dans les Cévennes, nourris de feuilles de mûrier bio, dont les cocons ont été dévidés, filés, moulinés, tissés, imprimés et confectionnés en France.', '200 exemplaires numérotés en première édition, issus de l\'éducation de vers à soie de 2025, vendus avec un certificat d\'authenticité signé.'],
+      photos: [['img/ba-1.jpg','Bandou à plat'],['img/ba-4.jpg','Bandou plié'],['img/ba-5.jpg','Bandou noué au poignet, main posée sur un cheval blanc'],['img/ba-2.jpg','Bandou noué dans les cheveux, dans un champ'],['img/ba-3.jpg','Bandou porté avec une robe rouge, sur une moto'],['img/ba-7.jpg','Bandou porté dans les cheveux, sur une moto'],['img/ba-6.jpg','Bandou porté dans un champ, sur une moto'],['img/ba-8.jpg','Bandou noué au guidon d’une moto']],
+      details: [3,6,7], legend: 4, tile: ['img/bandou.png', 'Bandou']
+    }
+  };
+  var views = {
+    'home': [document.getElementById('view-home'), 'SAINT LOUP'],
+    'savoir-faire': [document.getElementById('view-sf'), 'Savoir-faire · SAINT LOUP'],
+    'histoire': [document.getElementById('view-hi'), 'Histoire · SAINT LOUP'],
+    'inspiration': [document.getElementById('view-in'), 'Inspiration · SAINT LOUP']
+  };
+  var pdpView = document.getElementById('view-mb');
+  function current(){ var h = location.hash.slice(1); return (views[h] || P[h]) ? h : 'home'; }
+  function update(){
+    ticking = false;
+    if(current() !== 'home'){ root.classList.add('solid'); return; }
+    var bottom = hero.getBoundingClientRect().bottom;
+    root.classList.toggle('solid', bottom <= hdr.offsetHeight + 32);
+  }
+  function show_view(){
+    var v = current();
+    Object.keys(views).forEach(function(k){ views[k][0].hidden = k !== v; });
+    pdpView.hidden = !P[v];
+    if(P[v]){ render(v); document.title = P[v].name + ' · SAINT LOUP'; } else document.title = views[v][1];
+    document.querySelectorAll('[data-view]').forEach(function(a){
+      if(a.getAttribute('data-view') === v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+  }
+  function route(){ show_view(); window.scrollTo(0, 0); update(); }
+  window.addEventListener('hashchange', route);
+  document.querySelectorAll('[data-jump]').forEach(function(b){
+    b.addEventListener('click', function(){ var t = document.getElementById(b.getAttribute('data-jump')); if(t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  });
+
+  function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text != null) e.textContent = text; return e; }
+  var photos = [], idx = 0;
+  var stageImg = document.getElementById('stageImg');
+  var count = document.getElementById('count');
+  var thumbs = document.getElementById('thumbs');
+  var addBtn = document.getElementById('addCart');
+  function render(key){
+    var d = P[key];
+    document.getElementById('pName').textContent = d.name;
+    document.getElementById('pPrice').textContent = d.price;
+    document.getElementById('pDim').textContent = d.dim;
+    document.getElementById('pArt').textContent = d.art;
+    var copy = document.getElementById('pCopy'); copy.textContent = '';
+    copy.appendChild(el('p', 'first', d.first));
+    d.body.forEach(function(t){ copy.appendChild(el('p', 'body', t)); });
+    photos = d.photos;
+    thumbs.textContent = '';
+    photos.forEach(function(p, i){
+      var b = el('button'); b.type = 'button'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Photo ' + (i + 1) + ' : ' + p[1]);
+      var im = el('img'); im.src = p[0]; im.alt = ''; b.appendChild(im);
+      b.addEventListener('click', function(){ show(i); });
+      thumbs.appendChild(b);
+    });
+    var det = document.getElementById('pDetails'); det.textContent = '';
+    det.style.setProperty('--n', d.details.length);
+    d.details.forEach(function(i){ var im = el('img'); im.src = photos[i][0]; im.alt = photos[i][1]; det.appendChild(im); });
+    var lg = document.getElementById('pLegendImg'); lg.src = photos[d.legend][0]; lg.alt = photos[d.legend][1];
+    var rel = document.getElementById('pRelated'); rel.textContent = '';
+    Object.keys(P).filter(function(k){ return k !== key; }).forEach(function(k){
+      var a = el('a', 'product'); a.href = '#' + k;
+      var im = el('img'); im.src = P[k].tile[0]; im.alt = P[k].tile[1]; a.appendChild(im);
+      var m = el('span', 'meta'); m.appendChild(el('span', 'name', P[k].name)); m.appendChild(el('span', 'price', P[k].price)); a.appendChild(m);
+      rel.appendChild(a);
+    });
+    addBtn.textContent = 'Ajouter au panier';
+    show(0);
+  }
+  function show(i){
+    idx = (i + photos.length) % photos.length;
+    stageImg.src = photos[idx][0]; stageImg.alt = photos[idx][1];
+    count.textContent = (idx + 1) + ' / ' + photos.length;
+    Array.prototype.forEach.call(thumbs.children, function(b, j){ b.setAttribute('aria-selected', j === idx ? 'true' : 'false'); });
+  }
+  document.getElementById('prev').addEventListener('click', function(){ show(idx - 1); });
+  document.getElementById('next').addEventListener('click', function(){ show(idx + 1); });
+  addBtn.addEventListener('click', function(){ addBtn.textContent = 'Ajouté au panier'; });
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  show_view();
+  update();
+
+  var drawer = document.getElementById('drawer');
+  var openBtn = document.getElementById('openMenu');
+  var closeBtn = document.getElementById('closeMenu');
+  function openMenu(){ drawer.hidden = false; openBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); }
+  function closeMenu(){ drawer.hidden = true; openBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; openBtn.focus(); }
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  drawer.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  drawer.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  document.querySelectorAll('.js-nl').forEach(function(form){
+    var msg = form.nextElementSibling;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var input = form.querySelector('input');
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      msg.textContent = ok ? 'Merci, vous serez prévenu(e) en avant-première.' : 'Saisissez une adresse e-mail valide, par exemple nom@domaine.fr.';
+      if(ok) input.value = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>
