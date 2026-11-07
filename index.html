@@ -238,8 +238,10 @@ main[hidden]{display:none}
 .buy .body{margin:16px 0 0;font-size:17px;color:var(--text)}
 .cta{margin-top:36px;width:100%;min-height:56px;border:0;border-radius:2px;background:var(--ink);color:var(--bg);font:inherit;font-size:13px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background-color .3s ease}
 .cta:hover{background:#2A2925}
-.facts{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 32px;font-size:15px;color:var(--text)}
-.facts span span{color:var(--soft)}
+.facts{margin:32px 0 0;border-top:1px solid #D9D4C9;font-size:16px}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #D9D4C9}
+.facts dt{color:var(--soft)}
+.facts dd{margin:0;text-align:right;color:var(--ink)}
 .origine{max-width:1360px;margin:0 auto;padding-block:160px 0}
 .origine h2,.related h2{text-align:center;font-size:40px;line-height:1.15;margin-bottom:72px}
 .chain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:48px 0;border-top:1px solid #D9D4C9}
@@ -420,6 +422,7 @@ main[hidden]{display:none}
   .in-looks h2{font-size:26px;margin:20px 0 12px}
 }
 
+html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::before{transition:none !important}
 @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
 </style>
 
@@ -570,10 +573,10 @@ main[hidden]{display:none}
       <p class="price" id="pPrice"></p>
       <div id="pCopy"></div>
       <button class="cta" type="button" id="addCart">Ajouter au panier</button>
-      <div class="facts">
-        <span><span>Dimensions</span><br><span id="pDim" style="color:inherit"></span></span>
-        <span><span>Artiste</span><br><span id="pArt" style="color:inherit"></span></span>
-      </div>
+      <dl class="facts">
+        <div><dt>Dimensions</dt><dd id="pDim"></dd></div>
+        <div><dt>Artiste</dt><dd id="pArt"></dd></div>
+      </dl>
     </div>
   </section>
 
@@ -785,7 +788,10 @@ main[hidden]{display:none}
   function current(){ var h = location.hash.slice(1); return (views[h] || P[h]) ? h : 'home'; }
   function update(){
     ticking = false;
-    if(current() !== 'home'){ root.classList.add('solid'); return; }
+    if(current() !== 'home'){
+      if(!root.classList.contains('solid')){ root.classList.add('instant','solid'); requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.remove('instant'); }); }); }
+      return;
+    }
     var bottom = hero.getBoundingClientRect().bottom;
     root.classList.toggle('solid', bottom <= hdr.offsetHeight + 32);
   }
