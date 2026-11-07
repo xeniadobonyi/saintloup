@@ -1,13 +1,24 @@
 <section class="sl sl-wrap sl-hi-more">
   {%- if section.settings.press_heading != blank -%}
     <h2>{{ section.settings.press_heading }}</h2>
-    <div class="sl-c"><a href="{{ section.settings.press_url | default: '/pages/presse' }}" style="font-size:22px">{{ section.settings.press_link }}</a></div>
+    <div class="sl-c">
+      {%- assign press = section.blocks | where: 'type', 'press' -%}
+      {%- if press.size > 0 -%}
+        <div class="sl-press-logos">
+          {%- for block in press -%}
+            <a href="{{ block.settings.url }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>{%- render 'sl-img', image: block.settings.logo, fb: block.settings.logo_fb, alt: block.settings.alt, natural: true -%}</a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      <a href="{{ section.settings.press_url | default: '/pages/presse' }}" style="font-size:22px">{{ section.settings.press_link }}</a>
+    </div>
   {%- endif -%}
   <h2>{{ section.settings.partners_heading }}</h2>
   <div class="sl-c">
     <div class="sl-logos">
-      {%- for block in section.blocks -%}
-        <span {{ block.shopify_attributes }} style="display:contents">{%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt -%}</span>
+      {%- assign partners = section.blocks | where: 'type', 'logo' -%}
+      {%- for block in partners -%}
+        <span {{ block.shopify_attributes }} style="display:contents">{%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt, natural: true -%}</span>
       {%- endfor -%}
     </div>
     {%- if section.settings.note != blank -%}
@@ -28,6 +39,16 @@
     { "type": "text", "id": "note", "label": "Texte newsletter", "default": "Engagez-vous, suivez notre aventure de relocalisation par email :" }
   ],
   "blocks": [
+    {
+      "type": "press",
+      "name": "Logo presse",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Logo du média" },
+        { "type": "text", "id": "logo_fb", "label": "Logo par défaut (fichier du thème)" },
+        { "type": "text", "id": "alt", "label": "Média" },
+        { "type": "url", "id": "url", "label": "Lien vers l'article" }
+      ]
+    },
     {
       "type": "logo",
       "name": "Logo partenaire",

@@ -30,7 +30,7 @@ html.sl-solid body::before{background:rgba(252,250,245,.9)}
 .sl-wrap{max-width:1360px;margin-inline:auto;padding-left:var(--sl-gut-l);padding-right:var(--sl-gut-r)}
 .sl-narrow{max-width:720px}
 .sl-caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;display:inline-block;transition:border-color .4s ease}
-.sl-caps:hover,a:hover > .sl-caps{border-bottom-color:transparent}
+.sl-caps:hover,a:hover > .sl-caps{border-bottom-color:#C9C1B3}
 .sl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Header */
@@ -688,3 +688,36 @@ aaa
 html.sl-solid .sl-hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filter:saturate(170%) blur(20px)}
 .sl-mark,.sl-chip{will-change:transform}
 .sl-hero > img{transform:translateZ(0)}
+/* Origine on mobile: one vertical thread, step name left, origin right */
+@media (max-width: 699px){
+  .sl-chain{grid-template-columns:1fr;gap:0;border-top:0;position:relative;padding-left:26px}
+  .sl-chain::before{content:"";position:absolute;left:3px;top:22px;bottom:22px;width:1px;background:#D9D4C9}
+  .sl-chain li{border-top:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0}
+  .sl-chain li::before{left:-26px;top:50%;transform:translateY(-50%)}
+  .sl-chain .sl-k{font-size:19px}
+  .sl-chain .sl-v{margin:0;font-size:15px;text-align:right}
+}
+/* Product cards: name and price on one line, edition below; photo swap only on devices that really hover */
+.sl-product .sl-meta{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:12px;row-gap:4px}
+.sl-product .sl-ed{flex-basis:100%;text-align:center}
+.sl-product:hover .sl-swap .sl-alt{opacity:0}
+@media (hover: hover){ .sl-product:hover .sl-swap .sl-alt{opacity:1} }
+/* Fabric's base.css zeroes the top margin of any heading that follows an image (an <img> counts as :empty);
+   raise specificity so the Inspiration titles keep their space under the picture */
+.sl-in-looks.sl-in-looks h2{margin:28px 0 16px}
+@media (max-width: 699px){ .sl-in-looks.sl-in-looks h2{margin:20px 0 12px} }
+/* Histoire: latest press logos above the link to the Presse page */
+.sl-press-logos{display:flex;flex-wrap:wrap;align-items:center;gap:28px 48px;margin:4px 0 32px}
+.sl-press-logos a{display:flex;align-items:center;height:28px}
+.sl-press-logos img{max-height:26px;max-width:140px;width:auto;height:auto;object-fit:contain;opacity:.72;transition:opacity .35s ease}
+.sl-press-logos a:hover img{opacity:1}
+@media (max-width: 699px){ .sl-press-logos{gap:22px 32px;margin-bottom:24px} .sl-press-logos a{height:22px} .sl-press-logos img{max-height:20px;max-width:110px} }
+/* even grid of logos, 6 across on desktop, 3 on mobile */
+.sl-press-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px 36px;align-items:center}
+.sl-press-logos a{height:30px;justify-content:flex-start}
+.sl-press-logos img{max-height:24px;max-width:100%}
+@media (max-width: 1023px){ .sl-press-logos{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width: 699px){ .sl-press-logos{gap:24px 28px} .sl-press-logos a{height:24px} .sl-press-logos img{max-height:20px} }
+.sl-press-logos{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px;gap:30px 48px}
+.sl-press-logos img{max-height:26px;max-width:150px}
+@media (max-width: 699px){ .sl-press-logos{gap:24px 28px} .sl-press-logos img{max-height:20px;max-width:100%} }

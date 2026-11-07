@@ -7,7 +7,7 @@
       <section class="sl-col-year"><h2>{{ year }}</h2><ol>
     {%- endif -%}
     <li {{ block.shopify_attributes }}><a href="{{ block.settings.url }}" target="_blank" rel="noopener">
-      <span class="sl-cl">{%- render 'sl-img', image: block.settings.logo, fb: block.settings.logo_fb, alt: block.settings.outlet -%}</span>
+      <span class="sl-cl">{%- render 'sl-img', image: block.settings.logo, fb: block.settings.logo_fb, alt: block.settings.outlet, natural: true -%}</span>
       <span class="sl-cb"><span class="sl-ct">{{ block.settings.title }}</span><span class="sl-cd">{{ block.settings.date }}</span></span>
       <span class="sl-ca">{% render 'sl-icon', name: 'out' %}</span>
     </a></li>

@@ -1,7 +1,7 @@
 <section class="sl sl-wrap sl-story sl-tight">
   {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.heading, class: 'sl-photo', sizes: '(min-width: 900px) 50vw, 100vw' -%}
   <div class="sl-copy">
-    {%- render 'sl-img', image: section.settings.icon, fb: section.settings.icon_fb, alt: '', class: 'sl-sun' -%}
+    {%- render 'sl-img', image: section.settings.icon, fb: section.settings.icon_fb, alt: '', class: 'sl-sun', natural: true -%}
     <h2>{{ section.settings.heading }}</h2>
     {{ section.settings.text }}
     {%- if section.settings.link_label != blank -%}
