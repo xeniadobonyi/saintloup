@@ -571,9 +571,6 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
 }
 /* Comment le porter: the whole photo links to the product */
 a.frame{display:block;text-decoration:none;color:inherit}
-a.frame img{transition:opacity .5s ease}
-a.frame:hover img{opacity:.92}
-a.frame:hover .tag{background:rgba(252,250,245,.88)}
 /* Product page: title starts level with the top of the photo */
 .pdp-top{align-items:start}
 .buy h1{margin-top:-.16em}
@@ -588,12 +585,12 @@ a.frame:hover .tag{background:rgba(252,250,245,.88)}
 .bo-camp figcaption{justify-content:flex-start;text-shadow:none}
 .bo-camp .chip{position:static;margin-left:0}
 .camp-link{display:block;text-decoration:none;color:inherit}
-.camp-link:hover .chip{background:rgba(255,255,255,.34)}
-.camp-link img{transition:opacity .5s ease}
-.camp-link:hover img{opacity:.94}
 /* Campaign button: same spot as the homepage photo labels (page gutter, 40px from the bottom) */
 .bo-camp figcaption{left:var(--gut-l);right:auto;bottom:40px;padding:0;max-width:none;margin:0}
 @media (max-width: 699px){ .bo-camp figcaption{bottom:16px} }
+/* Hero: the whole photo links to the featured product; the glass label keeps its own hover */
+.hero-link{position:absolute;inset:0;z-index:0}
+.hero .pin,.hero .chipwrap{z-index:1}
 </style>
 
 </head>
@@ -633,6 +630,7 @@ a.frame:hover .tag{background:rgba(252,250,245,.88)}
 <main id="view-home">
   <section class="hero" id="hero">
     <img src="img/hero.jpg" alt="Bandou SAINT LOUP noué au poignet, main posée sur un cheval blanc">
+    <a class="hero-link" href="#bandou" aria-label="Bandou" tabindex="-1"></a>
     <div class="pin"><div class="mark" aria-hidden="true">SAINT LOUP</div></div>
     <div class="chipwrap"><a class="chip" href="#bandou">Bandou<i aria-hidden="true"></i>195 €</a></div>
   </section>
