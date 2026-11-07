@@ -678,3 +678,7 @@ aaa
   .sl-frame:hover .sl-tag{background:rgba(252,250,245,.74)}
   .sl-frame .sl-tag:hover{background:rgba(252,250,245,.88)}
 }
+/* Main nav never wraps: below 1280px it folds into the menu button */
+.sl-nav{flex-wrap:nowrap;white-space:nowrap}
+@media (max-width: 1279px){ .sl-nav,.sl-cur{display:none} .sl-ib.sl-burger{display:flex} }
+@media (max-width: 1279px){ .sl-hdr .sl-cur{display:none} }
