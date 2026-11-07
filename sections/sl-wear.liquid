@@ -1,6 +1,7 @@
 <section class="sl sl-wrap sl-wear">
   <h2>{{ section.settings.heading }}</h2>
   {%- assign looks = section.blocks -%}
+  <div class="sl-looks">
   {%- for block in looks -%}
     {%- assign p = block.settings.product -%}
     {%- capture fig -%}
@@ -19,6 +20,8 @@
       {%- if forloop.last -%}</div>{%- endif -%}
     {%- endif -%}
   {%- endfor -%}
+  </div>
+  {%- if looks.size > 1 -%}<div class="sl-wear-dots" aria-hidden="true">{% for b in looks %}<span{% if forloop.first %} class="on"{% endif %}></span>{% endfor %}</div>{%- endif -%}
 </section>
 
 {% schema %}

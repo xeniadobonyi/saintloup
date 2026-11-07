@@ -721,3 +721,22 @@ html.sl-solid .sl-hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop
 .sl-press-logos{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px;gap:30px 48px}
 .sl-press-logos img{max-height:26px;max-width:150px}
 @media (max-width: 699px){ .sl-press-logos{gap:24px 28px} .sl-press-logos img{max-height:20px;max-width:100%} }
+/* Product page on mobile: photo starts right under the header, no sliver of page above it */
+@media (max-width: 699px){ .sl-pdp-top{padding-top:0} }
+/* Narrow product cards (Explorez d'autres pistes on mobile): price always on its own line under the name, never a mix */
+.sl-product .sl-price{white-space:nowrap}
+@media (max-width: 699px){ .sl-related .sl-product .sl-meta{flex-direction:column;align-items:center} }
+/* Comment le porter on mobile: a swipeable row of looks, the next one peeking in */
+.sl-wear-dots{display:none}
+@media (max-width: 699px){
+  .sl-looks{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--sl-gut-l) * -1) calc(var(--sl-gut-r) * -1);padding-inline:var(--sl-gut-l) var(--sl-gut-r);scroll-padding-inline:var(--sl-gut-l);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sl-looks::-webkit-scrollbar{display:none}
+  .sl-looks .sl-pair{display:contents}
+  .sl-looks .sl-look{flex:none;width:82%;margin:0;scroll-snap-align:start}
+  .sl-looks .sl-look.sl-wide img,.sl-looks .sl-look.sl-tall img{height:auto;min-height:0;aspect-ratio:3/4}
+  .sl-looks .sl-look.sl-wide figcaption{padding:0}
+  .sl-looks .sl-look.sl-wide .sl-tag,.sl-looks .sl-tag{left:12px;bottom:12px}
+  .sl-wear-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+  .sl-wear-dots span{width:24px;height:1px;background:#D9D4C9;transition:background-color .3s ease}
+  .sl-wear-dots span.on{background:var(--sl-ink)}
+}

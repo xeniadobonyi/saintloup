@@ -56,6 +56,18 @@
     if (next) next.addEventListener('click', function () { show(idx + 1); });
   });
 
+  /* Comment le porter carousel dots (mobile) */
+  document.querySelectorAll('.sl-looks').forEach(function(row){
+    var dots = row.parentElement.querySelectorAll('.sl-wear-dots span');
+    if(!dots.length) return;
+    row.addEventListener('scroll', function(){
+      var looks = row.querySelectorAll('.sl-look'); if(looks.length < 2) return;
+      var step = looks[1].getBoundingClientRect().left - looks[0].getBoundingClientRect().left;
+      var i = Math.round(row.scrollLeft / step);
+      dots.forEach(function(d, j){ d.classList.toggle('on', j === i); });
+    }, { passive: true });
+  });
+
   /* Variant select keeps the price in sync */
   document.querySelectorAll('.sl-variant').forEach(function (sel) {
     sel.addEventListener('change', function () {
