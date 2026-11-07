@@ -665,6 +665,43 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
 .hi-more .c{border-top-color:var(--ink);max-width:none}
 .hi-more .c > :not(.field){max-width:680px}
 @media (max-width: 699px){ .hi-more h2{padding-right:0} }
+/* ===== Type scale: 8 sizes. Every text style on the site uses one of these. ===== */
+:root{
+  --t-display:96px; --t-h1:60px; --t-h2:40px; --t-h3:28px; --t-lead:21px; --t-body:18px; --t-small:16px; --t-caps:13px;
+}
+@media (max-width: 1023px){ :root{ --t-display:72px; --t-h1:48px; --t-h2:34px; --t-h3:26px; } }
+@media (max-width: 699px){ :root{ --t-display:56px; --t-h1:38px; --t-h2:28px; --t-h3:22px; --t-lead:19px; --t-body:17px; --t-small:15px; --t-caps:12px; } }
+
+/* Display */
+.chapter .yr,.hi-hero h1,.col-year h2{font-size:var(--t-display)!important;line-height:.95!important}
+/* H1 */
+.intro h1,.sf-intro h1,.page-intro h1,.in-intro h1,.wear h2,.hi-close p,.sf-steps .num{font-size:var(--t-h1)!important;line-height:1.05!important}
+/* H2 */
+.story h2,.process h2,.origine h2,.related h2,.legend h2,.chapter h2,.in-orig h2,.foot .line,.buy h1{font-size:var(--t-h2)!important;line-height:1.12!important}
+/* H3 */
+.sf-steps h2,.claim p,.drawer nav a,.hi-more h2,.in-looks h2,.hi-intro .big{font-size:var(--t-h3)!important;line-height:1.2!important}
+/* Lead */
+.intro .lede,.page-intro .lede,.in-intro p.lede,.sf-intro p,.hi-intro p,.buy .price,.buy .first,.product .name,.bo-cards .t,.col-year .ct,.chain .k,.chapter p.lead,.steps .h,.hi-more .c a{font-size:var(--t-lead)!important;line-height:1.35!important}
+/* Body */
+body,.buy .body,.buy .sl-desc p,.in-looks p,.product .price,.cta,.hi-more .c .note,.story .copy p,.chapter p,.legend p,.in-orig p{font-size:var(--t-body)!important}
+/* Small */
+.steps p,.look figcaption,.facts,.field input,.chip,.tag,.thanks,.intro .note,.shop-nl .note,.foot .nl p,.foot nav,.chain .v,.bo-cards .s,.steps .n,.product .ed,.logos p,.drawer .foot{font-size:var(--t-small)!important}
+/* Caps (uppercase, tracked) */
+.hdr,.caps,.eyebrow,.regions div,.sf-steps .loc,.col-year .cd,.foot .copy,.stage .count{font-size:var(--t-caps)!important}
+
+/* ===== Buttons & links ===== */
+/* Rule: an underlined link loses its underline on hover; a link without one gains it. One timing everywhere. */
+:root{--t-ease:.35s ease}
+/* Primary button */
+.cta{min-height:56px!important;border-radius:2px!important;letter-spacing:.01em!important;text-transform:none!important}
+/* Caps link (Découvrir, Notre histoire…) */
+.caps{letter-spacing:.22em!important;padding-bottom:4px!important;border-bottom-width:1px!important;transition:border-color var(--t-ease)!important}
+/* Text links: underline appears on hover */
+.nav a,.foot nav a,.bo-cards .t,.drawer nav a{text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:6px!important;text-decoration-color:transparent!important;transition:text-decoration-color var(--t-ease)!important;opacity:1!important;background:none!important}
+.nav a:hover,.foot nav a:hover,.bo-cards a:hover .t,.drawer nav a:hover,.nav a[aria-current="page"]{text-decoration-color:currentColor!important}
+/* Histoire "dans la presse" link becomes a caps link */
+.hi-more .c a{font-size:var(--t-caps)!important;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;transition:border-color var(--t-ease)}
+.hi-more .c a:hover{border-bottom-color:#C9C1B3}
 </style>
 </head>
 <body>
