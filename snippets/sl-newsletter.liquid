@@ -9,4 +9,4 @@
     {%- if form.posted_successfully? -%}Merci, vous serez parmi les premiers informés.{%- elsif form.errors -%}Saisissez une adresse e-mail valide, par exemple nom@domaine.fr.{%- endif -%}
   {%- endcapture -%}
 {%- endform -%}
-<p class="sl-thanks{% if _msg contains 'valide' %} is-error{% endif %}" aria-live="polite">{{ _msg }}</p>
+<p class="sl-thanks{% if _msg contains 'valide' %} is-error{% endif %}" aria-live="polite" data-sl-nl="{{ _id }}">{{ _msg }}</p>

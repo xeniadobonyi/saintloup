@@ -1,19 +1,20 @@
 {%- comment -%}
-  Product tile. Params: product, image, fb, alt_image, alt_fb, edition, swap (bool), show_cta (bool)
+  Product tile. Params: product, image, fb, alt_image, alt_fb, edition, swap (bool), show_cta (bool), sizes
 {%- endcomment -%}
+{%- assign _sz = sizes | default: '(min-width: 700px) 33vw, 100vw' -%}
 {%- if product != blank -%}
 <a class="sl-product" href="{{ product.url }}">
   {%- if swap -%}<span class="sl-swap">{%- endif -%}
   {%- if image != blank or fb != blank -%}
-    {%- render 'sl-img', image: image, fb: fb, alt: product.title, sizes: '(min-width: 700px) 33vw, 100vw' -%}
+    {%- render 'sl-img', image: image, fb: fb, alt: product.title, sizes: _sz -%}
   {%- elsif product.featured_media -%}
-    {{- product.featured_media.preview_image | image_url: width: 1600 | image_tag: alt: product.title, loading: 'lazy', decoding: 'async', widths: '400, 800, 1200, 1600', sizes: '(min-width: 700px) 33vw, 100vw' -}}
+    {{- product.featured_media.preview_image | image_url: width: 1600 | image_tag: alt: product.title, loading: 'lazy', decoding: 'async', widths: '400, 800, 1200, 1600', sizes: _sz -}}
   {%- endif -%}
   {%- if swap -%}
     {%- if alt_image != blank or alt_fb != blank -%}
-      {%- render 'sl-img', image: alt_image, fb: alt_fb, alt: '', class: 'sl-alt' -%}
+      {%- render 'sl-img', image: alt_image, fb: alt_fb, alt: '', class: 'sl-alt', sizes: _sz -%}
     {%- elsif product.media[1] -%}
-      {{- product.media[1].preview_image | image_url: width: 1200 | image_tag: alt: '', class: 'sl-alt', loading: 'lazy', decoding: 'async' -}}
+      {{- product.media[1].preview_image | image_url: width: 1600 | image_tag: alt: '', class: 'sl-alt', loading: 'lazy', decoding: 'async', widths: '400, 800, 1200, 1600', sizes: _sz -}}
     {%- endif -%}
     </span>
   {%- endif -%}

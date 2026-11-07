@@ -2,5 +2,5 @@
 {%- if video != blank -%}
   {{- video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1000x', class: class -}}
 {%- elsif fb != blank -%}
-  <video{% if class != blank %} class="{{ class }}"{% endif %} src="{{ fb | asset_url }}"{% if poster_fb != blank %} poster="{{ poster_fb | asset_url }}"{% endif %} autoplay muted loop playsinline aria-label="{{ label | escape }}"></video>
+  <video{% if class != blank %} class="{{ class }}"{% endif %} data-src="{{ fb | asset_url }}"{% if poster_fb != blank %} poster="{{ poster_fb | asset_url }}"{% endif %} preload="none" muted loop playsinline aria-label="{{ label | escape }}"></video>
 {%- endif -%}

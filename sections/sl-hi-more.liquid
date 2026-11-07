@@ -6,7 +6,8 @@
       {%- if press.size > 0 -%}
         <div class="sl-press-logos">
           {%- for block in press -%}
-            <a href="{{ block.settings.url }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>{%- render 'sl-img', image: block.settings.logo, fb: block.settings.logo_fb, alt: block.settings.alt, natural: true -%}</a>
+            {%- assign press_href = block.settings.url | default: section.settings.press_url | default: '/pages/presse' -%}
+            <a href="{{ press_href }}"{% if press_href contains '://' %} target="_blank" rel="noopener"{% endif %} {{ block.shopify_attributes }}>{%- render 'sl-img', image: block.settings.logo, fb: block.settings.logo_fb, alt: block.settings.alt, natural: true -%}</a>
           {%- endfor -%}
         </div>
       {%- endif -%}
@@ -46,7 +47,7 @@
         { "type": "image_picker", "id": "logo", "label": "Logo du média" },
         { "type": "text", "id": "logo_fb", "label": "Logo par défaut (fichier du thème)" },
         { "type": "text", "id": "alt", "label": "Média" },
-        { "type": "url", "id": "url", "label": "Lien vers l'article" }
+        { "type": "url", "id": "url", "label": "Lien (sinon la page Presse)" }
       ]
     },
     {

@@ -28,7 +28,16 @@
     var closeMenu = function () { drawer.hidden = true; openBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; openBtn.focus(); };
     openBtn.addEventListener('click', openMenu);
     closeBtn.addEventListener('click', closeMenu);
-    drawer.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+    drawer.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeMenu(); return; }
+      if (e.key !== 'Tab') return;
+      /* keep keyboard focus inside the open menu */
+      var f = drawer.querySelectorAll('a[href], button:not([disabled])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
     drawer.querySelectorAll('nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
   }
 
@@ -67,6 +76,32 @@
       dots.forEach(function(d, j){ d.classList.toggle('on', j === i); });
     }, { passive: true });
   });
+
+  /* Newsletter: the thank-you (or error) message shows only under the field that was used */
+  var postedNl = null;
+  try { postedNl = sessionStorage.getItem('sl-nl'); sessionStorage.removeItem('sl-nl'); } catch (e) {}
+  document.querySelectorAll('form.sl-field').forEach(function (form) {
+    form.addEventListener('submit', function () { try { sessionStorage.setItem('sl-nl', form.id); } catch (e) {} });
+  });
+  if (postedNl) {
+    document.querySelectorAll('.sl-thanks[data-sl-nl]').forEach(function (p) {
+      if (p.getAttribute('data-sl-nl') !== postedNl) { p.textContent = ''; p.classList.remove('is-error'); }
+    });
+    var f = document.getElementById(postedNl);
+    if (f) f.scrollIntoView({ block: 'center' });
+  }
+
+  /* Savoir-faire butterfly video: only download and play it when it comes into view */
+  var lazyVideos = document.querySelectorAll('video[data-src]');
+  if (lazyVideos.length) {
+    var start = function (v) { if (!v.src) { v.src = v.dataset.src; v.load(); } var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { start(en.target); } else if (en.target.src) { en.target.pause(); } });
+      }, { rootMargin: '200px 0px' });
+      lazyVideos.forEach(function (v) { io.observe(v); });
+    } else { lazyVideos.forEach(start); }
+  }
 
   /* Variant select keeps the price in sync */
   document.querySelectorAll('.sl-variant').forEach(function (sel) {

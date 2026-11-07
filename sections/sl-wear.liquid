@@ -1,7 +1,7 @@
 <section class="sl sl-wrap sl-wear">
   <h2>{{ section.settings.heading }}</h2>
   {%- assign looks = section.blocks -%}
-  <div class="sl-looks">
+  <div class="sl-looks" role="region" aria-label="{{ section.settings.heading | escape }}" tabindex="0">
   {%- for block in looks -%}
     {%- assign p = block.settings.product -%}
     {%- capture fig -%}

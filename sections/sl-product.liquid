@@ -36,7 +36,7 @@
         {%- for m in images -%}
           <button type="button" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}{% if m.alt != blank %} : {{ m.alt | escape }}{% endif %}"
             data-src="{{ m.preview_image | image_url: width: 1800 }}" data-srcset="{{ m.preview_image | image_url: width: 900 }} 900w, {{ m.preview_image | image_url: width: 1400 }} 1400w, {{ m.preview_image | image_url: width: 1800 }} 1800w" data-alt="{{ m.alt | default: product.title | escape }}">
-            {{- m.preview_image | image_url: width: 160 | image_tag: alt: '', loading: 'lazy', decoding: 'async' -}}
+            {{- m.preview_image | image_url: width: 160 | image_tag: alt: '', loading: 'lazy', decoding: 'async', widths: '80, 160', sizes: '72px' -}}
           </button>
         {%- endfor -%}
       </div>
@@ -125,7 +125,7 @@
         {%- assign shown = 0 -%}
         {%- for p in rel_collection.products -%}
           {%- if p.id != product.id and shown < 2 -%}
-            {%- render 'sl-product-card', product: p, show_cta: false -%}
+            {%- render 'sl-product-card', product: p, show_cta: false, sizes: '(min-width: 700px) 30vw, 50vw' -%}
             {%- assign shown = shown | plus: 1 -%}
           {%- endif -%}
         {%- endfor -%}
