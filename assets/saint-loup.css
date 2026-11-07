@@ -582,3 +582,9 @@ html.sl-solid .sl-cart .sl-count span{color:#FCFAF5}
   .sl-intro{align-items:start}
   .sl-intro h1,.sl-intro .sl-lede{text-box:trim-both cap alphabetic}
 }
+/* Comment le porter: the whole photo links to the product */
+a.sl-frame{display:block;text-decoration:none;color:inherit}
+a.sl-frame img{transition:opacity .5s ease}
+a.sl-frame:hover img{opacity:.92}
+a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
+

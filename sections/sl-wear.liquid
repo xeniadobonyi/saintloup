@@ -5,10 +5,9 @@
     {%- assign p = block.settings.product -%}
     {%- capture fig -%}
       <figure class="sl-look {% if forloop.first %}sl-wide{% else %}sl-tall{% endif %}" {{ block.shopify_attributes }}>
-        <div class="sl-frame">
+        {%- if p != blank -%}<a class="sl-frame" href="{{ p.url }}">{%- else -%}<div class="sl-frame">{%- endif -%}
           {%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt, sizes: '(min-width: 700px) 50vw, 100vw' -%}
-          {%- if p != blank -%}<a class="sl-tag" href="{{ p.url }}">{{ p.title }}<i aria-hidden="true"></i>{{ p.price | money_without_trailing_zeros }}</a>{%- endif -%}
-        </div>
+          {%- if p != blank -%}<span class="sl-tag">{{ p.title }}<i aria-hidden="true"></i>{{ p.price | money_without_trailing_zeros }}</span></a>{%- else -%}</div>{%- endif -%}
         {%- if block.settings.caption != blank -%}<figcaption>{{ block.settings.caption }}</figcaption>{%- endif -%}
       </figure>
     {%- endcapture -%}
