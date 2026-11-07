@@ -569,6 +569,11 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
   .intro{align-items:start}
   .intro h1,.intro .lede{text-box:trim-both cap alphabetic}
 }
+/* Comment le porter: the whole photo links to the product */
+a.frame{display:block;text-decoration:none;color:inherit}
+a.frame img{transition:opacity .5s ease}
+a.frame:hover img{opacity:.92}
+a.frame:hover .tag{background:rgba(252,250,245,.88)}
 </style>
 
 </head>
@@ -675,25 +680,16 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
   <section class="wrap wear">
     <h2>Comment le porter</h2>
     <figure class="look wide">
-      <div class="frame">
-        <img src="img/porte-bandou.jpg" alt="Bandou noué dans les cheveux, face à la garrigue">
-        <a class="tag" href="#bandou">Bandou<i aria-hidden="true"></i>195 €</a>
-      </div>
+      <a class="frame" href="#bandou"><img src="img/porte-bandou.jpg" alt="Bandou noué dans les cheveux, face à la garrigue"><span class="tag">Bandou<i aria-hidden="true"></i>195 €</span></a>
       <figcaption>Noué dans les cheveux</figcaption>
     </figure>
     <div class="pair">
       <figure class="look tall">
-        <div class="frame">
-          <img src="img/porte-moucadou.jpg" alt="Moucadou original porté en foulard de tête">
-          <a class="tag" href="#moucadou-original">Moucadou original<i aria-hidden="true"></i>345 €</a>
-        </div>
+        <a class="frame" href="#moucadou-original"><img src="img/porte-moucadou.jpg" alt="Moucadou original porté en foulard de tête"><span class="tag">Moucadou original<i aria-hidden="true"></i>345 €</span></a>
         <figcaption>En foulard de tête</figcaption>
       </figure>
       <figure class="look tall">
-        <div class="frame">
-          <img src="img/porte-bleu.jpg" alt="Moucadou bleu porté ouvert autour du cou">
-          <a class="tag" href="#moucadou-bleu">Moucadou bleu<i aria-hidden="true"></i>345 €</a>
-        </div>
+        <a class="frame" href="#moucadou-bleu"><img src="img/porte-bleu.jpg" alt="Moucadou bleu porté ouvert autour du cou"><span class="tag">Moucadou bleu<i aria-hidden="true"></i>345 €</span></a>
         <figcaption>Ouvert autour du cou</figcaption>
       </figure>
     </div>
