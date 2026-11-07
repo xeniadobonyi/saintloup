@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SAINT LOUP</title>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>SAINT LOUP</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap">
@@ -33,7 +33,7 @@ h1,h2{font-weight:400;text-wrap:balance;margin:0}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
 .narrow{max-width:720px}
 .caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;display:inline-block;transition:border-color .4s ease}
-.caps:hover,a:hover > .caps{border-bottom-color:transparent}
+.caps:hover,a:hover > .caps{border-bottom-color:#C9C1B3}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Header */
@@ -607,10 +607,39 @@ a.frame{display:block;text-decoration:none;color:inherit}
 html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filter:saturate(170%) blur(20px)}
 .mark,.chip{will-change:transform}
 .hero > img{transform:translateZ(0)}
+/* Origine on mobile: one vertical thread, step name left, origin right */
+@media (max-width: 699px){
+  .chain{grid-template-columns:1fr;gap:0;border-top:0;position:relative;padding-left:26px}
+  .chain::before{content:"";position:absolute;left:3px;top:22px;bottom:22px;width:1px;background:#D9D4C9}
+  .chain li{border-top:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0}
+  .chain li::before{left:-26px;top:50%;transform:translateY(-50%)}
+  .chain .k{font-size:19px}
+  .chain .v{margin:0;font-size:15px;text-align:right}
+}
+/* Product cards: name and price on one line, edition below; photo swap only on devices that really hover */
+.product .meta{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:12px;row-gap:4px}
+.product .ed{flex-basis:100%;text-align:center}
+.product:hover .swap .alt{opacity:0}
+@media (hover: hover){ .product:hover .swap .alt{opacity:1} }
+/* Histoire: latest press logos above the link to the Presse page */
+.press-logos{display:flex;flex-wrap:wrap;align-items:center;gap:28px 48px;margin:4px 0 32px}
+.press-logos a{display:flex;align-items:center;height:28px}
+.press-logos img{max-height:26px;max-width:140px;width:auto;height:auto;object-fit:contain;opacity:.72;transition:opacity .35s ease}
+.press-logos a:hover img{opacity:1}
+@media (max-width: 699px){ .press-logos{gap:22px 32px;margin-bottom:24px} .press-logos a{height:22px} .press-logos img{max-height:20px;max-width:110px} }
+/* even grid of logos, 6 across on desktop, 3 on mobile */
+.press-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px 36px;align-items:center}
+.press-logos a{height:30px;justify-content:flex-start}
+.press-logos img{max-height:24px;max-width:100%}
+@media (max-width: 1023px){ .press-logos{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width: 699px){ .press-logos{gap:24px 28px} .press-logos a{height:24px} .press-logos img{max-height:20px} }
+.press-logos{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px;gap:30px 48px}
+.press-logos img{max-height:26px;max-width:150px}
+@media (max-width: 699px){ .press-logos{gap:24px 28px} .press-logos img{max-height:20px;max-width:100%} }
 </style>
-
 </head>
 <body>
+
 <header class="hdr" id="hdr">
   <div>
     <nav class="nav" aria-label="Navigation principale">
@@ -852,7 +881,7 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
   <section class="hi-close wrap"><p>L'aventure (re)commence.</p></section>
   <section class="wrap hi-more">
     <h2>Presse</h2>
-    <div class="c"><a href="#presse" style="font-size:22px">SAINT LOUP est dans la presse (cliquer ici)</a></div>
+    <div class="c"><div class="press-logos"><a href="https://www.instagram.com/p/DeTjRNGDVwk/" target="_blank" rel="noopener"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></a><a href="https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700" target="_blank" rel="noopener"><img src="img/press-logo-les-echos.png" alt="Les Echos"></a><a href="https://www.instagram.com/france3occitanie/reel/DcDoN5TjgXp/" target="_blank" rel="noopener"><img src="img/press-france-3.png" alt="France 3"></a><a href="https://www.ici.fr/emissions/l-info-d-ici-ici-gard-lozere/video-cette-entreprise-des-cevennes-triple-sa-production-et-embauche-une-fileuse-pour-une-soie-100-francaise-9117690" target="_blank" rel="noopener"><img src="img/press-logo-radiofrance.png" alt="ICI"></a><a href="https://www.leprogres.fr/economie/2026/08/04/le-pont-d-arc-represente-sur-un-bandeau-de-soie-100-francais" target="_blank" rel="noopener"><img src="img/press-logo-le-progres.png" alt="Le Progrès"></a><a href="https://www.objectifgard.com/economie/fait-du-jour-a-monoblet-la-soie-repasse-enfin-dans-les-mains-dune-fileuse-167736.php" target="_blank" rel="noopener"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></a></div><a href="#presse" style="font-size:22px">SAINT LOUP est dans la presse (cliquer ici)</a></div>
     <h2>Partenaires</h2>
     <div class="c">
       <div class="logos">
