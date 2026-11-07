@@ -32,10 +32,8 @@ h1,h2{font-weight:400;text-wrap:balance;margin:0}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
 .narrow{max-width:720px}
-.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding-bottom:4px;display:inline-block;background:linear-gradient(currentColor,currentColor) 100% 100%/100% 1px no-repeat;transition:color .35s ease}
-.caps:hover,a:hover > .caps{color:var(--soft);animation:caps-wipe .8s cubic-bezier(.65,0,.35,1)}
-@keyframes caps-wipe{0%{background-size:100% 1px;background-position:100% 100%}45%{background-size:0 1px;background-position:100% 100%}55%{background-size:0 1px;background-position:0 100%}100%{background-size:100% 1px;background-position:0 100%}}
-@media (prefers-reduced-motion: reduce){.caps:hover,a:hover > .caps{animation:none}}
+.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding-bottom:4px;display:inline-block;background:linear-gradient(currentColor,currentColor) 100% 100%/100% 1px no-repeat;transition:color .4s ease}
+.caps:hover,a:hover > .caps{color:var(--soft)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Header */
