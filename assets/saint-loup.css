@@ -573,3 +573,12 @@ html.sl-solid .sl-cart .sl-count span{color:#FCFAF5}
 .sl-express .shopify-payment-button__button--unbranded{background:transparent;color:var(--sl-ink);border:1px solid var(--sl-ink);font-family:var(--sl-serif);font-size:13px;letter-spacing:.22em;text-transform:uppercase}
 .sl-express .shopify-payment-button__more-options{margin-top:10px;font-size:13px;color:var(--sl-soft);text-decoration:underline;text-underline-offset:4px;background:none;border:0;width:100%;cursor:pointer}
 .sl-variant{width:100%;margin-top:28px;min-height:48px;padding:0 14px;border:1px solid var(--sl-line);border-radius:2px;background:#fff;font:inherit;font-size:16px;color:var(--sl-ink)}
+/* Tighter pause around "100% naturel. 100% français." */
+.sl-products:not(.sl-shop){padding-bottom:120px} .sl-claim{padding-bottom:120px}
+@media (max-width: 1023px){ .sl-products:not(.sl-shop){padding-bottom:104px} .sl-claim{padding-bottom:104px} }
+@media (max-width: 699px){ .sl-products:not(.sl-shop){padding-bottom:72px} .sl-claim{padding-bottom:72px} }
+/* Intro: top of the headline lines up with the top of the sentence beside it */
+@supports (text-box: trim-both cap alphabetic){
+  .sl-intro{align-items:start}
+  .sl-intro h1,.sl-intro .sl-lede{text-box:trim-both cap alphabetic}
+}
