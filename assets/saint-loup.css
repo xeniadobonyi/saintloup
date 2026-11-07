@@ -584,10 +584,7 @@ html.sl-solid .sl-cart .sl-count span{color:#FCFAF5}
 }
 /* Comment le porter: the whole photo links to the product */
 a.sl-frame{display:block;text-decoration:none;color:inherit}
-a.sl-frame img{transition:opacity .5s ease}
-a.sl-frame:hover img{opacity:.92}
-a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
-
+aaa
 /* Product page: title starts level with the top of the photo */
 .sl-pdp-top{align-items:start}
 .sl-buy h1{margin-top:-.16em}
@@ -667,9 +664,10 @@ a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
 .sl-bo-camp figcaption{justify-content:flex-start;text-shadow:none}
 .sl-bo-camp .sl-chip{position:static;margin-left:0}
 .sl-camp-link{display:block;text-decoration:none;color:inherit}
-.sl-camp-link:hover .sl-chip{background:rgba(255,255,255,.34)}
-.sl-camp-link img{transition:opacity .5s ease}
-.sl-camp-link:hover img{opacity:.94}
 /* Campaign button: same spot as the homepage photo labels (page gutter, 40px from the bottom) */
 .sl-bo-camp figcaption{left:var(--sl-gut-l);right:auto;bottom:40px;padding:0;max-width:none;margin:0}
 @media (max-width: 699px){ .sl-bo-camp figcaption{bottom:16px} }
+/* Hero: the whole photo links to the featured product; the glass label keeps its own hover */
+.sl-hero-link{position:absolute;inset:0;z-index:0}
+.sl-hero .sl-pin,.sl-hero .sl-chipwrap{z-index:1}
+

@@ -1,7 +1,8 @@
 <section class="sl sl-hero" id="sl-hero">
   {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.alt, loading: 'eager' -%}
-  <div class="sl-pin"><div class="sl-mark" aria-hidden="true">{{ section.settings.mark }}</div></div>
   {%- assign p = section.settings.product -%}
+  {%- if p != blank -%}<a class="sl-hero-link" href="{{ p.url }}" aria-label="{{ p.title | escape }}" tabindex="-1"></a>{%- endif -%}
+  <div class="sl-pin"><div class="sl-mark" aria-hidden="true">{{ section.settings.mark }}</div></div>
   {%- if p != blank -%}
     <div class="sl-chipwrap"><a class="sl-chip" href="{{ p.url }}">{{ p.title }}<i aria-hidden="true"></i>{{ p.price | money_without_trailing_zeros }}</a></div>
   {%- endif -%}
