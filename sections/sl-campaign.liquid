@@ -3,7 +3,7 @@
 <figure class="sl sl-bo-camp">
   {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.alt -%}
   {%- if section.settings.link_label != blank -%}
-    <figcaption class="sl-wrap"><span class="sl-chip">{{ section.settings.link_label }}</span></figcaption>
+    <figcaption><span class="sl-chip">{{ section.settings.link_label }}</span></figcaption>
   {%- endif -%}
 </figure>
 {%- if camp_url != blank -%}</a>{%- endif -%}

@@ -670,3 +670,6 @@ a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
 .sl-camp-link:hover .sl-chip{background:rgba(255,255,255,.34)}
 .sl-camp-link img{transition:opacity .5s ease}
 .sl-camp-link:hover img{opacity:.94}
+/* Campaign button: same spot as the homepage photo labels (page gutter, 40px from the bottom) */
+.sl-bo-camp figcaption{left:var(--sl-gut-l);right:auto;bottom:40px;padding:0;max-width:none;margin:0}
+@media (max-width: 699px){ .sl-bo-camp figcaption{bottom:16px} }
