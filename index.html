@@ -636,6 +636,25 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
 .press-logos{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px;gap:30px 48px}
 .press-logos img{max-height:26px;max-width:150px}
 @media (max-width: 699px){ .press-logos{gap:24px 28px} .press-logos img{max-height:20px;max-width:100%} }
+/* Product page on mobile: photo starts right under the header, no sliver of page above it */
+@media (max-width: 699px){ .pdp-top{padding-top:0} }
+/* Narrow product cards (Explorez d'autres pistes on mobile): price always on its own line under the name, never a mix */
+.product .price{white-space:nowrap}
+@media (max-width: 699px){ .related .product .meta{flex-direction:column;align-items:center} }
+/* Comment le porter on mobile: a swipeable row of looks, the next one peeking in */
+.wear-dots{display:none}
+@media (max-width: 699px){
+  .looks{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gut-l) * -1) calc(var(--gut-r) * -1);padding-inline:var(--gut-l) var(--gut-r);scroll-padding-inline:var(--gut-l);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .looks::-webkit-scrollbar{display:none}
+  .looks .pair{display:contents}
+  .looks .look{flex:none;width:82%;margin:0;scroll-snap-align:start}
+  .looks .look.wide img,.looks .look.tall img{height:auto;min-height:0;aspect-ratio:3/4}
+  .looks .look.wide figcaption{padding:0}
+  .looks .look.wide .tag,.looks .tag{left:12px;bottom:12px}
+  .wear-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+  .wear-dots span{width:24px;height:1px;background:#D9D4C9;transition:background-color .3s ease}
+  .wear-dots span.on{background:var(--ink)}
+}
 </style>
 </head>
 <body>
@@ -648,7 +667,7 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
       <a href="#histoire" data-view="histoire">Histoire</a>
       <a href="#inspiration" data-view="inspiration">Inspiration</a>
     </nav>
-    <button class="ib burger" id="openMenu" type="button" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h18M3 16h18"/></svg></button>
+    <button class="ib burger" id="openMenu" type="button" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M3.5 9h17M3.5 15h17"/></svg></button>
   </div>
   <a class="logo" href="#accueil" aria-label="SAINT LOUP, accueil">SAINT LOUP</a>
   <div class="tools">
@@ -742,6 +761,7 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
 
   <section class="wrap wear">
     <h2>Comment le porter</h2>
+    <div class="looks">
     <figure class="look wide">
       <a class="frame" href="#bandou"><img src="img/porte-bandou.jpg" alt="Bandou noué dans les cheveux, face à la garrigue"><span class="tag">Bandou<i aria-hidden="true"></i>195 €</span></a>
       <figcaption>Noué dans les cheveux</figcaption>
@@ -756,6 +776,8 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
         <figcaption>Ouvert autour du cou</figcaption>
       </figure>
     </div>
+    </div>
+    <div class="wear-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
   </section>
 </main>
 
@@ -1158,6 +1180,19 @@ html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filte
   closeBtn.addEventListener('click', closeMenu);
   drawer.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
   drawer.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+
+  /* Comment le porter carousel dots (mobile) */
+  document.querySelectorAll('.looks').forEach(function(row){
+    var dots = row.parentElement.querySelectorAll('.wear-dots span');
+    if(!dots.length) return;
+    row.addEventListener('scroll', function(){
+      var looks = row.querySelectorAll('.look'); if(looks.length < 2) return;
+      var step = looks[1].getBoundingClientRect().left - looks[0].getBoundingClientRect().left;
+      var i = Math.round(row.scrollLeft / step);
+      dots.forEach(function(d, j){ d.classList.toggle('on', j === i); });
+    }, { passive: true });
+  });
 
   document.querySelectorAll('.js-nl').forEach(function(form){
     var msg = form.nextElementSibling;
