@@ -32,8 +32,8 @@ h1,h2{font-weight:400;text-wrap:balance;margin:0}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
 .narrow{max-width:720px}
-.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding-bottom:4px;display:inline-block;background:linear-gradient(currentColor,currentColor) 100% 100%/100% 1px no-repeat;transition:color .4s ease}
-.caps:hover,a:hover > .caps{color:var(--soft)}
+.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;display:inline-block;transition:border-color .4s ease}
+.caps:hover,a:hover > .caps{border-bottom-color:transparent}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Header */
@@ -516,7 +516,6 @@ main[hidden]{display:none}
 .bo-camp figcaption{z-index:1}
 .bo-camp .eyebrow{margin:0}
 .bo-camp .caps{color:#fff}
-.bo-camp .caps:hover{color:#E6E1D6}
 .shop.products{padding-bottom:88px}
 .shop-nl{padding-bottom:0 !important}
 .bo-more{padding-block:160px 200px}
