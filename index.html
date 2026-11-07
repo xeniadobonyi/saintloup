@@ -584,6 +584,13 @@ a.frame:hover .tag{background:rgba(252,250,245,.88)}
 .cta svg{width:0;opacity:0;transition:width .35s ease,opacity .35s ease}
 .cta:hover svg{width:18px;opacity:1}
 @media (max-width: 699px){ .cta{font-size:18px} }
+/* Boutique campaign: glass button bottom-left, like the hero */
+.bo-camp figcaption{justify-content:flex-start;text-shadow:none}
+.bo-camp .chip{position:static;margin-left:0}
+.camp-link{display:block;text-decoration:none;color:inherit}
+.camp-link:hover .chip{background:rgba(255,255,255,.34)}
+.camp-link img{transition:opacity .5s ease}
+.camp-link:hover img{opacity:.94}
 </style>
 
 </head>
@@ -940,10 +947,10 @@ a.frame:hover .tag{background:rgba(252,250,245,.88)}
     </form>
     <p class="thanks" aria-live="polite"></p>
   </section>
-  <figure class="bo-camp">
+  <a class="camp-link" href="#bandou"><figure class="bo-camp">
     <img src="img/ba-6.jpg" alt="Bandou porté dans les cheveux, dans un champ du Sud" loading="lazy">
-    <figcaption class="wrap"><a class="caps" href="#bandou">Découvrir le Bandou</a></figcaption>
-  </figure>
+    <figcaption class="wrap"><span class="chip">Découvrir le Bandou</span></figcaption>
+  </figure></a>
   <section class="wrap bo-more" aria-labelledby="bo-more-h">
     <h2 id="bo-more-h" class="eyebrow">Aller plus loin</h2>
     <div class="bo-cards">
