@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -20,9 +29,6 @@
     },
     "products": {
       "type": "sl-products",
-      "settings": {
-        "label": "Les pièces"
-      },
       "blocks": {
         "p_1": {
           "type": "product",
@@ -56,7 +62,10 @@
         "p_1",
         "p_2",
         "p_3"
-      ]
+      ],
+      "settings": {
+        "label": "Les pièces"
+      }
     },
     "claim": {
       "type": "sl-claim",
@@ -71,18 +80,13 @@
         "image_fb": "sl-sud_brut.jpg",
         "icon_fb": "sl-sun.png",
         "heading": "Le Sud brut",
-        "text": "<p>Le Sud de la France nourrit des fantasmes d’abondance et de nature luxuriante. Les lavandes de Provence, les fruits gorgés de soleil, les plages des côtes Vermeille et d’Azur.</p><p>Il existe un autre Sud. Rude, laborieux, retenu. Le Sud brut.</p><p>Du Pic Saint Loup aux Cévennes, on trouve un pays de garrigue rocailleuse d'où jaillit un thym aux fleurs modestes, à l’ombre des mûriers dont on nourrissait les vers à soie.</p><p>A l’âge d’or de la soie, les paysans y portaient un <em>moucadou del col</em> (\"mouchoir de cou\" en occitan).</p>",
+        "text": "<p>Le Sud de la France nourrit des fantasmes d’abondance et de nature luxuriante. Les lavandes de Provence, les fruits gorgés de soleil, les plages des côtes Vermeille et d’Azur.</p><p>Il existe un autre Sud. Rude, laborieux, retenu. Le Sud brut.</p><p>Du Pic Saint Loup aux Cévennes, on trouve un pays de garrigue rocailleuse d'où jaillit un thym aux fleurs modestes, à l’ombre des mûriers dont on nourrissait les vers à soie.</p><p>A l’âge d’or de la soie, les paysans y portaient un <em>moucadou del col</em>, le mouchoir de cou occitan.</p>",
         "link_label": "Notre histoire",
         "link_url": "shopify://pages/histoire"
       }
     },
     "process": {
       "type": "sl-process",
-      "settings": {
-        "heading": "Un savoir-faire unique en France, du cocon au fil",
-        "link_label": "Notre savoir-faire",
-        "link_url": "shopify://pages/savoir-faire"
-      },
       "blocks": {
         "s_1": {
           "type": "step",
@@ -90,8 +94,8 @@
             "image_fb": "sl-cocon-1.jpg",
             "alt": "Cocons de soie dans les mains, au-dessus du bassin",
             "number": "I",
-            "title": "Le cocon",
-            "text": "Nos cocons proviennent exclusivement de sériciculteurs cévenols qui nourrissent les vers à soie de feuilles de mûriers bio des Cévennes."
+            "title": "Les cocons",
+            "text": "Nos cocons proviennent de vers à soie nourris de feuilles de mûriers bio des Cévennes."
           }
         },
         "s_2": {
@@ -101,7 +105,7 @@
             "alt": "Brins de soie tirés des cocons dans le bassin de la filature",
             "number": "II",
             "title": "La filature",
-            "text": "Notre filature cévenole sauvegarde le geste et le savoir-faire presque millénaire du dévidage des cocons."
+            "text": "Notre filature réinvente et réenracine le geste ancestral du dévidage des cocons."
           }
         },
         "s_3": {
@@ -111,7 +115,7 @@
             "alt": "Écheveau de soie sur le dévidoir",
             "number": "III",
             "title": "Les écheveaux",
-            "text": "Les fils sont assemblés dans le fil continu de notre soie grège, la première soie française depuis le siècle dernier."
+            "text": "Le fil est reflotté en écheveaux de soie grège, la première soie française depuis le siècle dernier.&nbsp;"
           }
         }
       },
@@ -119,13 +123,15 @@
         "s_1",
         "s_2",
         "s_3"
-      ]
+      ],
+      "settings": {
+        "heading": "Un savoir-faire unique en France, du cocon au fil",
+        "link_label": "Notre savoir-faire",
+        "link_url": "shopify://pages/savoir-faire"
+      }
     },
     "wear": {
       "type": "sl-wear",
-      "settings": {
-        "heading": "Comment le porter"
-      },
       "blocks": {
         "l_1": {
           "type": "look",
@@ -159,7 +165,10 @@
         "l_1",
         "l_2",
         "l_3"
-      ]
+      ],
+      "settings": {
+        "heading": "Comment le porter"
+      }
     }
   },
   "order": [
