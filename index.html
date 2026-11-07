@@ -32,7 +32,10 @@ h1,h2{font-weight:400;text-wrap:balance;margin:0}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
 .narrow{max-width:720px}
-.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;display:inline-block}
+.caps{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding-bottom:4px;display:inline-block;background:linear-gradient(currentColor,currentColor) 100% 100%/100% 1px no-repeat;transition:color .35s ease}
+.caps:hover,a:hover > .caps{color:var(--soft);animation:caps-wipe .8s cubic-bezier(.65,0,.35,1)}
+@keyframes caps-wipe{0%{background-size:100% 1px;background-position:100% 100%}45%{background-size:0 1px;background-position:100% 100%}55%{background-size:0 1px;background-position:0 100%}100%{background-size:100% 1px;background-position:0 100%}}
+@media (prefers-reduced-motion: reduce){.caps:hover,a:hover > .caps{animation:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Header */
@@ -508,7 +511,7 @@ main[hidden]{display:none}
   .idx-year .xt{font-size:17px}
   .idx-year .xd{grid-column:2;text-align:left;margin-top:-8px}
 }
-.bo-camp{position:relative;margin:96px 0 0;height:min(88svh,920px);overflow:hidden}
+.bo-camp{position:relative;margin:160px 0 0;height:min(88svh,920px);overflow:hidden}
 .bo-camp img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
 .bo-camp figcaption{position:absolute;left:0;right:0;bottom:48px;display:flex;justify-content:space-between;align-items:baseline;color:#fff;text-shadow:0 1px 12px rgba(20,18,15,.35)}
 .bo-camp::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(to top,rgba(20,18,15,.42),rgba(20,18,15,0));pointer-events:none}
@@ -516,7 +519,8 @@ main[hidden]{display:none}
 .bo-camp .eyebrow{margin:0}
 .bo-camp .caps{color:#fff}
 .bo-camp .caps:hover{color:#E6E1D6}
-.shop-nl.after-camp{padding-top:140px;padding-bottom:0}
+.shop.products{padding-bottom:88px}
+.shop-nl{padding-bottom:0 !important}
 .bo-more{padding-block:160px 200px}
 .bo-more .eyebrow{font-weight:400;border-top:1px solid #D9D4C9;padding-top:28px;margin-bottom:40px}
 .bo-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
@@ -526,11 +530,11 @@ main[hidden]{display:none}
 .bo-cards .s{margin-top:6px;font-size:15px;color:var(--soft)}
 .bo-cards a:hover .t{background-size:100% 1px}
 .bo-cards a:hover img{opacity:.88}
-@media (max-width: 1023px){.bo-camp{margin-top:80px;height:72svh}.bo-more{padding-block:112px 140px}.bo-cards{gap:24px}.bo-cards .t{font-size:20px}}
+@media (max-width: 1023px){.bo-camp{margin-top:112px;height:72svh}.bo-more{padding-block:112px 140px}.bo-cards{gap:24px}.bo-cards .t{font-size:20px}}
 @media (max-width: 699px){
-  .bo-camp{margin-top:56px;height:auto}.bo-camp img{height:auto;aspect-ratio:4/5;object-position:60% 50%}
+  .bo-camp{margin-top:88px;height:auto}.bo-camp img{height:auto;aspect-ratio:4/5;object-position:60% 50%}
   .bo-camp figcaption{bottom:24px}
-  .shop-nl.after-camp{padding-top:80px}
+  .shop.products{padding-bottom:64px}
   .bo-more{padding-block:96px 112px}
   .bo-cards{grid-template-columns:1fr;gap:48px}
   .bo-cards img{aspect-ratio:3/2}
@@ -917,11 +921,7 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
       <span class="caps">Découvrir</span>
     </a>
   </section>
-  <figure class="bo-camp">
-    <img src="img/ba-6.jpg" alt="Bandou porté dans les cheveux, dans un champ du Sud" loading="lazy">
-    <figcaption class="wrap"><span class="eyebrow">Campagne</span><a class="caps" href="#bandou">Découvrir le Bandou</a></figcaption>
-  </figure>
-  <section class="wrap shop-nl after-camp">
+  <section class="wrap shop-nl">
     <p class="note">Nous vous informerons par email lorsque de nouveaux articles seront disponibles :</p>
     <form class="field js-nl" novalidate>
       <label class="sr" for="nl-bo">E-mail</label>
@@ -930,6 +930,10 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
     </form>
     <p class="thanks" aria-live="polite"></p>
   </section>
+  <figure class="bo-camp">
+    <img src="img/ba-6.jpg" alt="Bandou porté dans les cheveux, dans un champ du Sud" loading="lazy">
+    <figcaption class="wrap"><span class="eyebrow">Campagne</span><a class="caps" href="#bandou">Découvrir le Bandou</a></figcaption>
+  </figure>
   <section class="wrap bo-more" aria-labelledby="bo-more-h">
     <h2 id="bo-more-h" class="eyebrow">Aller plus loin</h2>
     <div class="bo-cards">
