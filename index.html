@@ -574,6 +574,11 @@ a.frame{display:block;text-decoration:none;color:inherit}
 a.frame img{transition:opacity .5s ease}
 a.frame:hover img{opacity:.92}
 a.frame:hover .tag{background:rgba(252,250,245,.88)}
+/* Product page: title starts level with the top of the photo */
+.pdp-top{align-items:start}
+.buy h1{margin-top:-.16em}
+@supports (text-box: trim-both cap alphabetic){ .buy h1{margin-top:0;text-box:trim-both cap alphabetic} }
+@supports (text-box: trim-both cap alphabetic){ .buy .price{margin-top:24px} }
 </style>
 
 </head>
