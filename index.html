@@ -560,6 +560,15 @@ main[hidden]{display:none}
 
 html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::before{transition:none !important}
 @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+/* Tighter pause around "100% naturel. 100% français." */
+.products:not(.shop){padding-bottom:120px} .claim{padding-bottom:120px}
+@media (max-width: 1023px){ .products:not(.shop){padding-bottom:104px} .claim{padding-bottom:104px} }
+@media (max-width: 699px){ .products:not(.shop){padding-bottom:72px} .claim{padding-bottom:72px} }
+/* Intro: top of the headline lines up with the top of the sentence beside it */
+@supports (text-box: trim-both cap alphabetic){
+  .intro{align-items:start}
+  .intro h1,.intro .lede{text-box:trim-both cap alphabetic}
+}
 </style>
 
 </head>
