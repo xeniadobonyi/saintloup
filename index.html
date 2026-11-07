@@ -323,8 +323,6 @@ main[hidden]{display:none}
 .sf-steps .num{font-size:72px;line-height:1}
 .sf-steps h2{font-size:34px;line-height:1.15}
 .sf-steps p{margin:28px 0 0;color:var(--text)}
-.sf-steps li.band{position:relative}
-.sf-steps li.band::before{content:"";position:absolute;inset:-72px calc(50% - 50vw);background:#F1ECE2;z-index:-1}
 .sf-steps .loc{padding-top:14px;border-top:1px solid #D9D4C9;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
 @media (max-width: 1023px){
   .sf-intro{gap:56px;padding-block:80px 0} .sf-intro h1{font-size:46px}
@@ -340,7 +338,6 @@ main[hidden]{display:none}
   .sf-steps{gap:72px;padding-block:72px 120px}
   .sf-steps li{grid-template-columns:1fr;gap:24px}
   .sf-steps .pic{aspect-ratio:auto;max-width:240px;justify-content:flex-start}
-  .sf-steps li.band::before{inset:-40px calc(50% - 50vw)}
   .sf-steps .num{font-size:44px} .sf-steps .hd{gap:14px} .sf-steps h2{font-size:24px}
   .sf-steps p{margin-top:18px}
 }
@@ -367,9 +364,11 @@ main[hidden]{display:none}
 .hi-more{max-width:1240px;margin:0 auto;padding-block:0 200px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:64px;row-gap:120px}
 .hi-more h2{padding-top:24px;border-top:1px solid var(--ink);font-size:32px}
 .hi-more .c{padding-top:24px;border-top:1px solid #D9D4C9;max-width:680px;min-width:0}
-.hi-more .c .lead{margin:0 0 18px;font-size:22px;line-height:1.4}
+
 .hi-more .c p{margin:0;color:var(--text)}
-.logos{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:32px 56px}
+.hi-more .c .note{margin:48px 0 12px;font-size:18px;color:var(--text)}
+.hi-more .field{margin:0}
 .logos img{height:72px;width:auto;mix-blend-mode:multiply}
 .logos p{margin:16px 0 0;font-size:15px}
 @media (max-width: 1023px){
@@ -385,7 +384,7 @@ main[hidden]{display:none}
   .hi-close{padding-block:16px 120px} .hi-close p{font-size:36px}
   .hi-more{grid-template-columns:1fr;row-gap:24px;padding-bottom:120px}
   .hi-more .c{border-top:0;padding-top:0;margin-bottom:56px}
-  .logos{grid-template-columns:1fr;gap:32px} .logos img{height:60px}
+  .logos{gap:24px 40px} .logos img{height:56px}
 }
 
 /* Inspiration */
@@ -628,7 +627,7 @@ main[hidden]{display:none}
     <li><div class="pic"><img src="img/sf-6.png" alt="Gravure d’un moulin à soie"></div><div class="txt"><div class="hd"><span class="num">6</span><h2>Mouliner le fil</h2></div><p>Les fils de soie sont assemblés, tordus et mis en bobines, afin de pouvoir être tissé de la façon la plus solide et la plus douce à la fois.</p><p class="loc">Localisation : Haute-Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-7.png" alt="Gravure d’un métier à tisser"></div><div class="txt"><div class="hd"><span class="num">7</span><h2>Tisser</h2></div><p>A l'ourdissage, les fils de chaine sont disposés à la verticale, parallèlement les uns aux autres. Sur le métier à tisser, ils sont croisés avec les fils de trame, à l'horizontale.</p><p class="loc">Localisation : Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-8.jpg" alt="Gravure d’une cuve de décreusage"></div><div class="txt"><div class="hd"><span class="num">8</span><h2>Décreuser</h2></div><p>Une fois tissée, la soie est nettoyée au savon de Marseille. Ainsi est retirée la séricine du ver à soie, qui agissait comme une gomme collante du fil dans le cocon.</p><p class="loc">Localisation : Loire, France.</p></div></li>
-    <li class="band"><div class="pic"><video src="img/sf-butterfly.mp4" poster="img/sf-butterfly-poster.jpg" autoplay muted loop playsinline aria-label="Papillon de soie peint à la main"></video></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
+    <li><div class="pic"><video src="img/sf-butterfly.mp4" poster="img/sf-butterfly-poster.jpg" autoplay muted loop playsinline aria-label="Papillon de soie peint à la main"></video></div><div class="txt"><div class="hd"><span class="num">9</span><h2>Créer l'œuvre</h2></div><p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p><p class="loc">Localisation : France.</p></div></li>
     <li><div class="pic"><img src="img/sf-10.png" alt="Gravure d’une imprimante textile"></div><div class="txt"><div class="hd"><span class="num">10</span><h2>Imprimer</h2></div><p>L'œuvre est imprimée sur la soie, qui est ensuite apprêtée. En fonction du design, les carrés de la soie SAINT LOUP sont réalisés au cadre "à la lyonnaise" ou en impression numérique.</p><p class="loc">Localisation : Loire, France.</p></div></li>
     <li><div class="pic"><img src="img/sf-11.png" alt="Gravure de mains roulottant le bord d’un carré"></div><div class="txt"><div class="hd"><span class="num">11</span><h2>Roulotter les carrés</h2></div><p>Le tissu de soie est découpé et les bords de chaque foulard sont roulés et cousus avec une grande délicatesse. Le roulottage des carrés de soie SAINT LOUP est réalisé à la main.</p><p class="loc">Localisation : Rhône, France.</p></div></li>
   </ol>
@@ -660,10 +659,9 @@ main[hidden]{display:none}
       <div class="yr">1853</div>
       <div class="body"><div>
         <h2>L'âge d'or de la soie</h2>
-        <p>Du XIIe au XIXe siècle, beaucoup de foyers paysans du Sud de la France cultivent des vers à soie.</p>
-        <p>En 1853, la France produit 26.000 tonnes de soie, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p>
+        <p>Du XIIe au XIXe siècle, beaucoup de foyers paysans du Sud de la France cultivent des vers à soie. En 1853, la France produit 26.000 tonnes de soie, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p>
         <p>Puis la production s'éteint. La maladie des vers d’abord, soignée par Pasteur. La concurrence du nylon ensuite, puis les délocalisations. Des milliers d'emplois disparaissent dans le silence.</p>
-        <p class="lead">Plus aucun fil de soie n’est d’origine française. Jusqu'à la création de SAINT LOUP.</p>
+        <p>Plus aucun fil de soie n’est d’origine française. Jusqu'à la création de SAINT LOUP.</p>
       </div>
       <img src="img/hi-histoire.jpg" alt="Photographie ancienne de femmes triant les cocons" style="aspect-ratio:3/2;filter:grayscale(1)"></div>
     </article>
@@ -671,8 +669,7 @@ main[hidden]{display:none}
       <div class="yr">2025</div>
       <div class="body"><div>
         <h2>La résurrection de la soie</h2>
-        <p class="lead">L'héritage de la soie française ne tient qu'à un fil.</p>
-        <p>Il suffit pourtant de deux papillons amoureux. Avant de mourir, la femelle Bombyx pond 500 œufs, qui deviendront des vers à soie nourris de feuilles de mûrier blanc. Leurs 500 cocons, une fois déroulés, donnent plus de 500 km de soie. De quoi tisser un foulard.</p>
+        <p>L'héritage de la soie française ne tient qu'à un fil, pourtant il suffit de deux papillons amoureux pour faire un carré. Avant de mourir, la femelle Bombyx pond 500 œufs, qui deviendront des vers à soie nourris de feuilles de mûrier blanc. Leurs 500 cocons, une fois déroulés, donnent plus de 500 km de soie. De quoi tisser un foulard.</p>
         <p>En 2025, un retour aux sources est orchestré par Michel, un sériciculteur passionné, et Alexandre, un entrepreneur social ayant grandi au pied du Pic Saint-Loup. Le savoir-faire séricicole se transmet et se réinvente avec excellence, des mûriers jusqu'aux carrés de soie.</p>
         <p>La même année, SAINT LOUP fabrique le premier foulard de soie française depuis le siècle dernier. En quelques jours, les premiers exemplaires, numérotés, sont en rupture de stock.</p>
       </div>
@@ -683,14 +680,19 @@ main[hidden]{display:none}
   <section class="wrap hi-more">
     <h2>Presse</h2>
     <div class="c"><a href="https://saintloup.store/pages/presse" target="_blank" rel="noopener" style="font-size:22px">SAINT LOUP est dans la presse (cliquer ici)</a></div>
-    <h2>Des partenaires engagés</h2>
+    <h2>Partenaires</h2>
     <div class="c">
-      <p class="lead">SAINT LOUP compte sur des alliés bienveillants.</p>
-      <p>Les partenaires de la première heure sont Cévennes En Soie et Michel Costa, Akté Services et Samuel Hervé, REAL Promotion et Guillaume Herrero, ESG Luxe et Julien Blanc, Barbara Reihle et les 300 soutiens du lancement de la première capsule historique de foulards numérotés.</p>
       <div class="logos">
-        <div><img src="img/hi-bpi.png" alt="La French Touch, Bpifrance"><p>Nous avons le soutien de Bpifrance à travers le dispositif French Touch</p></div>
-        <div><img src="img/hi-fab.jpg" alt="Fabriqué en Occitanie"><p>Nos pièces sont référencées sur la plateforme "Fabriqué en occitanie"</p></div>
+        <img src="img/hi-bpi.png" alt="La French Touch, Bpifrance">
+        <img src="img/hi-fab.jpg" alt="Fabriqué en Occitanie">
       </div>
+      <p class="note">Engagez-vous, suivez notre aventure de relocalisation par email :</p>
+      <form class="field js-nl" novalidate>
+        <label class="sr" for="nl-hi">E-mail</label>
+        <input id="nl-hi" type="email" placeholder="E-mail" autocomplete="email" required>
+        <button type="submit" aria-label="S'inscrire"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+      </form>
+      <p class="thanks" aria-live="polite"></p>
     </div>
   </section>
 </main>
