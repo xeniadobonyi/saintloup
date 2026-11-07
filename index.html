@@ -511,7 +511,7 @@ main[hidden]{display:none}
 }
 .bo-camp{position:relative;margin:160px 0 0;height:min(88svh,920px);overflow:hidden}
 .bo-camp img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.bo-camp figcaption{position:absolute;left:0;right:0;bottom:48px;display:flex;justify-content:space-between;align-items:baseline;color:#fff;text-shadow:0 1px 12px rgba(20,18,15,.35)}
+.bo-camp figcaption{position:absolute;left:0;right:0;bottom:48px;display:flex;justify-content:flex-end;align-items:baseline;color:#fff;text-shadow:0 1px 12px rgba(20,18,15,.35)}
 .bo-camp::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(to top,rgba(20,18,15,.42),rgba(20,18,15,0));pointer-events:none}
 .bo-camp figcaption{z-index:1}
 .bo-camp .eyebrow{margin:0}
@@ -607,7 +607,7 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
     <h1>Le premier fil de soie française depuis le siècle dernier</h1>
     <div class="intro-side">
     <p class="lede">SAINT LOUP ressuscite le savoir-faire du fil de soie dans le Sud de la France.</p>
-    <p class="note">Nous vous informons par email en avant-première lorsque de nouvelles pièces sont disponibles :</p>
+    <p class="note">Soyez les premiers informés de nos nouvelles pièces :</p>
     <form class="field js-nl" novalidate>
       <label class="sr" for="nl-1">E-mail</label>
       <input id="nl-1" type="email" placeholder="E-mail" autocomplete="email" required>
@@ -729,8 +729,6 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
       <li><div class="k">Roulottage</div><div class="v">100% français (Rhône)</div></li>
     </ol>
   </section>
-
-  <section class="details" id="pDetails" aria-label="Détails"></section>
 
   <section class="wrap legend">
     <img id="pLegendImg" src="img/mb-4.jpg" alt="">
@@ -929,14 +927,14 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
   </section>
   <figure class="bo-camp">
     <img src="img/ba-6.jpg" alt="Bandou porté dans les cheveux, dans un champ du Sud" loading="lazy">
-    <figcaption class="wrap"><span class="eyebrow">Campagne</span><a class="caps" href="#bandou">Découvrir le Bandou</a></figcaption>
+    <figcaption class="wrap"><a class="caps" href="#bandou">Découvrir le Bandou</a></figcaption>
   </figure>
   <section class="wrap bo-more" aria-labelledby="bo-more-h">
     <h2 id="bo-more-h" class="eyebrow">Aller plus loin</h2>
     <div class="bo-cards">
-      <a href="#savoir-faire"><img src="img/cocon-1.jpg" alt="" loading="lazy"><span class="t">Explorer notre savoir-faire</span><span class="s">Du cocon au fil, dans les Cévennes</span></a>
-      <a href="#histoire"><img src="img/hi-histoire.jpg" alt="" loading="lazy"><span class="t">Découvrir notre histoire</span><span class="s">La soie française, de 1853 à aujourd'hui</span></a>
-      <a href="#inspiration"><img src="img/in-1.jpg" alt="" loading="lazy"><span class="t">Comment porter nos carrés</span><span class="s">Six façons de nouer la soie</span></a>
+      <a href="#savoir-faire"><img src="img/cocon-1.jpg" alt="" loading="lazy"><span class="t">Explorer notre savoir-faire</span><span class="s">Du mûrier au carré, 100% en France</span></a>
+      <a href="#histoire"><img src="img/hi-histoire.jpg" alt="" loading="lazy"><span class="t">Découvrir notre histoire</span><span class="s">La soie française, un patrimoine millénaire</span></a>
+      <a href="#inspiration"><img src="img/in-1.jpg" alt="" loading="lazy"><span class="t">Comment porter nos carrés</span><span class="s">Sept façons de nouer nos foulards</span></a>
     </div>
   </section>
 </main>
@@ -1054,9 +1052,6 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
       b.addEventListener('click', function(){ show(i); });
       thumbs.appendChild(b);
     });
-    var det = document.getElementById('pDetails'); det.textContent = '';
-    det.style.setProperty('--n', d.details.length);
-    d.details.forEach(function(i){ var im = el('img'); im.src = photos[i][0]; im.alt = photos[i][1]; det.appendChild(im); });
     document.getElementById('pStoryTitle').textContent = d.story[0];
     var st = document.getElementById('pStory'); st.textContent = '';
     d.story[1].forEach(function(t){ st.appendChild(el('p', null, t)); });
