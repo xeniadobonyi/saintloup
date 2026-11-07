@@ -1,6 +1,6 @@
 {%- comment -%}
   SAINT LOUP image: uses the image chosen in the theme editor, or falls back to a file shipped in the theme assets.
-  Params: image (image object), fb (asset filename), alt, class, sizes, loading, style
+  Params: image (image object), fb (asset filename), alt, class, sizes, loading ('eager' for the first screen), style
 {%- endcomment -%}
 {%- liquid
   assign _alt = alt
@@ -9,9 +9,16 @@
   endif
   assign _loading = loading | default: 'lazy'
   assign _sizes = sizes | default: '100vw'
+  assign _prio = 'auto'
+  if _loading == 'eager'
+    assign _prio = 'high'
+  endif
 -%}
 {%- if image != blank -%}
-  {{- image | image_url: width: 2400 | image_tag: alt: _alt, class: class, loading: _loading, sizes: _sizes, widths: '400, 600, 800, 1000, 1200, 1600, 2000, 2400', style: style -}}
+  {{- image | image_url: width: 2400 | image_tag: alt: _alt, class: class, loading: _loading, fetchpriority: _prio, decoding: 'async', sizes: _sizes, widths: '400, 600, 800, 1000, 1200, 1600, 2000, 2400', style: style -}}
 {%- elsif fb != blank -%}
-  <img src="{{ fb | asset_url }}" alt="{{ _alt | escape }}"{% if class != blank %} class="{{ class }}"{% endif %} loading="{{ _loading }}"{% if style != blank %} style="{{ style }}"{% endif %}>
+  {%- comment -%} Theme images are resized by Shopify's CDN so phones and laptops only download what they need {%- endcomment -%}
+  <img src="{{ fb | asset_img_url: '1600x' }}"
+    srcset="{{ fb | asset_img_url: '600x' }} 600w, {{ fb | asset_img_url: '1000x' }} 1000w, {{ fb | asset_img_url: '1600x' }} 1600w, {{ fb | asset_img_url: '2400x' }} 2400w"
+    sizes="{{ _sizes }}" alt="{{ _alt | escape }}"{% if class != blank %} class="{{ class }}"{% endif %} loading="{{ _loading }}" fetchpriority="{{ _prio }}" decoding="async"{% if style != blank %} style="{{ style }}"{% endif %}>
 {%- endif -%}

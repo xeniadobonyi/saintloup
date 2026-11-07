@@ -36,7 +36,7 @@
         {%- for m in images -%}
           <button type="button" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}{% if m.alt != blank %} : {{ m.alt | escape }}{% endif %}"
             data-src="{{ m.preview_image | image_url: width: 1800 }}" data-srcset="{{ m.preview_image | image_url: width: 900 }} 900w, {{ m.preview_image | image_url: width: 1400 }} 1400w, {{ m.preview_image | image_url: width: 1800 }} 1800w" data-alt="{{ m.alt | default: product.title | escape }}">
-            {{- m.preview_image | image_url: width: 160 | image_tag: alt: '', loading: 'lazy' -}}
+            {{- m.preview_image | image_url: width: 160 | image_tag: alt: '', loading: 'lazy', decoding: 'async' -}}
           </button>
         {%- endfor -%}
       </div>
@@ -44,7 +44,7 @@
         {%- assign first = images.first -%}
         {%- if first -%}
           {%- assign first_alt = first.alt | default: product.title -%}
-          {{- first.preview_image | image_url: width: 1800 | image_tag: alt: first_alt, loading: 'eager', widths: '900, 1400, 1800', sizes: '(min-width: 1024px) 50vw, 100vw' -}}
+          {{- first.preview_image | image_url: width: 1800 | image_tag: alt: first_alt, loading: 'eager', fetchpriority: 'high', decoding: 'async', widths: '900, 1400, 1800', sizes: '(min-width: 1024px) 50vw, 100vw' -}}
         {%- endif -%}
         {%- if images.size > 1 -%}
           <div class="sl-ctl">
@@ -108,7 +108,7 @@
       {%- elsif images[idx] -%}
         {%- assign story_img = images[idx] -%}
         {%- assign story_alt = story_img.alt | default: product.title -%}
-        {{- story_img.preview_image | image_url: width: 1600 | image_tag: alt: story_alt, loading: 'lazy', widths: '600, 1000, 1600', sizes: '(min-width: 1024px) 50vw, 100vw' -}}
+        {{- story_img.preview_image | image_url: width: 1600 | image_tag: alt: story_alt, loading: 'lazy', decoding: 'async', widths: '600, 1000, 1600', sizes: '(min-width: 1024px) 50vw, 100vw' -}}
       {%- endif -%}
       <div class="sl-copy">
         <h2>{{ info.settings.story_title }}</h2>

@@ -682,3 +682,9 @@ aaa
 .sl-nav{flex-wrap:nowrap;white-space:nowrap}
 @media (max-width: 1279px){ .sl-nav,.sl-cur{display:none} .sl-ib.sl-burger{display:flex} }
 @media (max-width: 1279px){ .sl-hdr .sl-cur{display:none} }
+/* Smooth scrolling: no blur layer while the header is transparent over the hero, a lighter blur once solid,
+   and the big sticky logo and glass label each on their own GPU layer so the photo isn't repainted under them */
+.sl-hdr{-webkit-backdrop-filter:none;backdrop-filter:none;transition:background-color 1.2s ease,color 1.2s ease,box-shadow 1.2s ease}
+html.sl-solid .sl-hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filter:saturate(170%) blur(20px)}
+.sl-mark,.sl-chip{will-change:transform}
+.sl-hero > img{transform:translateZ(0)}
