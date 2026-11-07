@@ -651,3 +651,15 @@ a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
 @media (max-width: 699px){
   #shopify-pc__banner .shopify-pc__banner__dialog{padding:22px 20px !important}
 }
+/* Desktop: compact glass card in the bottom-right corner instead of a full-width bar */
+@media (min-width: 750px){
+  #shopify-pc__banner .shopify-pc__banner__dialog{
+    top:auto !important;bottom:24px !important;left:auto !important;right:24px !important;
+    width:min(480px, calc(100% - 48px)) !important;max-width:480px !important;min-width:0 !important;transform:none !important;
+    flex-direction:column !important;align-items:stretch !important;gap:20px !important
+  }
+  #shopify-pc__banner .shopify-pc__banner__wrapper,#shopify-pc__banner .shopify-pc__banner__dialog > div{width:auto !important;max-width:none !important;margin:0 !important}
+  #shopify-pc__banner .shopify-pc__banner__btns{display:flex !important;flex-wrap:wrap !important;justify-content:flex-start !important;align-items:center !important;gap:12px !important;margin:0 !important;width:100% !important}
+  #shopify-pc__banner .shopify-pc__banner__btns button{margin:0 !important;flex:1 1 0 !important}
+  #shopify-pc__banner button#shopify-pc__banner__btn-manage-prefs{flex:1 0 100% !important;order:3;text-align:left !important}
+}
