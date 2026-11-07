@@ -21,6 +21,14 @@
   endif
   assign images = product.media | where: 'media_type', 'image'
 -%}
+{%- comment -%} drop paragraphs left empty once the lead sentence is lifted out {%- endcomment -%}
+{%- assign parts = desc | split: '</p>' -%}
+{%- capture desc -%}
+  {%- for part in parts -%}
+    {%- assign t = part | strip_html | replace: '&nbsp;', '' | strip -%}
+    {%- if t != blank -%}{{ part }}</p>{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
 <div class="sl sl-pdp">
   <section class="sl-wrap sl-pdp-top">
     <div class="sl-gal" data-sl-gallery>

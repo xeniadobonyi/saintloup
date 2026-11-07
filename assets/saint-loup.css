@@ -588,3 +588,8 @@ a.sl-frame img{transition:opacity .5s ease}
 a.sl-frame:hover img{opacity:.92}
 a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
 
+/* Product page: title starts level with the top of the photo */
+.sl-pdp-top{align-items:start}
+.sl-buy h1{margin-top:-.16em}
+@supports (text-box: trim-both cap alphabetic){ .sl-buy h1{margin-top:0;text-box:trim-both cap alphabetic} }
+@supports (text-box: trim-both cap alphabetic){ .sl-buy .sl-price{margin-top:24px} }
