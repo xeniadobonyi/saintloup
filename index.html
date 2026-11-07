@@ -598,6 +598,9 @@ a.frame{display:block;text-decoration:none;color:inherit}
   .frame:hover .tag{background:rgba(252,250,245,.74)}
   .frame .tag:hover{background:rgba(252,250,245,.88)}
 }
+/* Main nav never wraps: below 1280px it folds into the menu button */
+.nav{flex-wrap:nowrap;white-space:nowrap}
+@media (max-width: 1279px){ .nav,.cur{display:none} .ib.burger{display:flex} }
 </style>
 
 </head>
