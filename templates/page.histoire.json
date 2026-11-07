@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -12,19 +21,23 @@
       "type": "sl-hi-intro",
       "settings": {
         "big": "Il était une soie française qui, éteinte depuis le siècle dernier, naquit à nouveau.",
-        "text": "<p>L’histoire d’une relocalisation dans un monde où tout est fait là-bas, consommé ici, en abîmant partout.</p><p>L'histoire du Sud brut. A l’âge d’or de la soie, les paysans y portaient un <em>moucadou del col</em> (\"mouchoir de cou\" en occitan).</p>"
+        "text": "<p>L’histoire d’une relocalisation dans un monde où tout est fait là-bas, consommé ici, en abîmant partout.</p><p>L'histoire du Sud brut. A l’âge d’or de la soie, les paysans y portaient un <em>moucadou del col</em>, le mouchoir de cou occitan.</p>"
       }
     },
     "chapters": {
       "type": "sl-chapters",
-      "settings": {},
       "blocks": {
         "ch_1": {
           "type": "chapter",
           "settings": {
             "year": "1095",
             "title": "La légende de Saint Loup",
-            "text": "<p>Eté 1095. Les trois frères Loup, Guiral et Clair tombent amoureux de la même femme, Irène. Indécise, elle promet son cœur à celui qui, au cours de la Croisade, se montrera le plus courageux.</p><p>Lorsque les trois chevaliers reviennent de Terre Sainte, ils croisent un long convoi funèbre. Irène s'est consumée d’amour. Inconsolables, ils décident de vivre en ermites au sommet de trois montagnes.</p><p>Loup, revenu avec de la soie d’Orient et de curieuses graines, les offre à ses amis cévenols. Ils étudient minutieusement les chenilles qui en éclosent et leurs cocons.</p><p>A chaque anniversaire de la mort d’Irène, les frères allument un grand feu en sa mémoire. Les années passent et, un à un, ils cessent d'illuminer le Mont Saint-Clair, le Rocher de Saint-Guiral et le Pic Saint-Loup, qui portent encore leur nom.</p>"
+            "text": "<p>Eté 1095. Les trois frères Loup, Guiral et Clair tombent amoureux de la même femme, Irène. Indécise, elle promet son cœur à celui qui, au cours de la Croisade, se montrera le plus courageux.</p><p>Lorsque les trois chevaliers reviennent de Terre Sainte, ils croisent un long convoi funèbre. Irène s'est consumée d’amour. Inconsolables, ils décident de vivre en ermites au sommet de trois montagnes.</p><p>Loup, revenu avec de la soie d’Orient et de curieuses graines, les offre à ses amis cévenols. Ils étudient minutieusement les chenilles qui en éclosent et leurs cocons.</p><p>A chaque anniversaire de la mort d’Irène, les frères allument un grand feu en sa mémoire. Les années passent et, un à un, ils cessent d'illuminer le Mont Saint-Clair, le Rocher de Saint-Guiral et le Pic Saint-Loup, qui portent encore leur nom.</p>",
+            "image_fb": "",
+            "alt": "",
+            "ratio": "3/2",
+            "grayscale": false,
+            "position": ""
           }
         },
         "ch_2": {
@@ -32,11 +45,12 @@
           "settings": {
             "year": "1853",
             "title": "L'âge d'or de la soie",
-            "text": "<p>Du XIIe au XIXe siècle, beaucoup de foyers paysans du Sud de la France cultivent des vers à soie. En 1853, la France produit 26.000 tonnes de soie, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p><p>Puis la production s'éteint. La maladie des vers d’abord, soignée par Pasteur. La concurrence du nylon ensuite, puis les délocalisations. Des milliers d'emplois disparaissent dans le silence.</p><p>Plus aucun fil de soie n’est d’origine française. Jusqu'à la création de SAINT LOUP.</p>",
+            "text": "<p>Du XIIe au XIXe siècle, beaucoup de foyers paysans du Sud de la France cultivent des vers à soie. En 1853, la France produit 26.000 tonnes de cocons de soie, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p><p>Puis la production s'éteint. La maladie des vers d’abord, soignée par Pasteur. La concurrence du nylon ensuite, puis les délocalisations. Des milliers d'emplois disparaissent dans le silence.</p><p>Plus aucun fil de soie n’est d’origine française. Jusqu'à la création de SAINT LOUP.</p>",
             "image_fb": "sl-hi-histoire.jpg",
             "alt": "Photographie ancienne de femmes triant les cocons",
             "ratio": "3/2",
-            "grayscale": true
+            "grayscale": true,
+            "position": ""
           }
         },
         "ch_3": {
@@ -57,7 +71,8 @@
         "ch_1",
         "ch_2",
         "ch_3"
-      ]
+      ],
+      "settings": {}
     },
     "close": {
       "type": "sl-quote",
@@ -67,13 +82,6 @@
     },
     "more": {
       "type": "sl-hi-more",
-      "settings": {
-        "press_heading": "Presse",
-        "press_link": "SAINT LOUP est dans la presse (cliquer ici)",
-        "press_url": "shopify://pages/presse",
-        "partners_heading": "Partenaires",
-        "note": "Engagez-vous, suivez notre aventure de relocalisation par email :"
-      },
       "blocks": {
         "lg_1": {
           "type": "logo",
@@ -93,7 +101,14 @@
       "block_order": [
         "lg_1",
         "lg_2"
-      ]
+      ],
+      "settings": {
+        "press_heading": "Presse",
+        "press_link": "SAINT LOUP est dans la presse (cliquer ici)",
+        "press_url": "shopify://pages/presse",
+        "partners_heading": "Partenaires",
+        "note": "Engagez-vous, suivez notre aventure de relocalisation par email :"
+      }
     }
   },
   "order": [
