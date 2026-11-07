@@ -663,3 +663,10 @@ a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
   #shopify-pc__banner .shopify-pc__banner__btns button{margin:0 !important;flex:1 1 0 !important}
   #shopify-pc__banner button#shopify-pc__banner__btn-manage-prefs{flex:1 0 100% !important;order:3;text-align:left !important}
 }
+/* Boutique campaign: glass button bottom-left, like the hero */
+.sl-bo-camp figcaption{justify-content:flex-start;text-shadow:none}
+.sl-bo-camp .sl-chip{position:static;margin-left:0}
+.sl-camp-link{display:block;text-decoration:none;color:inherit}
+.sl-camp-link:hover .sl-chip{background:rgba(255,255,255,.34)}
+.sl-camp-link img{transition:opacity .5s ease}
+.sl-camp-link:hover img{opacity:.94}

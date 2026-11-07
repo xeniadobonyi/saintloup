@@ -1,9 +1,12 @@
+{%- assign camp_url = section.settings.link_url | default: section.settings.product.url -%}
+{%- if camp_url != blank -%}<a class="sl sl-camp-link" href="{{ camp_url }}">{%- endif -%}
 <figure class="sl sl-bo-camp">
   {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.alt -%}
   {%- if section.settings.link_label != blank -%}
-    <figcaption class="sl-wrap"><a class="sl-caps" href="{{ section.settings.link_url | default: section.settings.product.url | default: '#' }}">{{ section.settings.link_label }}</a></figcaption>
+    <figcaption class="sl-wrap"><span class="sl-chip">{{ section.settings.link_label }}</span></figcaption>
   {%- endif -%}
 </figure>
+{%- if camp_url != blank -%}</a>{%- endif -%}
 
 {% schema %}
 {
