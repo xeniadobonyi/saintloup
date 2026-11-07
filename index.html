@@ -601,6 +601,12 @@ a.frame{display:block;text-decoration:none;color:inherit}
 /* Main nav never wraps: below 1280px it folds into the menu button */
 .nav{flex-wrap:nowrap;white-space:nowrap}
 @media (max-width: 1279px){ .nav,.cur{display:none} .ib.burger{display:flex} }
+/* Smooth scrolling: no blur layer while the header is transparent over the hero, a lighter blur once solid,
+   and the big sticky logo and glass label each on their own GPU layer so the photo isn't repainted under them */
+.hdr{-webkit-backdrop-filter:none;backdrop-filter:none;transition:background-color 1.2s ease,color 1.2s ease,box-shadow 1.2s ease}
+html.solid .hdr{-webkit-backdrop-filter:saturate(170%) blur(20px);backdrop-filter:saturate(170%) blur(20px)}
+.mark,.chip{will-change:transform}
+.hero > img{transform:translateZ(0)}
 </style>
 
 </head>
