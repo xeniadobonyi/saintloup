@@ -143,9 +143,10 @@ html.solid .logo{opacity:1}
 @media (max-width: 699px){ .story{padding-bottom:120px} .story.tight{padding-bottom:88px} .story.rev{padding-bottom:160px} .story h2{font-size:30px} .story .copy p:last-of-type{margin-bottom:36px} }
 
 /* Process */
-.process{padding-bottom:140px}
+.process{padding-bottom:320px}
+.process .more{margin-top:56px}
 .process h2{font-size:40px;line-height:1.15;margin-bottom:56px;padding-top:20px;border-top:1px solid var(--ink)}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:56px 32px;align-items:start}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 32px;align-items:start}
 .steps figure{margin:0}
 .steps img{width:100%;aspect-ratio:2/3;object-fit:cover}
 .steps figcaption{margin-top:24px}
@@ -153,12 +154,14 @@ html.solid .logo{opacity:1}
 .steps .n{font-size:15px;color:var(--soft)}
 .steps .h{font-size:22px}
 .steps p{margin:10px 0 0;font-size:16px;line-height:1.55;color:var(--text)}
-@media (max-width: 1023px){ .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 24px} }
+@media (max-width: 1023px){ .steps{gap:48px 20px} .process{padding-bottom:200px} }
 @media (max-width: 699px){
-  .process{padding-bottom:88px}
+  .process{padding-bottom:160px}
+  .steps{grid-template-columns:1fr}
+  .process .more{margin-top:40px}
   .process h2{font-size:30px;margin-bottom:36px}
-  .steps{gap:40px 14px}
-  .steps figcaption{margin-top:14px} .steps .t{gap:8px} .steps .n{font-size:13px} .steps .h{font-size:18px} .steps p{font-size:14px;line-height:1.5}
+  .steps{gap:48px}
+  .steps figcaption{margin-top:18px} .steps .h{font-size:20px} .steps p{font-size:16px}
 }
 
 /* Wear */
@@ -513,27 +516,13 @@ main[hidden]{display:none}
   </section>
 
   <section class="wrap process">
-    <h2>Du cocon au fil</h2>
+    <h2>Un savoir-faire unique en France, du cocon au fil</h2>
     <div class="steps">
-      <figure><img src="img/cocon-1.jpg" alt="Cocons de soie dans les mains, au-dessus du bassin"><figcaption><div class="t"><span class="n">I</span><span class="h">Le cocon</span></div><p>Les cocons sont plongés dans l’eau chaude pour assouplir la soie qui les enveloppe.</p></figcaption></figure>
-      <figure><img src="img/cocon-2.jpg" alt="Brins de soie tirés des cocons dans le bassin"><figcaption><div class="t"><span class="n">II</span><span class="h">Le brin</span></div><p>Les brins de plusieurs cocons sont réunis à la main pour former un seul fil.</p></figcaption></figure>
-      <figure><img src="img/cocon-3.jpg" alt="Écheveau de soie sur le dévidoir"><figcaption><div class="t"><span class="n">III</span><span class="h">L’écheveau</span></div><p>Le fil s’enroule sur le dévidoir et forme un écheveau d’un blanc nacré.</p></figcaption></figure>
-      <figure><img src="img/cocon-4.jpg" alt="Fil de soie enroulé sur une bobine"><figcaption><div class="t"><span class="n">IV</span><span class="h">La bobine</span></div><p>Le fil est ensuite rebobiné, prêt à être tissé.</p></figcaption></figure>
+      <figure><img src="img/cocon-1.jpg" alt="Cocons de soie dans les mains, au-dessus du bassin"><figcaption><div class="t"><span class="n">I</span><span class="h">Le cocon</span></div><p>Nos cocons proviennent exclusivement de sériciculteurs cévenols qui nourrissent les vers à soie de feuilles de mûriers bio des Cévennes.</p></figcaption></figure>
+      <figure><img src="img/cocon-2.jpg" alt="Brins de soie tirés des cocons dans le bassin de la filature"><figcaption><div class="t"><span class="n">II</span><span class="h">La filature</span></div><p>Notre filature cévenole sauvegarde le geste et le savoir-faire presque millénaire du dévidage des cocons.</p></figcaption></figure>
+      <figure><img src="img/cocon-3.jpg" alt="Écheveau de soie sur le dévidoir"><figcaption><div class="t"><span class="n">III</span><span class="h">Les écheveaux</span></div><p>Les fils sont assemblés dans le fil continu de notre soie grège, la première soie française depuis le siècle dernier.</p></figcaption></figure>
     </div>
-  </section>
-
-  <section class="wrap story rev">
-    <div class="copy">
-      <img class="motif" src="img/motif.png" alt="">
-      <h2>Ressuscitons notre patrimoine</h2>
-      <p>L'héritage de la soie française ne tient qu'à un fil.</p>
-      <p>En 1853, la France produisait 26.000 tonnes de soie par an, dont la moitié des Cévennes jusqu’au Pic Saint Loup.</p>
-      <p>Puis la filière s'est éteinte dans le silence, à grands coups de délocalisations. La France s'est résignée à importer toute sa soie du bout du monde.</p>
-      <p>Jusqu'à la relance de la soie française par SAINT LOUP, issue de cocons cévenols.</p>
-      <p>Pour cette renaissance, il a suffi de deux papillons amoureux. Leur 500 œufs peuvent tisser 500 cocons. De quoi fabriquer un foulard.</p>
-      <a class="caps" href="#savoir-faire">Notre Savoir-faire</a>
-    </div>
-    <img class="photo" src="img/patrimoine.jpg" alt="Cocons de soie sur un carré SAINT LOUP">
+    <a class="caps more" href="#savoir-faire">Notre savoir-faire</a>
   </section>
 
   <section class="wrap wear">
