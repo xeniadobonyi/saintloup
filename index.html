@@ -596,11 +596,8 @@ main[hidden]{display:none}
   <section class="wrap legend">
     <img id="pLegendImg" src="img/mb-4.jpg" alt="">
     <div class="copy">
-      <h2>Légende de Saint Loup</h2>
-      <p>Eté 1095. Les trois frères Loup, Guiral et Clair tombent amoureux de la même femme, Irène. Indécise, elle promet son cœur à celui qui, au cours de la Croisade, se montrera le plus courageux.</p>
-      <p>Selon la légende populaire, à leur retour, les trois chevaliers croisent un long convoi funèbre. Irène s’est consumée d’amour. Inconsolables, ils décident de vivre en ermites au sommet de trois montagnes.</p>
-      <p>A chaque anniversaire de la mort d’Irène, les frères allument un grand feu en sa mémoire. Les années passent et, un à un, ils cessent d’illuminer le Mont Saint-Clair, le Rocher de Saint-Guiral et enfin le Pic Saint-Loup, qui portent encore leur nom.</p>
-      <p>Selon l’artiste, au retour des chevaliers, Irène est bien vivante. Elle a simplement choisi sa liberté. Elle est là sur la face nocturne du Bandou, alors que les trois feux illuminent la nuit.</p>
+      <h2 id="pStoryTitle"></h2>
+      <div id="pStory"></div>
     </div>
   </section>
 
@@ -758,21 +755,24 @@ main[hidden]{display:none}
       first: 'Le premier carré de soie française depuis le siècle dernier.',
       body: ['Foulard en twill 100% soie française, provenant de vers à soie élevés dans les Cévennes, nourris de feuilles de mûrier bio, dont les cocons ont été dévidés, filés, moulinés, tissés, imprimés et roulottés à la main en France.', '50 exemplaires numérotés en première édition, issus de l\'éducation de vers à soie de 2025, vendus avec un certificat d\'authenticité signé.'],
       photos: [['img/mb-1.jpg','Moucadou bleu à plat'],['img/mb-2.jpg','Moucadou bleu porté en foulard de tête, de profil'],['img/mb-3.jpg','Moucadou bleu porté ouvert autour du cou'],['img/mb-4.jpg','Moucadou bleu posé sur une chaise paillée'],['img/mb-5.jpg','Détail du motif, papillon et fleurs'],['img/mb-6.jpg','Détail du twill de soie froissé'],['img/mb-7.jpg','Détail de la signature SAINT LOUP dans la bordure']],
-      details: [4,5,6], legend: 3, tile: ['img/moucadou-bleu.jpg', 'Moucadou bleu']
+      details: [4,5,6], legend: 3, story: ['La résurrection du carré de soie française', ['Pour le premier carré de soie française depuis si longtemps, l\u2019artiste est naturellement revenue à la Terre. Au vivant, à la botanique, à la biologie.', 'Du Pic Saint Loup aux Cévennes, on trouve un pays de garrigue rocailleuse d\u2019où jaillit un thym aux fleurs modestes, à l\u2019ombre des mûriers dont on nourrissait les vers à soie. Ce moucadou lui rend hommage.']],
+      tile: ['img/moucadou-bleu.jpg', 'Moucadou bleu']
     },
     'moucadou-original': {
       name: 'Moucadou original', price: '345 €', dim: 'Environ 70 cm x 70 cm', art: 'Aline Zalko',
       first: 'Le premier carré de soie française depuis le siècle dernier.',
       body: ['Foulard en twill 100% soie française, provenant de vers à soie élevés dans les Cévennes, nourris de feuilles de mûrier bio, dont les cocons ont été dévidés, filés, moulinés, tissés, imprimés et roulottés à la main en France.', '50 exemplaires numérotés en première réédition, issus de l\'éducation de vers à soie de 2025, vendus avec un certificat d\'authenticité signé.'],
       photos: [['img/mo-1.jpg','Moucadou original à plat'],['img/mo-2.jpg','Moucadou original porté en foulard de tête'],['img/mo-3.jpg','Moucadou original porté noué sur la tête, de dos'],['img/mo-4.jpg','Moucadou original noué autour du cou'],['img/mo-5.jpg','Détail de la bordure signée SAINT LOUP'],['img/mo-6.jpg','Détail du motif floral']],
-      details: [4,5], legend: 2, tile: ['img/moucadou-original.jpg', 'Moucadou original']
+      details: [4,5], legend: 2, story: ['La résurrection du carré de soie française', ['Pour le premier carré de soie française depuis si longtemps, l\u2019artiste est naturellement revenue à la Terre. Au vivant, à la botanique, à la biologie.', 'Du Pic Saint Loup aux Cévennes, on trouve un pays de garrigue rocailleuse d\u2019où jaillit un thym aux fleurs modestes, à l\u2019ombre des mûriers dont on nourrissait les vers à soie. Ce moucadou lui rend hommage.']],
+      tile: ['img/moucadou-original.jpg', 'Moucadou original']
     },
     'bandou': {
       name: 'Bandou', price: '195 €', dim: 'Environ 5.5 cm x 87 cm', art: 'Manon Diemer',
       first: 'Le premier bandeau de soie française depuis le siècle dernier.',
       body: ['L\'été compte double, alors notre premier Bandou a deux faces. Une face jour qui rend hommage au Sud brut ; une face nuit qui réinvente la légende de Saint Loup autour d\'une femme libre.', 'Une fibre thermorégulatrice, pour vous rafraichir l\'été et vice-versa. Une délicatesse pour les cheveux ou le cou. Un nœud rebelle au poignet ou au sac. Une soie millénaire, mais qui porte une œuvre vibrante d\'aujourd\'hui.', 'Bandeau en twill 100% soie française, provenant de vers à soie élevés dans les Cévennes, nourris de feuilles de mûrier bio, dont les cocons ont été dévidés, filés, moulinés, tissés, imprimés et confectionnés en France.', '200 exemplaires numérotés en première édition, issus de l\'éducation de vers à soie de 2025, vendus avec un certificat d\'authenticité signé.'],
       photos: [['img/ba-1.jpg','Bandou à plat'],['img/ba-4.jpg','Bandou plié'],['img/ba-5.jpg','Bandou noué au poignet, main posée sur un cheval blanc'],['img/ba-2.jpg','Bandou noué dans les cheveux, dans un champ'],['img/ba-3.jpg','Bandou porté avec une robe rouge, sur une moto'],['img/ba-7.jpg','Bandou porté dans les cheveux, sur une moto'],['img/ba-6.jpg','Bandou porté dans un champ, sur une moto'],['img/ba-8.jpg','Bandou noué au guidon d’une moto']],
-      details: [3,6,7], legend: 4, tile: ['img/bandou.png', 'Bandou']
+      details: [3,6,7], legend: 4, story: ['Légende de Saint Loup', ['Eté 1095. Les trois frères Loup, Guiral et Clair tombent amoureux de la même femme, Irène. Indécise, elle promet son cœur à celui qui, au cours de la Croisade, se montrera le plus courageux.', 'Selon la légende populaire, à leur retour, les trois chevaliers croisent un long convoi funèbre. Irène s\u2019est consumée d\u2019amour. Inconsolables, ils décident de vivre en ermites au sommet de trois montagnes.', 'A chaque anniversaire de la mort d\u2019Irène, les frères allument un grand feu en sa mémoire. Les années passent et, un à un, ils cessent d\u2019illuminer le Mont Saint-Clair, le Rocher de Saint-Guiral et enfin le Pic Saint-Loup, qui portent encore leur nom.', 'Selon l\u2019artiste, au retour des chevaliers, Irène est bien vivante. Elle a simplement choisi sa liberté. Elle est là sur la face nocturne du Bandou, alors que les trois feux illuminent la nuit.']],
+      tile: ['img/bandou.png', 'Bandou']
     }
   };
   var views = {
@@ -830,6 +830,9 @@ main[hidden]{display:none}
     var det = document.getElementById('pDetails'); det.textContent = '';
     det.style.setProperty('--n', d.details.length);
     d.details.forEach(function(i){ var im = el('img'); im.src = photos[i][0]; im.alt = photos[i][1]; det.appendChild(im); });
+    document.getElementById('pStoryTitle').textContent = d.story[0];
+    var st = document.getElementById('pStory'); st.textContent = '';
+    d.story[1].forEach(function(t){ st.appendChild(el('p', null, t)); });
     var lg = document.getElementById('pLegendImg'); lg.src = photos[d.legend][0]; lg.alt = photos[d.legend][1];
     var rel = document.getElementById('pRelated'); rel.textContent = '';
     Object.keys(P).filter(function(k){ return k !== key; }).forEach(function(k){
