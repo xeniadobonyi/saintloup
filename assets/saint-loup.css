@@ -2762,3 +2762,41 @@ html.sl-solid .sl-hdr {
   outline: 2px solid var(--sl-ink);
   outline-offset: 4px;
 }
+
+/* ===== Type scale: 8 sizes. Every text style on the site uses one of these. ===== */
+:root{
+  --sl-t-display:96px; --sl-t-h1:60px; --sl-t-h2:40px; --sl-t-h3:28px; --sl-t-lead:21px; --sl-t-body:18px; --sl-t-small:16px; --sl-t-caps:13px;
+}
+@media (max-width: 1023px){ :root{ --sl-t-display:72px; --sl-t-h1:48px; --sl-t-h2:34px; --sl-t-h3:26px; } }
+@media (max-width: 699px){ :root{ --sl-t-display:56px; --sl-t-h1:38px; --sl-t-h2:28px; --sl-t-h3:22px; --sl-t-lead:19px; --sl-t-body:17px; --sl-t-small:15px; --sl-t-caps:12px; } }
+
+/* Display */
+.sl-chapter .sl-yr,.sl-hi-hero h1,.sl-col-year h2{font-size:var(--sl-t-display)!important;line-height:.95!important}
+/* H1 */
+.sl-intro h1,.sl-sf-intro h1,.sl-page-intro h1,.sl-in-intro h1,.sl-wear h2,.sl-hi-close p,.sl-sf-steps .sl-num{font-size:var(--sl-t-h1)!important;line-height:1.05!important}
+/* H2 */
+.sl-story h2,.sl-process h2,.sl-origine h2,.sl-related h2,.sl-legend h2,.sl-chapter h2,.sl-in-orig h2,.sl-foot .sl-line,.sl-buy h1{font-size:var(--sl-t-h2)!important;line-height:1.12!important}
+/* H3 */
+.sl-sf-steps h2,.sl-claim p,.sl-drawer nav a,.sl-hi-more h2,.sl-in-looks h2,.sl-hi-intro .sl-big{font-size:var(--sl-t-h3)!important;line-height:1.2!important}
+/* Lead */
+.sl-intro .sl-lede,.sl-page-intro .sl-lede,.sl-in-intro p.lede,.sl-sf-intro p,.sl-hi-intro p,.sl-buy .sl-price,.sl-buy .sl-first,.sl-product .sl-name,.sl-bo-cards .sl-t,.sl-col-year .sl-ct,.sl-chain .sl-k,.sl-chapter p.lead,.sl-steps .sl-h,.sl-hi-more .sl-c a{font-size:var(--sl-t-lead)!important;line-height:1.35!important}
+/* Body */
+.sl,.sl-buy .sl-body,.sl-buy .sl-desc p,.sl-in-looks p,.sl-product .sl-price,.sl-cta,.sl-hi-more .sl-c .sl-note,.sl-story .sl-copy p,.sl-chapter p,.sl-legend p,.sl-in-orig p{font-size:var(--sl-t-body)!important}
+/* Small */
+.sl-steps p,.sl-look figcaption,.sl-facts,.sl-field input,.sl-chip,.sl-tag,.sl-thanks,.sl-intro .sl-note,.sl-shop-nl .sl-note,.sl-foot .sl-nl p,.sl-foot nav,.sl-chain .sl-v,.sl-bo-cards .sl-s,.sl-steps .sl-n,.sl-product .sl-ed,.sl-logos p,.sl-drawer .sl-foot{font-size:var(--sl-t-small)!important}
+/* Caps (uppercase, tracked) */
+.sl-hdr,.sl-caps,.sl-eyebrow,.sl-regions div,.sl-sf-steps .sl-loc,.sl-col-year .sl-cd,.sl-foot .sl-copy,.sl-stage .sl-count{font-size:var(--sl-t-caps)!important}
+
+/* ===== Buttons & links ===== */
+/* Rule: an underlined link loses its underline on hover; a link without one gains it. One timing everywhere. */
+:root{--sl-t-ease:.35s ease}
+/* Primary button */
+.sl-cta{min-height:56px!important;border-radius:2px!important;letter-spacing:.01em!important;text-transform:none!important}
+/* Caps link (Découvrir, Notre histoire…) */
+.sl-caps{letter-spacing:.22em!important;padding-bottom:4px!important;border-bottom-width:1px!important;transition:border-color var(--sl-t-ease)!important}
+/* Text links: underline appears on hover */
+.sl-nav a,.sl-foot nav a,.sl-bo-cards .sl-t,.sl-drawer nav a{text-decoration:underline!important;text-decoration-thickness:1px!important;text-underline-offset:6px!important;text-decoration-color:transparent!important;transition:text-decoration-color var(--sl-t-ease)!important;opacity:1!important;background:none!important}
+.sl-nav a:hover,.sl-foot nav a:hover,.sl-bo-cards a:hover .sl-t,.sl-drawer nav a:hover,.sl-nav a[aria-current="page"]{text-decoration-color:currentColor!important}
+/* Histoire "dans la presse" link becomes a caps link */
+.sl-hi-more .sl-c a{font-size:var(--sl-t-caps)!important;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;transition:border-color var(--sl-t-ease)}
+.sl-hi-more .sl-c a:hover{border-bottom-color:#C9C1B3}
