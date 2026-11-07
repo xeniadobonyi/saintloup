@@ -535,6 +535,10 @@ main[hidden]{display:none}
   .bo-cards{grid-template-columns:1fr;gap:48px}
   .bo-cards img{aspect-ratio:3/2}
 }
+/* Homepage rhythm: one even gap between sections (200 / 160 / 112) */
+.products{padding-bottom:200px} .claim{padding-bottom:200px} .story.tight{padding-bottom:200px} .process{padding-bottom:200px} .wear{padding-bottom:158px}
+@media (max-width: 1023px){ .products{padding-bottom:160px} .claim{padding-bottom:160px} .story.tight{padding-bottom:160px} .process{padding-bottom:160px} .wear{padding-bottom:119px} }
+@media (max-width: 699px){ .products{padding-bottom:112px} .claim{padding-bottom:112px} .story.tight{padding-bottom:112px} .process{padding-bottom:112px} .wear{padding-bottom:71px} }
 .shop{padding-top:96px}
 .swap{position:relative;display:block;width:100%}
 .swap img{width:100%;aspect-ratio:3/4;object-fit:cover}
