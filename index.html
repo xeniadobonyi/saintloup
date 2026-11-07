@@ -591,6 +591,13 @@ a.frame{display:block;text-decoration:none;color:inherit}
 /* Hero: the whole photo links to the featured product; the glass label keeps its own hover */
 .hero-link{position:absolute;inset:0;z-index:0}
 .hero .pin,.hero .chipwrap{z-index:1}
+/* Photo links: the photo itself never changes; the glass button brightens softly when the photo is hovered, fully when the button is */
+@media (hover: hover){
+  .hero:hover .chip,.camp-link:hover .chip{background:rgba(255,255,255,.26)}
+  .hero .chip:hover,.camp-link .chip:hover{background:rgba(255,255,255,.34)}
+  .frame:hover .tag{background:rgba(252,250,245,.74)}
+  .frame .tag:hover{background:rgba(252,250,245,.88)}
+}
 </style>
 
 </head>
