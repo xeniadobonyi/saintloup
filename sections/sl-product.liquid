@@ -73,7 +73,7 @@
           </select>
         {%- endif -%}
         <button class="sl-cta" type="submit"{% unless current_variant.available %} disabled{% endunless %}>
-          {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+          {%- if current_variant.available -%}<span>Ajouter au panier</span>{% render 'sl-icon', name: 'arrow' %}{%- else -%}<span>Épuisé</span>{%- endif -%}
         </button>
         {%- if section.settings.show_express and current_variant.available -%}
           <div class="sl-express">{{ form | payment_button }}</div>

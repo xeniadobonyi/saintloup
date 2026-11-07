@@ -593,3 +593,61 @@ a.sl-frame:hover .sl-tag{background:rgba(252,250,245,.88)}
 .sl-buy h1{margin-top:-.16em}
 @supports (text-box: trim-both cap alphabetic){ .sl-buy h1{margin-top:0;text-box:trim-both cap alphabetic} }
 @supports (text-box: trim-both cap alphabetic){ .sl-buy .sl-price{margin-top:24px} }
+/* Add to cart: black block, label in Garamond at reading size, arrow slides in on hover */
+.sl-cta{display:flex;align-items:center;justify-content:center;gap:12px;font-size:19px;letter-spacing:.01em;text-transform:none}
+.sl-cta svg{width:0;opacity:0;transition:width .35s ease,opacity .35s ease}
+.sl-cta:hover svg{width:18px;opacity:1}
+@media (max-width: 699px){ .sl-cta{font-size:18px} }
+
+/* ---- Cookie banner (Shopify privacy banner): glass card in the site's type ---- */
+#shopify-pc__banner .shopify-pc__banner__dialog,
+#shopify-pc__prefs .shopify-pc__prefs__dialog{
+  background:rgba(252,250,245,.62) !important;
+  -webkit-backdrop-filter:saturate(180%) blur(28px) !important;backdrop-filter:saturate(180%) blur(28px) !important;
+  border:0 !important;border-radius:0 !important;
+  box-shadow:0 18px 48px -20px rgba(3,3,2,.32) !important;
+  color:#030302 !important;
+  font-family:var(--sl-serif) !important;font-size:16px !important;line-height:1.55 !important;
+}
+#shopify-pc__banner .shopify-pc__banner__dialog{padding:28px 32px !important}
+#shopify-pc__banner .shopify-pc__banner__dialog h2,
+#shopify-pc__prefs .shopify-pc__prefs__dialog h2{
+  font-family:var(--sl-serif) !important;font-weight:400 !important;font-size:13px !important;
+  letter-spacing:.22em !important;text-transform:uppercase !important;color:#030302 !important;margin:0 0 10px !important
+}
+#shopify-pc__banner .shopify-pc__banner__dialog p,
+#shopify-pc__prefs .shopify-pc__prefs__dialog p{font-family:var(--sl-serif) !important;color:#4A4A4A !important;line-height:1.55 !important}
+#shopify-pc__banner .shopify-pc__banner__dialog a,
+#shopify-pc__prefs .shopify-pc__prefs__dialog a{color:#030302 !important;text-underline-offset:4px}
+#shopify-pc__banner .shopify-pc__banner__dialog button,
+#shopify-pc__prefs .shopify-pc__prefs__dialog button{
+  font-family:var(--sl-serif) !important;font-size:16px !important;letter-spacing:.01em !important;
+  min-height:46px !important;padding:10px 26px !important;border-radius:2px !important;
+  transition:background-color .35s ease,color .35s ease,border-color .35s ease !important
+}
+#shopify-pc__banner button#shopify-pc__banner__btn-accept,
+#shopify-pc__prefs button.shopify-pc__prefs__header-accept,
+#shopify-pc__prefs button.shopify-pc__prefs__header-save{
+  background:#030302 !important;color:#FCFAF5 !important;border:1px solid #030302 !important
+}
+#shopify-pc__banner button#shopify-pc__banner__btn-accept:hover,
+#shopify-pc__prefs button.shopify-pc__prefs__header-accept:hover,
+#shopify-pc__prefs button.shopify-pc__prefs__header-save:hover{background:#2A2925 !important;border-color:#2A2925 !important}
+#shopify-pc__banner button#shopify-pc__banner__btn-decline,
+#shopify-pc__prefs button.shopify-pc__prefs__header-decline{
+  background:transparent !important;color:#030302 !important;border:1px solid #030302 !important
+}
+#shopify-pc__banner button#shopify-pc__banner__btn-decline:hover,
+#shopify-pc__prefs button.shopify-pc__prefs__header-decline:hover{background:#030302 !important;color:#FCFAF5 !important}
+#shopify-pc__banner button#shopify-pc__banner__btn-manage-prefs{
+  background:transparent !important;border:0 !important;color:#030302 !important;padding-inline:0 !important;
+  text-decoration:underline !important;text-underline-offset:5px !important;text-decoration-thickness:1px !important
+}
+#shopify-pc__banner button#shopify-pc__banner__btn-manage-prefs:hover{text-decoration-color:transparent !important}
+#shopify-pc__prefs .shopify-pc__prefs__overlay{background:rgba(20,18,15,.28) !important;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#shopify-pc__prefs .shopify-pc__prefs__dialog header{border-bottom-color:#D9D4C9 !important}
+#shopify-pc__prefs .shopify-pc__prefs__option{border-color:#D9D4C9 !important}
+#shopify-pc__prefs .shopify-pc__prefs__dialog input[type="checkbox"]{accent-color:#030302}
+@media (max-width: 699px){
+  #shopify-pc__banner .shopify-pc__banner__dialog{padding:22px 20px !important}
+}
