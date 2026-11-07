@@ -432,7 +432,7 @@ main[hidden]{display:none}
 .pull blockquote{margin:0;font-size:52px;line-height:1.15;font-style:italic;text-wrap:balance}
 .pull figcaption{margin-top:28px;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
 .pull figcaption a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
-.press{max-width:1240px;margin:0 auto;padding-block:160px 200px;display:flex;flex-direction:column;gap:120px}
+.press{max-width:1240px;margin:0 auto;padding-block:104px 200px;display:flex;flex-direction:column;gap:120px}
 @media (max-width: 1023px){
   .pull blockquote{font-size:40px}
   .press{gap:96px;padding-block:120px 160px}
@@ -443,9 +443,6 @@ main[hidden]{display:none}
   .pull blockquote{font-size:30px}
   .press{padding-block:88px 120px;gap:72px}
 }
-.opt{max-width:1240px;margin:0 auto;padding-block:32px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
-.opt a{text-decoration:none;color:var(--soft);padding:10px 0}
-.opt a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:6px}
 .reg-year{display:block}
 .reg-year h2{font-size:13px;letter-spacing:.22em;font-weight:400;padding-bottom:18px;border-bottom:1px solid var(--ink)}
 .reg-year ol{list-style:none;margin:0;padding:0}
@@ -465,7 +462,6 @@ main[hidden]{display:none}
   .reg-year .rl img{max-width:130px}
 }
 @media (max-width: 699px){
-  .opt{justify-content:flex-start;gap:0 18px}
   .reg-year a{grid-template-columns:minmax(0,1fr);gap:12px;padding:26px 0}
   .reg-year .rl{height:24px} .reg-year .rl img{max-height:24px;max-width:130px}
   .reg-year .rd{grid-column:1;grid-row:auto;margin:0}
@@ -857,13 +853,8 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
 </main>
 
 <main id="view-pr" hidden>
-  <nav class="wrap opt" aria-label="Options de mise en page"><a href="#presse" aria-current="page">Option 1 · La colonne</a><a href="#presse-2">Option 2 · Le registre</a><a href="#presse-3">Option 3 · L'index</a></nav>
-  <section class="wrap press-head">
+  <section class="wrap page-intro">
     <h1>Presse</h1>
-    <figure class="pull">
-      <blockquote>« La France était leader mondial de la soierie, nous avons tout laissé à l'abandon ! »</blockquote>
-      <figcaption><a href="https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700" target="_blank" rel="noopener">Les Echos, 2 octobre 2026</a></figcaption>
-    </figure>
   </section>
   <div class="wrap press">
     <section class="col-year">
@@ -895,94 +886,6 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
         <li><a href="https://www.objectifgard.com/actualites/cevennes-carre-de-soie-100-cevenol-le-design-a-ete-devoile-156219.php" target="_blank" rel="noopener"><span class="cl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="cb"><span class="ct">Carré de soie 100 % cévenol : le design a été dévoilé</span><span class="cd">1er décembre</span></span><span class="ca"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
         <li><a href="https://www.leprogres.fr/economie/2025/11/22/le-savoir-faire-ne-tient-plus-qu-a-un-fil-qui-veut-acheter-le-premier-carre-de-soie-francaise" target="_blank" rel="noopener"><span class="cl"><img src="img/press-logo-le-progres.png" alt="Le Progrès"></span><span class="cb"><span class="ct">« Le savoir-faire ne tient plus qu’à un fil » : qui veut acheter le premier carré de soie française ?</span><span class="cd">22 novembre</span></span><span class="ca"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
         <li><a href="https://www.objectifgard.com/actualites/fait-du-jour-un-carre-de-soie-entierement-cevenole-pour-les-fetes-de-noel-155234.php" target="_blank" rel="noopener"><span class="cl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="cb"><span class="ct">Un carré de soie entièrement cévenole pour les fêtes de Noël</span><span class="cd">16 novembre</span></span><span class="ca"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-      </ol>
-    </section>
-  </div>
-</main>
-
-<main id="view-pr2" hidden>
-  <nav class="wrap opt" aria-label="Options de mise en page"><a href="#presse">Option 1 · La colonne</a><a href="#presse-2" aria-current="page">Option 2 · Le registre</a><a href="#presse-3">Option 3 · L'index</a></nav>
-  <section class="wrap press-head">
-    <h1>Presse</h1>
-    <figure class="pull">
-      <blockquote>« La France était leader mondial de la soierie, nous avons tout laissé à l'abandon ! »</blockquote>
-      <figcaption><a href="https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700" target="_blank" rel="noopener">Les Echos, 2 octobre 2026</a></figcaption>
-    </figure>
-  </section>
-  <div class="wrap press">
-    <section class="reg-year">
-      <h2>2026</h2>
-      <ol>
-        <li><a href="https://www.instagram.com/p/DeTjRNGDVwk/" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="rt">L&#x27;entreprise SAINT LOUP ambitionne de relancer l&#x27;industrie de la soie dans les Cévennes</span><span class="rd">10 octobre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-les-echos.png" alt="Les Echos"></span><span class="rt">« La France était leader mondial de la soierie, nous avons tout laissé à l&#x27;abandon ! » : il relance une filière, du cocon au carré de soie</span><span class="rd">2 octobre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.instagram.com/france3occitanie/reel/DcDoN5TjgXp/" target="_blank" rel="noopener"><span class="rl"><img src="img/press-france-3.png" alt="France 3"></span><span class="rt">« C&#x27;est tout un patrimoine qui renaît » : le pari fou de l&#x27;entreprise SAINT LOUP pour relancer la filière de la soie des Cévennes</span><span class="rd">11 août</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.ici.fr/emissions/l-info-d-ici-ici-gard-lozere/video-cette-entreprise-des-cevennes-triple-sa-production-et-embauche-une-fileuse-pour-une-soie-100-francaise-9117690" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-radiofrance.png" alt="ICI"></span><span class="rt">Cette entreprise des Cévennes triple sa production et embauche une fileuse pour une soie 100% française</span><span class="rd">10 août</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.midilibre.fr/2026/08/09/a-monoblet-dans-le-gard-le-retour-historique-dune-production-de-soie-francaise-13495380.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="rt">Le retour historique d’une production de soie française</span><span class="rd">9 août</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.leprogres.fr/economie/2026/08/04/le-pont-d-arc-represente-sur-un-bandeau-de-soie-100-francais" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-le-progres.png" alt="Le Progrès Libéré"></span><span class="rt">C’est l’histoire d’une légende occitane, revisitée au féminin, avec une pointe d’Ardèche</span><span class="rd">4 août</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.objectifgard.com/economie/fait-du-jour-a-monoblet-la-soie-repasse-enfin-dans-les-mains-dune-fileuse-167736.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="rt">À Monoblet, la soie repasse enfin dans les mains d&#x27;une fileuse</span><span class="rd">4 août</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.ledauphine.com/economie/2026/07/25/le-pont-d-arc-represente-sur-un-bandeau-de-soie-100-francais" target="_blank" rel="noopener"><span class="rl"><img src="img/press-dauphine-libere.png" alt="Le Dauphiné Libéré"></span><span class="rt">Le Pont d’Arc représenté sur un bandeau de soie 100 % français</span><span class="rd">25 juillet</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://infoccitanie.fr/gard-saint-loup-lance-le-bandou-un-accessoire-de-mode-qui-participe-a-la-renaiss/" target="_blank" rel="noopener"><span class="rl"><img src="img/press-infoccitanie.png" alt="InfOccitanie"></span><span class="rt">Saint Loup lance « Le Bandou », un accessoire de mode qui participe à la renaissance de la soie française</span><span class="rd">9 juillet</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.lyon-entreprises.com/actualites/article/saint-loup-relance-soie-francaise-lyon-auvergne-rhone-alpes" target="_blank" rel="noopener"><span class="rl"><img src="img/press-lyon-entreprises.png" alt="Lyon Entreprises"></span><span class="rt">Maison SAINT LOUP relance la soie française avec une création fabriquée en Auvergne-Rhône-Alpes</span><span class="rd">8 juillet</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.lesechos.fr/pme-regions/occitanie/textile-saint-loup-triple-sa-capacite-de-production-de-soie-dans-les-cevennes-2240365" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-les-echos.png" alt="Les Echos"></span><span class="rt">Textile : Saint Loup triple sa capacité de production de soie dans les Cévennes</span><span class="rd">2 juillet</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.lejournaldesentreprises.com/breve/la-maison-saint-loup-relocalise-la-filature-de-la-soie-dans-le-gard-2145744" target="_blank" rel="noopener"><span class="rl"><img src="img/press-journal-des-entreprises-logo.png" alt="Le Journal des Entreprises"></span><span class="rt">La Maison Saint Loup relocalise la filature de la soie dans le Gard</span><span class="rd">29 juin</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.occitanie-tribune.com/articles/56901/gard-saint-loup-devoile-laquo-le-bandou-raquo-et-accelere-la-relocalisation-du-savoir-faire-sericicole" target="_blank" rel="noopener"><span class="rl"><img src="img/press-occitanie-tribune-logo2.png" alt="Occitanie Tribune"></span><span class="rt">SAINT LOUP dévoile « Le Bandou » et accélère la relocalisation du savoir-faire séricicole</span><span class="rd">29 juin</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.entreprises-occitanie.com/actualites/dans-les-cevennes-saint-loup-tisse-une-nouvelle-page-de-la-soie-francaise-avec-le-bandou" target="_blank" rel="noopener"><span class="rl"><img src="img/press-entreprises-occitanie-logo.png" alt="Entreprises Occitanie"></span><span class="rt">Dans les Cévennes, Saint Loup tisse une nouvelle page de la soie française avec « Le Bandou »</span><span class="rd">26 juin</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-      </ol>
-    </section>
-    <section class="reg-year">
-      <h2>2025</h2>
-      <ol>
-        <li><a href="https://www.midilibre.fr/2025/12/14/le-succes-fou-du-premier-foulard-de-soie-francaise-fait-esperer-une-relance-de-la-sericiculture-cevenole-13104774.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="rt">Le succès fou du premier foulard de soie française fait espérer une relance de la sériciculture cévenole</span><span class="rd">14 décembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.leparisien.fr/gard-30/un-pari-reussi-ce-carre-de-soie-cevenol-est-le-premier-100-francais-depuis-plus-dun-siecle-15-12-2025-6PQGU6KOQZGXHPMDGINSDRHYQQ.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-le-parisien-logo.png" alt="Le Parisien"></span><span class="rt">Un pari réussi : ce carré de soie cévenol est le premier 100% français depuis plus d’un siècle !</span><span class="rd">15 décembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.midilibre.fr/2025/12/04/la-marque-saint-loup-cree-le-premier-foulard-en-soie-francaise-depuis-plus-dun-siecle-13088923.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="rt">La marque Saint Loup crée le premier foulard en soie française depuis plus d’un siècle</span><span class="rd">4 décembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.leprogres.fr/economie/2025/12/01/le-premier-carre-de-soir-made-in-france-est-en-vente" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-le-progres.png" alt="Le Progrès"></span><span class="rt">Le premier carré de soie made in France est en vente</span><span class="rd">1er décembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.objectifgard.com/actualites/cevennes-carre-de-soie-100-cevenol-le-design-a-ete-devoile-156219.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="rt">Carré de soie 100 % cévenol : le design a été dévoilé</span><span class="rd">1er décembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.leprogres.fr/economie/2025/11/22/le-savoir-faire-ne-tient-plus-qu-a-un-fil-qui-veut-acheter-le-premier-carre-de-soie-francaise" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-le-progres.png" alt="Le Progrès"></span><span class="rt">« Le savoir-faire ne tient plus qu’à un fil » : qui veut acheter le premier carré de soie française ?</span><span class="rd">22 novembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-        <li><a href="https://www.objectifgard.com/actualites/fait-du-jour-un-carre-de-soie-entierement-cevenole-pour-les-fetes-de-noel-155234.php" target="_blank" rel="noopener"><span class="rl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="rt">Un carré de soie entièrement cévenole pour les fêtes de Noël</span><span class="rd">16 novembre</span><span class="ra"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
-      </ol>
-    </section>
-  </div>
-</main>
-
-<main id="view-pr3" hidden>
-  <nav class="wrap opt" aria-label="Options de mise en page"><a href="#presse">Option 1 · La colonne</a><a href="#presse-2">Option 2 · Le registre</a><a href="#presse-3" aria-current="page">Option 3 · L'index</a></nav>
-  <section class="wrap press-head">
-    <h1>Presse</h1>
-    <figure class="pull">
-      <blockquote>« La France était leader mondial de la soierie, nous avons tout laissé à l'abandon ! »</blockquote>
-      <figcaption><a href="https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700" target="_blank" rel="noopener">Les Echos, 2 octobre 2026</a></figcaption>
-    </figure>
-  </section>
-  <div class="wrap press idx">
-    <section class="idx-year">
-      <h2><span>2026</span></h2>
-      <ol>
-        <li><a href="https://www.instagram.com/p/DeTjRNGDVwk/" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="xt">L&#x27;entreprise SAINT LOUP ambitionne de relancer l&#x27;industrie de la soie dans les Cévennes</span><span class="xd">10 octobre</span></a></li>
-        <li><a href="https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-les-echos.png" alt="Les Echos"></span><span class="xt">« La France était leader mondial de la soierie, nous avons tout laissé à l&#x27;abandon ! » : il relance une filière, du cocon au carré de soie</span><span class="xd">2 octobre</span></a></li>
-        <li><a href="https://www.instagram.com/france3occitanie/reel/DcDoN5TjgXp/" target="_blank" rel="noopener"><span class="xl"><img src="img/press-france-3.png" alt="France 3"></span><span class="xt">« C&#x27;est tout un patrimoine qui renaît » : le pari fou de l&#x27;entreprise SAINT LOUP pour relancer la filière de la soie des Cévennes</span><span class="xd">11 août</span></a></li>
-        <li><a href="https://www.ici.fr/emissions/l-info-d-ici-ici-gard-lozere/video-cette-entreprise-des-cevennes-triple-sa-production-et-embauche-une-fileuse-pour-une-soie-100-francaise-9117690" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-radiofrance.png" alt="ICI"></span><span class="xt">Cette entreprise des Cévennes triple sa production et embauche une fileuse pour une soie 100% française</span><span class="xd">10 août</span></a></li>
-        <li><a href="https://www.midilibre.fr/2026/08/09/a-monoblet-dans-le-gard-le-retour-historique-dune-production-de-soie-francaise-13495380.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="xt">Le retour historique d’une production de soie française</span><span class="xd">9 août</span></a></li>
-        <li><a href="https://www.leprogres.fr/economie/2026/08/04/le-pont-d-arc-represente-sur-un-bandeau-de-soie-100-francais" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-le-progres.png" alt="Le Progrès Libéré"></span><span class="xt">C’est l’histoire d’une légende occitane, revisitée au féminin, avec une pointe d’Ardèche</span><span class="xd">4 août</span></a></li>
-        <li><a href="https://www.objectifgard.com/economie/fait-du-jour-a-monoblet-la-soie-repasse-enfin-dans-les-mains-dune-fileuse-167736.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="xt">À Monoblet, la soie repasse enfin dans les mains d&#x27;une fileuse</span><span class="xd">4 août</span></a></li>
-        <li><a href="https://www.ledauphine.com/economie/2026/07/25/le-pont-d-arc-represente-sur-un-bandeau-de-soie-100-francais" target="_blank" rel="noopener"><span class="xl"><img src="img/press-dauphine-libere.png" alt="Le Dauphiné Libéré"></span><span class="xt">Le Pont d’Arc représenté sur un bandeau de soie 100 % français</span><span class="xd">25 juillet</span></a></li>
-        <li><a href="https://infoccitanie.fr/gard-saint-loup-lance-le-bandou-un-accessoire-de-mode-qui-participe-a-la-renaiss/" target="_blank" rel="noopener"><span class="xl"><img src="img/press-infoccitanie.png" alt="InfOccitanie"></span><span class="xt">Saint Loup lance « Le Bandou », un accessoire de mode qui participe à la renaissance de la soie française</span><span class="xd">9 juillet</span></a></li>
-        <li><a href="https://www.lyon-entreprises.com/actualites/article/saint-loup-relance-soie-francaise-lyon-auvergne-rhone-alpes" target="_blank" rel="noopener"><span class="xl"><img src="img/press-lyon-entreprises.png" alt="Lyon Entreprises"></span><span class="xt">Maison SAINT LOUP relance la soie française avec une création fabriquée en Auvergne-Rhône-Alpes</span><span class="xd">8 juillet</span></a></li>
-        <li><a href="https://www.lesechos.fr/pme-regions/occitanie/textile-saint-loup-triple-sa-capacite-de-production-de-soie-dans-les-cevennes-2240365" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-les-echos.png" alt="Les Echos"></span><span class="xt">Textile : Saint Loup triple sa capacité de production de soie dans les Cévennes</span><span class="xd">2 juillet</span></a></li>
-        <li><a href="https://www.lejournaldesentreprises.com/breve/la-maison-saint-loup-relocalise-la-filature-de-la-soie-dans-le-gard-2145744" target="_blank" rel="noopener"><span class="xl"><img src="img/press-journal-des-entreprises-logo.png" alt="Le Journal des Entreprises"></span><span class="xt">La Maison Saint Loup relocalise la filature de la soie dans le Gard</span><span class="xd">29 juin</span></a></li>
-        <li><a href="https://www.occitanie-tribune.com/articles/56901/gard-saint-loup-devoile-laquo-le-bandou-raquo-et-accelere-la-relocalisation-du-savoir-faire-sericicole" target="_blank" rel="noopener"><span class="xl"><img src="img/press-occitanie-tribune-logo2.png" alt="Occitanie Tribune"></span><span class="xt">SAINT LOUP dévoile « Le Bandou » et accélère la relocalisation du savoir-faire séricicole</span><span class="xd">29 juin</span></a></li>
-        <li><a href="https://www.entreprises-occitanie.com/actualites/dans-les-cevennes-saint-loup-tisse-une-nouvelle-page-de-la-soie-francaise-avec-le-bandou" target="_blank" rel="noopener"><span class="xl"><img src="img/press-entreprises-occitanie-logo.png" alt="Entreprises Occitanie"></span><span class="xt">Dans les Cévennes, Saint Loup tisse une nouvelle page de la soie française avec « Le Bandou »</span><span class="xd">26 juin</span></a></li>
-      </ol>
-    </section>
-    <section class="idx-year">
-      <h2><span>2025</span></h2>
-      <ol>
-        <li><a href="https://www.midilibre.fr/2025/12/14/le-succes-fou-du-premier-foulard-de-soie-francaise-fait-esperer-une-relance-de-la-sericiculture-cevenole-13104774.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="xt">Le succès fou du premier foulard de soie française fait espérer une relance de la sériciculture cévenole</span><span class="xd">14 décembre</span></a></li>
-        <li><a href="https://www.leparisien.fr/gard-30/un-pari-reussi-ce-carre-de-soie-cevenol-est-le-premier-100-francais-depuis-plus-dun-siecle-15-12-2025-6PQGU6KOQZGXHPMDGINSDRHYQQ.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-le-parisien-logo.png" alt="Le Parisien"></span><span class="xt">Un pari réussi : ce carré de soie cévenol est le premier 100% français depuis plus d’un siècle !</span><span class="xd">15 décembre</span></a></li>
-        <li><a href="https://www.midilibre.fr/2025/12/04/la-marque-saint-loup-cree-le-premier-foulard-en-soie-francaise-depuis-plus-dun-siecle-13088923.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-midi-libre.png" alt="Midi Libre"></span><span class="xt">La marque Saint Loup crée le premier foulard en soie française depuis plus d’un siècle</span><span class="xd">4 décembre</span></a></li>
-        <li><a href="https://www.leprogres.fr/economie/2025/12/01/le-premier-carre-de-soir-made-in-france-est-en-vente" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-le-progres.png" alt="Le Progrès"></span><span class="xt">Le premier carré de soie made in France est en vente</span><span class="xd">1er décembre</span></a></li>
-        <li><a href="https://www.objectifgard.com/actualites/cevennes-carre-de-soie-100-cevenol-le-design-a-ete-devoile-156219.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="xt">Carré de soie 100 % cévenol : le design a été dévoilé</span><span class="xd">1er décembre</span></a></li>
-        <li><a href="https://www.leprogres.fr/economie/2025/11/22/le-savoir-faire-ne-tient-plus-qu-a-un-fil-qui-veut-acheter-le-premier-carre-de-soie-francaise" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-le-progres.png" alt="Le Progrès"></span><span class="xt">« Le savoir-faire ne tient plus qu’à un fil » : qui veut acheter le premier carré de soie française ?</span><span class="xd">22 novembre</span></a></li>
-        <li><a href="https://www.objectifgard.com/actualites/fait-du-jour-un-carre-de-soie-entierement-cevenole-pour-les-fetes-de-noel-155234.php" target="_blank" rel="noopener"><span class="xl"><img src="img/press-logo-objectif-gard.png" alt="Objectif Gard"></span><span class="xt">Un carré de soie entièrement cévenole pour les fêtes de Noël</span><span class="xd">16 novembre</span></a></li>
       </ol>
     </section>
   </div>
@@ -1096,8 +999,6 @@ html.instant .hdr,html.instant .hdr *,html.instant .logo,html.instant body::befo
     'histoire': [document.getElementById('view-hi'), 'Histoire · SAINT LOUP'],
     'inspiration': [document.getElementById('view-in'), 'Inspiration · SAINT LOUP'],
     'presse': [document.getElementById('view-pr'), 'Presse · SAINT LOUP'],
-    'presse-2': [document.getElementById('view-pr2'), 'Presse · SAINT LOUP'],
-    'presse-3': [document.getElementById('view-pr3'), 'Presse · SAINT LOUP'],
     'boutique': [document.getElementById('view-bo'), 'Boutique · SAINT LOUP']
   };
   var pdpView = document.getElementById('view-mb');
