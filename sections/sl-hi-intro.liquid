@@ -1,0 +1,15 @@
+<section class="sl sl-wrap sl-hi-intro">
+  <p class="sl-big">{{ section.settings.big }}</p>
+  {{ section.settings.text }}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Chapeau",
+  "settings": [
+    { "type": "inline_richtext", "id": "big", "label": "Phrase d'ouverture" },
+    { "type": "richtext", "id": "text", "label": "Texte" }
+  ],
+  "presets": [{ "name": "SL · Chapeau" }]
+}
+{% endschema %}

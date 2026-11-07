@@ -1,8 +1,6 @@
 <!doctype html>
 <html
-  {% if request.design_mode %}
-    class="shopify-design-mode"
-  {% endif %}
+  class="{% if request.design_mode %}shopify-design-mode {% endif %}{% unless template.name == 'index' %}sl-solid{% endunless %}"
   lang="{{ request.locale.iso_code }}"
 >
   <head>
@@ -30,6 +28,8 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
+    {{ 'saint-loup.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'saint-loup.js' | asset_url }}" defer></script>
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

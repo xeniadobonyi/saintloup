@@ -1,0 +1,32 @@
+<section class="sl sl-wrap sl-products" aria-label="{{ section.settings.label | escape }}">
+  {%- for block in section.blocks -%}
+    <div {{ block.shopify_attributes }} style="display:contents">
+      {%- render 'sl-product-card', product: block.settings.product, image: block.settings.image, fb: block.settings.image_fb, alt_image: block.settings.alt_image, alt_fb: block.settings.alt_fb, edition: block.settings.edition, swap: true -%}
+    </div>
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Produits",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Libellé (accessibilité)", "default": "Les pièces" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produit",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Produit" },
+        { "type": "image_picker", "id": "image", "label": "Image (sinon image du produit)" },
+        { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)" },
+        { "type": "image_picker", "id": "alt_image", "label": "Image au survol (sinon 2e photo du produit)" },
+        { "type": "text", "id": "alt_fb", "label": "Image au survol par défaut (fichier du thème)" },
+        { "type": "text", "id": "edition", "label": "Édition", "default": "50 exemplaires numérotés" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "SL · Produits" }]
+}
+{% endschema %}

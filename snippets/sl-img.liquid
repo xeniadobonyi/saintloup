@@ -1,0 +1,17 @@
+{%- comment -%}
+  SAINT LOUP image: uses the image chosen in the theme editor, or falls back to a file shipped in the theme assets.
+  Params: image (image object), fb (asset filename), alt, class, sizes, loading, style
+{%- endcomment -%}
+{%- liquid
+  assign _alt = alt
+  if _alt == blank and image != blank
+    assign _alt = image.alt
+  endif
+  assign _loading = loading | default: 'lazy'
+  assign _sizes = sizes | default: '100vw'
+-%}
+{%- if image != blank -%}
+  {{- image | image_url: width: 2400 | image_tag: alt: _alt, class: class, loading: _loading, sizes: _sizes, widths: '400, 600, 800, 1000, 1200, 1600, 2000, 2400', style: style -}}
+{%- elsif fb != blank -%}
+  <img src="{{ fb | asset_url }}" alt="{{ _alt | escape }}"{% if class != blank %} class="{{ class }}"{% endif %} loading="{{ _loading }}"{% if style != blank %} style="{{ style }}"{% endif %}>
+{%- endif -%}

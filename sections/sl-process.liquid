@@ -1,0 +1,41 @@
+<section class="sl sl-wrap sl-process">
+  <h2>{{ section.settings.heading }}</h2>
+  <div class="sl-steps">
+    {%- for block in section.blocks -%}
+      <figure {{ block.shopify_attributes }}>
+        {%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt, sizes: '(min-width: 700px) 33vw, 100vw' -%}
+        <figcaption><div class="sl-t"><span class="sl-n">{{ block.settings.number }}</span><span class="sl-h">{{ block.settings.title }}</span></div><p>{{ block.settings.text }}</p></figcaption>
+      </figure>
+    {%- endfor -%}
+  </div>
+  {%- if section.settings.link_label != blank -%}
+    <a class="sl-caps sl-more" href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label }}</a>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Du cocon au fil",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Un savoir-faire unique en France, du cocon au fil" },
+    { "type": "text", "id": "link_label", "label": "Lien · texte", "default": "Notre savoir-faire" },
+    { "type": "url", "id": "link_url", "label": "Lien · adresse" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "image_fb", "label": "Photo par défaut (fichier du thème)" },
+        { "type": "text", "id": "alt", "label": "Texte alternatif" },
+        { "type": "text", "id": "number", "label": "Numéro", "default": "I" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Le cocon" },
+        { "type": "inline_richtext", "id": "text", "label": "Texte" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "SL · Du cocon au fil" }]
+}
+{% endschema %}

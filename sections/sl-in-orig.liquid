@@ -1,0 +1,23 @@
+<section class="sl sl-wrap sl-in-orig" id="in-original">
+  {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.alt, sizes: '(min-width: 700px) 58vw, 100vw' -%}
+  <div class="sl-copy">
+    <p class="sl-eyebrow" style="margin-bottom:12px">{{ section.settings.eyebrow }}</p>
+    <h2>{{ section.settings.heading }}</h2>
+    {{ section.settings.text }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SL · L'original",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)", "default": "sl-in-1.jpg" },
+    { "type": "text", "id": "alt", "label": "Texte alternatif" },
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "L'original" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "moucadou del col" },
+    { "type": "richtext", "id": "text", "label": "Texte" }
+  ],
+  "presets": [{ "name": "SL · L'original" }]
+}
+{% endschema %}

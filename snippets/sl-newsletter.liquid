@@ -1,0 +1,12 @@
+{%- comment -%} Newsletter field. Params: id (unique), tag (customer tag) {%- endcomment -%}
+{%- assign _id = 'sl-nl-' | append: id -%}
+{%- form 'customer', id: _id, class: 'sl-field', novalidate: 'novalidate' -%}
+  <input type="hidden" name="contact[tags]" value="newsletter{% if tag != blank %}, {{ tag }}{% endif %}">
+  <label class="sl-sr" for="{{ _id }}-email">E-mail</label>
+  <input id="{{ _id }}-email" type="email" name="contact[email]" placeholder="E-mail" autocomplete="email" required>
+  <button type="submit" aria-label="S'inscrire">{% render 'sl-icon', name: 'arrow' %}</button>
+  {%- capture _msg -%}
+    {%- if form.posted_successfully? -%}Merci, vous serez parmi les premiers informés.{%- elsif form.errors -%}Saisissez une adresse e-mail valide, par exemple nom@domaine.fr.{%- endif -%}
+  {%- endcapture -%}
+{%- endform -%}
+<p class="sl-thanks{% if _msg contains 'valide' %} is-error{% endif %}" aria-live="polite">{{ _msg }}</p>

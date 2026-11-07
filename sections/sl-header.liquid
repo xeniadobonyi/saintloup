@@ -1,0 +1,51 @@
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+-%}
+<header class="sl sl-hdr" id="sl-hdr">
+  <div>
+    <nav class="sl-nav" aria-label="Navigation principale">
+      {%- for link in menu.links -%}
+        <a href="{{ link.url }}"{% if link.current or link.child_current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+    <button class="sl-ib sl-burger" id="sl-open-menu" type="button" aria-label="Ouvrir le menu" aria-controls="sl-drawer" aria-expanded="false">{% render 'sl-icon', name: 'menu' %}</button>
+  </div>
+  <a class="sl-logo" href="{{ routes.root_url }}" aria-label="{{ section.settings.logo_text }}, accueil">{{ section.settings.logo_text }}</a>
+  <div class="sl-tools">
+    {%- if section.settings.show_currency -%}
+      <span class="sl-cur">{{ cart.currency.iso_code }}</span>
+    {%- endif -%}
+    <a class="sl-ib" href="{{ routes.search_url }}" aria-label="Rechercher">{% render 'sl-icon', name: 'search' %}</a>
+    <a class="sl-ib sl-cart" href="{{ routes.cart_url }}" aria-label="Panier, {{ cart.item_count }} article{% if cart.item_count > 1 %}s{% endif %}">
+      {%- render 'sl-icon', name: 'bag' -%}
+      {%- if cart.item_count > 0 -%}<span class="sl-count" aria-hidden="true"><span>{{ cart.item_count }}</span></span>{%- endif -%}
+    </a>
+  </div>
+</header>
+
+<div class="sl sl-drawer" id="sl-drawer" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="sl-drawer-top">
+    <span style="font-weight:600;font-size:1.2rem">{{ section.settings.logo_text }}</span>
+    <button class="sl-ib" id="sl-close-menu" type="button" aria-label="Fermer le menu">{% render 'sl-icon', name: 'close' %}</button>
+  </div>
+  <nav aria-label="Navigation principale">
+    {%- for link in menu.links -%}
+      <a href="{{ link.url }}"{% if link.current or link.child_current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+    {%- endfor -%}
+  </nav>
+  <p class="sl-drawer-foot">{{ cart.currency.iso_code }} · {{ localization.country.name }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "SAINT LOUP · En-tête",
+  "class": "sl-header-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "text", "id": "logo_text", "label": "Logo (texte)", "default": "SAINT LOUP" },
+    { "type": "checkbox", "id": "show_currency", "label": "Afficher la devise", "default": true }
+  ],
+  "presets": [{ "name": "SAINT LOUP · En-tête" }]
+}
+{% endschema %}

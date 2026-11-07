@@ -1,1 +1,19 @@
-{"type":"footer","name":"Footer","sections":{"footer":{"type":"Footer","blocks":{"menu_f9RViT":{"type":"menu","name":"t:names.menu","settings":{"menu":"footer-1","heading":"","menu_spacing":8,"show_as_accordion":false,"accordion_icon":"caret","accordion_dividers":false,"inherit_color_scheme":true,"color_scheme":"","heading_preset":"","link_preset":"h4","padding-block-start":11,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"email_signup_mLGdKh":{"type":"email-signup","name":"t:names.email_signup","settings":{"width":"custom","custom_width":70,"inherit_color_scheme":true,"color_scheme":"","heading":"S'inscrire à la newsletter","heading_preset":"h4","border_style":"all","border_width":1,"border_radius":0,"input_type_preset":"paragraph","style_class":"button","display_type":"arrow","label":"Sign up","integrated_button":false,"button_type_preset":"paragraph","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["menu_f9RViT","email_signup_mLGdKh"],"custom_css":[".email-signup-block.size-style.spacing-style {display: inline-block; margin: 0 0 0 auto;}"],"settings":{"section_width":"page-width","gap":0,"color_scheme":"scheme-2","padding-block-start":48,"padding-block-end":48}},"utilities":{"type":"footer-utilities","blocks":{"copyright":{"type":"footer-copyright","settings":{"show_powered_by":false,"font_size":"0.75rem","case":"none"},"blocks":{}}},"block_order":["copyright"],"settings":{"section_width":"page-width","gap":24,"divider_thickness":0,"color_scheme":"scheme-2","padding-block-start":0,"padding-block-end":40}}},"order":["footer","utilities"]}
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "sl_footer": {
+      "type": "sl-footer",
+      "settings": {
+        "image_fb": "sl-garrigue.jpg",
+        "line": "Le Sud brut",
+        "menu": "footer-1",
+        "nl_heading": "S'inscrire à la newsletter",
+        "copyright": "SAINT LOUP"
+      }
+    }
+  },
+  "order": [
+    "sl_footer"
+  ]
+}

@@ -1,0 +1,168 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign info = nil
+  assign info_default = nil
+  for block in section.blocks
+    if block.type == 'info'
+      if block.settings.product != blank and block.settings.product.id == product.id
+        assign info = block
+      elsif block.settings.product == blank and info_default == nil
+        assign info_default = block
+      endif
+    endif
+  endfor
+  if info == nil
+    assign info = info_default
+  endif
+  assign lead = info.settings.lead | default: section.settings.lead
+  assign desc = product.description | remove: '<meta charset="utf-8">'
+  if lead != blank and desc contains lead
+    assign desc = desc | remove_first: lead | replace_first: '<p><br>', '<p>' | remove: '<p> </p>' | remove: '<p></p>'
+  endif
+  assign images = product.media | where: 'media_type', 'image'
+-%}
+<div class="sl sl-pdp">
+  <section class="sl-wrap sl-pdp-top">
+    <div class="sl-gal" data-sl-gallery>
+      <div class="sl-thumbs" role="tablist" aria-label="Choisir une photo">
+        {%- for m in images -%}
+          <button type="button" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Photo {{ forloop.index }}{% if m.alt != blank %} : {{ m.alt | escape }}{% endif %}"
+            data-src="{{ m.preview_image | image_url: width: 1800 }}" data-srcset="{{ m.preview_image | image_url: width: 900 }} 900w, {{ m.preview_image | image_url: width: 1400 }} 1400w, {{ m.preview_image | image_url: width: 1800 }} 1800w" data-alt="{{ m.alt | default: product.title | escape }}">
+            {{- m.preview_image | image_url: width: 160 | image_tag: alt: '', loading: 'lazy' -}}
+          </button>
+        {%- endfor -%}
+      </div>
+      <div class="sl-stage">
+        {%- assign first = images.first -%}
+        {%- if first -%}
+          {%- assign first_alt = first.alt | default: product.title -%}
+          {{- first.preview_image | image_url: width: 1800 | image_tag: alt: first_alt, loading: 'eager', widths: '900, 1400, 1800', sizes: '(min-width: 1024px) 50vw, 100vw' -}}
+        {%- endif -%}
+        {%- if images.size > 1 -%}
+          <div class="sl-ctl">
+            <span class="sl-count sl-glass" data-sl-count>1 / {{ images.size }}</span>
+            <button class="sl-arrow sl-glass" type="button" data-sl-prev aria-label="Photo précédente">{% render 'sl-icon', name: 'arrow-left' %}</button>
+            <button class="sl-arrow sl-glass" type="button" data-sl-next aria-label="Photo suivante">{% render 'sl-icon', name: 'arrow' %}</button>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="sl-buy">
+      <h1>{{ product.title }}</h1>
+      <p class="sl-price">{{ current_variant.price | money_without_trailing_zeros }}</p>
+      {%- if lead != blank and product.description contains lead -%}<p class="sl-first">{{ lead }}</p>{%- endif -%}
+      <div class="sl-desc">{{ desc }}</div>
+      {%- form 'product', product, class: 'sl-buy-form' -%}
+        {%- if product.variants.size == 1 -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {%- else -%}
+          <label class="sl-sr" for="sl-variant-{{ section.id }}">Option</label>
+          <select id="sl-variant-{{ section.id }}" name="id" class="sl-variant">
+            {%- for v in product.variants -%}
+              <option value="{{ v.id }}"{% if v == current_variant %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>{{ v.title }} · {{ v.price | money_without_trailing_zeros }}</option>
+            {%- endfor -%}
+          </select>
+        {%- endif -%}
+        <button class="sl-cta" type="submit"{% unless current_variant.available %} disabled{% endunless %}>
+          {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+        </button>
+        {%- if section.settings.show_express and current_variant.available -%}
+          <div class="sl-express">{{ form | payment_button }}</div>
+        {%- endif -%}
+      {%- endform -%}
+      {%- if info -%}
+        <dl class="sl-facts">
+          {%- if info.settings.dimensions != blank -%}<div><dt>Dimensions</dt><dd>{{ info.settings.dimensions }}</dd></div>{%- endif -%}
+          {%- if info.settings.artist != blank -%}<div><dt>Artiste</dt><dd>{{ info.settings.artist }}</dd></div>{%- endif -%}
+        </dl>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- assign steps = section.blocks | where: 'type', 'origin' -%}
+  {%- if steps.size > 0 -%}
+    <section class="sl-wrap sl-origine">
+      <h2>{{ section.settings.origin_heading }}</h2>
+      <ol class="sl-chain">
+        {%- for block in steps -%}
+          <li {{ block.shopify_attributes }}><div class="sl-k">{{ block.settings.step }}</div><div class="sl-v">{{ block.settings.place }}</div></li>
+        {%- endfor -%}
+      </ol>
+    </section>
+  {%- endif -%}
+
+  {%- if info and info.settings.story_title != blank -%}
+    {%- assign idx = info.settings.story_image | minus: 1 -%}
+    <section class="sl-wrap sl-legend">
+      {%- if info.settings.story_image_override != blank -%}
+        {%- render 'sl-img', image: info.settings.story_image_override, alt: product.title, sizes: '(min-width: 1024px) 50vw, 100vw' -%}
+      {%- elsif images[idx] -%}
+        {%- assign story_img = images[idx] -%}
+        {%- assign story_alt = story_img.alt | default: product.title -%}
+        {{- story_img.preview_image | image_url: width: 1600 | image_tag: alt: story_alt, loading: 'lazy', widths: '600, 1000, 1600', sizes: '(min-width: 1024px) 50vw, 100vw' -}}
+      {%- endif -%}
+      <div class="sl-copy">
+        <h2>{{ info.settings.story_title }}</h2>
+        {{ info.settings.story }}
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if section.settings.show_related -%}
+    {%- assign rel_collection = section.settings.related_collection | default: collections.all -%}
+    <section class="sl-wrap sl-related">
+      <h2>{{ section.settings.related_heading }}</h2>
+      <div class="sl-grid">
+        {%- assign shown = 0 -%}
+        {%- for p in rel_collection.products -%}
+          {%- if p.id != product.id and shown < 2 -%}
+            {%- render 'sl-product-card', product: p, show_cta: false -%}
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+<script type="application/ld+json">{{ product | structured_data }}</script>
+
+{% schema %}
+{
+  "name": "SL · Fiche produit",
+  "settings": [
+    { "type": "text", "id": "lead", "label": "Accroche (première phrase de la description, mise en avant)", "default": "Le premier carré de soie française depuis le siècle dernier." },
+    { "type": "checkbox", "id": "show_express", "label": "Paiement express (Apple Pay, Shop Pay…)", "default": true },
+    { "type": "text", "id": "origin_heading", "label": "Origine · titre", "default": "Origine" },
+    { "type": "checkbox", "id": "show_related", "label": "Afficher les autres pièces", "default": true },
+    { "type": "text", "id": "related_heading", "label": "Autres pièces · titre", "default": "Related items" },
+    { "type": "collection", "id": "related_collection", "label": "Autres pièces · collection (sinon toutes)" }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Infos & récit",
+      "settings": [
+        { "type": "paragraph", "content": "Choisissez un produit pour lui réserver ces infos. Laissez vide pour les appliquer à tous les autres produits." },
+        { "type": "product", "id": "product", "label": "Produit" },
+        { "type": "text", "id": "lead", "label": "Accroche (si différente)" },
+        { "type": "text", "id": "dimensions", "label": "Dimensions" },
+        { "type": "text", "id": "artist", "label": "Artiste" },
+        { "type": "text", "id": "story_title", "label": "Récit · titre" },
+        { "type": "richtext", "id": "story", "label": "Récit · texte" },
+        { "type": "range", "id": "story_image", "label": "Récit · photo du produit n°", "min": 1, "max": 12, "step": 1, "default": 4 },
+        { "type": "image_picker", "id": "story_image_override", "label": "Récit · autre photo" }
+      ]
+    },
+    {
+      "type": "origin",
+      "name": "Étape d'origine",
+      "settings": [
+        { "type": "text", "id": "step", "label": "Étape", "default": "Mûriers" },
+        { "type": "text", "id": "place", "label": "Origine", "default": "100% français (Gard)" }
+      ]
+    }
+  ]
+}
+{% endschema %}

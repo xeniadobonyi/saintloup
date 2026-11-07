@@ -1,0 +1,42 @@
+<ol class="sl sl-wrap sl-sf-steps">
+  {%- for block in section.blocks -%}
+    <li {{ block.shopify_attributes }}>
+      <div class="sl-pic">
+        {%- if block.settings.video != blank or block.settings.video_fb != blank -%}
+          {%- render 'sl-video', video: block.settings.video, fb: block.settings.video_fb, poster_fb: block.settings.poster_fb, label: block.settings.alt -%}
+        {%- else -%}
+          {%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt, sizes: '(min-width: 700px) 40vw, 240px' -%}
+        {%- endif -%}
+      </div>
+      <div class="sl-txt">
+        <div class="sl-hd"><span class="sl-num">{{ forloop.index }}</span><h2>{{ block.settings.title }}</h2></div>
+        {{ block.settings.text }}
+        {%- if block.settings.location != blank -%}<p class="sl-loc">{{ block.settings.location }}</p>{%- endif -%}
+      </div>
+    </li>
+  {%- endfor -%}
+</ol>
+
+{% schema %}
+{
+  "name": "SL · Étapes savoir-faire",
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre" },
+        { "type": "richtext", "id": "text", "label": "Texte" },
+        { "type": "text", "id": "location", "label": "Localisation", "default": "Localisation : Gard, France." },
+        { "type": "image_picker", "id": "image", "label": "Gravure" },
+        { "type": "text", "id": "image_fb", "label": "Gravure par défaut (fichier du thème)" },
+        { "type": "text", "id": "alt", "label": "Texte alternatif" },
+        { "type": "video", "id": "video", "label": "Vidéo (remplace la gravure)" },
+        { "type": "text", "id": "video_fb", "label": "Vidéo par défaut (fichier du thème)" },
+        { "type": "text", "id": "poster_fb", "label": "Image d'attente par défaut (fichier du thème)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SL · Étapes savoir-faire" }]
+}
+{% endschema %}

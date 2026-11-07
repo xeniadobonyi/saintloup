@@ -1,0 +1,16 @@
+<section class="sl sl-wrap sl-claim">
+  {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: '' -%}
+  <p>{{ section.settings.text | newline_to_br }}</p>
+</section>
+
+{% schema %}
+{
+  "name": "SL · Signature",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Motif" },
+    { "type": "text", "id": "image_fb", "label": "Motif par défaut (fichier du thème)", "default": "sl-motif.png" },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "100% naturel.\n100% français." }
+  ],
+  "presets": [{ "name": "SL · Signature" }]
+}
+{% endschema %}

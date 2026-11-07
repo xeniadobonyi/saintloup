@@ -1,0 +1,39 @@
+<div class="sl sl-wrap sl-press">
+  {%- assign year = '' -%}
+  {%- for block in section.blocks -%}
+    {%- if block.settings.year != year -%}
+      {%- unless forloop.first -%}</ol></section>{%- endunless -%}
+      {%- assign year = block.settings.year -%}
+      <section class="sl-col-year"><h2>{{ year }}</h2><ol>
+    {%- endif -%}
+    <li {{ block.shopify_attributes }}><a href="{{ block.settings.url }}" target="_blank" rel="noopener">
+      <span class="sl-cl">{%- render 'sl-img', image: block.settings.logo, fb: block.settings.logo_fb, alt: block.settings.outlet -%}</span>
+      <span class="sl-cb"><span class="sl-ct">{{ block.settings.title }}</span><span class="sl-cd">{{ block.settings.date }}</span></span>
+      <span class="sl-ca">{% render 'sl-icon', name: 'out' %}</span>
+    </a></li>
+    {%- if forloop.last -%}</ol></section>{%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "SL · Articles de presse",
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        { "type": "paragraph", "content": "Les articles sont regroupés par année, dans l'ordre de la liste." },
+        { "type": "text", "id": "year", "label": "Année", "default": "2026" },
+        { "type": "text", "id": "date", "label": "Date", "default": "1er janvier" },
+        { "type": "text", "id": "outlet", "label": "Média", "default": "Midi Libre" },
+        { "type": "image_picker", "id": "logo", "label": "Logo du média" },
+        { "type": "text", "id": "logo_fb", "label": "Logo par défaut (fichier du thème)" },
+        { "type": "text", "id": "title", "label": "Titre de l'article" },
+        { "type": "url", "id": "url", "label": "Lien" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SL · Articles de presse" }]
+}
+{% endschema %}

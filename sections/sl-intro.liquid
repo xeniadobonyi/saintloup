@@ -1,0 +1,23 @@
+<section class="sl sl-wrap sl-intro">
+  <h1>{{ section.settings.heading }}</h1>
+  <div class="sl-intro-side">
+    <p class="sl-lede">{{ section.settings.lede }}</p>
+    {%- if section.settings.show_newsletter -%}
+      <p class="sl-note">{{ section.settings.note }}</p>
+      {%- render 'sl-newsletter', id: section.id -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SL · Introduction",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Le premier fil de soie française depuis le siècle dernier" },
+    { "type": "inline_richtext", "id": "lede", "label": "Texte", "default": "SAINT LOUP ressuscite le savoir-faire du fil de soie dans le Sud de la France." },
+    { "type": "checkbox", "id": "show_newsletter", "label": "Afficher la newsletter", "default": true },
+    { "type": "text", "id": "note", "label": "Texte newsletter", "default": "Soyez les premiers informés de nos nouvelles pièces :" }
+  ],
+  "presets": [{ "name": "SL · Introduction" }]
+}
+{% endschema %}

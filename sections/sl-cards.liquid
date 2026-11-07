@@ -1,0 +1,35 @@
+<section class="sl sl-wrap sl-bo-more" aria-labelledby="sl-more-{{ section.id }}">
+  <h2 id="sl-more-{{ section.id }}" class="sl-eyebrow">{{ section.settings.heading }}</h2>
+  <div class="sl-bo-cards">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>
+        {%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: '', sizes: '(min-width: 700px) 33vw, 100vw' -%}
+        <span class="sl-t">{{ block.settings.title }}</span><span class="sl-s">{{ block.settings.subtitle }}</span>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SL · Aller plus loin",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Aller plus loin" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Lien",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)" },
+        { "type": "text", "id": "title", "label": "Titre" },
+        { "type": "text", "id": "subtitle", "label": "Sous-titre" },
+        { "type": "url", "id": "url", "label": "Lien" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [{ "name": "SL · Aller plus loin" }]
+}
+{% endschema %}

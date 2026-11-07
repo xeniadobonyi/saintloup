@@ -1,0 +1,38 @@
+<section class="sl sl-wrap sl-chapters">
+  {%- for block in section.blocks -%}
+    <article class="sl-chapter" {{ block.shopify_attributes }}>
+      <div class="sl-yr">{{ block.settings.year }}</div>
+      <div class="sl-body"><div>
+        <h2>{{ block.settings.title }}</h2>
+        {{ block.settings.text }}
+      </div>
+      {%- capture st -%}aspect-ratio:{{ block.settings.ratio }};{% if block.settings.grayscale %}filter:grayscale(1);{% endif %}{% if block.settings.position != blank %}object-position:{{ block.settings.position }};{% endif %}{%- endcapture -%}
+      {%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt, style: st, sizes: '(min-width: 700px) 60vw, 100vw' -%}
+      </div>
+    </article>
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Chapitres",
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "Chapitre",
+      "settings": [
+        { "type": "text", "id": "year", "label": "Année" },
+        { "type": "text", "id": "title", "label": "Titre" },
+        { "type": "richtext", "id": "text", "label": "Texte" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)" },
+        { "type": "text", "id": "alt", "label": "Texte alternatif" },
+        { "type": "select", "id": "ratio", "label": "Format", "default": "3/2", "options": [{ "value": "3/2", "label": "3:2" }, { "value": "4/3", "label": "4:3" }, { "value": "1/1", "label": "Carré" }] },
+        { "type": "checkbox", "id": "grayscale", "label": "Noir et blanc", "default": false },
+        { "type": "text", "id": "position", "label": "Cadrage (CSS)", "info": "Ex. : center 30%" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SL · Chapitres" }]
+}
+{% endschema %}

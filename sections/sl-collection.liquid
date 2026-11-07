@@ -1,0 +1,46 @@
+{%- comment -%} Boutique grid: every product of the collection, with optional per-product overrides set as blocks. {%- endcomment -%}
+<section class="sl sl-wrap sl-products sl-shop" aria-label="{{ collection.title | default: 'Les pièces' | escape }}">
+  {%- paginate collection.products by 24 -%}
+    {%- for p in collection.products -%}
+      {%- liquid
+        assign ov = nil
+        for block in section.blocks
+          if block.settings.product != blank and block.settings.product.id == p.id
+            assign ov = block
+          endif
+        endfor
+      -%}
+      {%- render 'sl-product-card', product: p, image: ov.settings.image, fb: ov.settings.image_fb, alt_image: ov.settings.alt_image, alt_fb: ov.settings.alt_fb, edition: ov.settings.edition, swap: true -%}
+    {%- endfor -%}
+  {%- endpaginate -%}
+</section>
+{%- if section.settings.show_newsletter -%}
+  <section class="sl sl-wrap sl-shop-nl">
+    <p class="sl-note">{{ section.settings.note }}</p>
+    {%- render 'sl-newsletter', id: section.id -%}
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SL · Boutique",
+  "settings": [
+    { "type": "checkbox", "id": "show_newsletter", "label": "Afficher la newsletter", "default": true },
+    { "type": "text", "id": "note", "label": "Texte newsletter", "default": "Nous vous informerons par email lorsque de nouveaux articles seront disponibles :" }
+  ],
+  "blocks": [
+    {
+      "type": "override",
+      "name": "Réglage produit",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Produit" },
+        { "type": "text", "id": "edition", "label": "Édition", "default": "50 exemplaires numérotés" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)" },
+        { "type": "image_picker", "id": "alt_image", "label": "Image au survol" },
+        { "type": "text", "id": "alt_fb", "label": "Image au survol par défaut (fichier du thème)" }
+      ]
+    }
+  ]
+}
+{% endschema %}

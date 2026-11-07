@@ -1,0 +1,21 @@
+<figure class="sl sl-bo-camp">
+  {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.alt -%}
+  {%- if section.settings.link_label != blank -%}
+    <figcaption class="sl-wrap"><a class="sl-caps" href="{{ section.settings.link_url | default: section.settings.product.url | default: '#' }}">{{ section.settings.link_label }}</a></figcaption>
+  {%- endif -%}
+</figure>
+
+{% schema %}
+{
+  "name": "SL · Image de campagne",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)", "default": "sl-ba-6.jpg" },
+    { "type": "text", "id": "alt", "label": "Texte alternatif", "default": "Bandou porté dans les cheveux, dans un champ du Sud" },
+    { "type": "text", "id": "link_label", "label": "Lien · texte", "default": "Découvrir le Bandou" },
+    { "type": "product", "id": "product", "label": "Lien · produit" },
+    { "type": "url", "id": "link_url", "label": "Lien · autre adresse" }
+  ],
+  "presets": [{ "name": "SL · Image de campagne" }]
+}
+{% endschema %}

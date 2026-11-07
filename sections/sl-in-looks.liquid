@@ -1,0 +1,30 @@
+<section class="sl sl-wrap sl-in-looks">
+  {%- for block in section.blocks -%}
+    <article id="in-{{ block.settings.anchor | default: forloop.index }}" {{ block.shopify_attributes }}>
+      {%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt, sizes: '(min-width: 1024px) 33vw, (min-width: 700px) 50vw, 100vw' -%}
+      <h2>{{ block.settings.title }}</h2>
+      {{ block.settings.text }}
+    </article>
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Façons de porter",
+  "blocks": [
+    {
+      "type": "look",
+      "name": "Façon de porter",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre" },
+        { "type": "richtext", "id": "text", "label": "Texte" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)" },
+        { "type": "text", "id": "alt", "label": "Texte alternatif" },
+        { "type": "text", "id": "anchor", "label": "Ancre (lien direct #in-…)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SL · Façons de porter" }]
+}
+{% endschema %}

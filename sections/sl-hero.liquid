@@ -1,0 +1,22 @@
+<section class="sl sl-hero" id="sl-hero">
+  {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.alt, loading: 'eager' -%}
+  <div class="sl-pin"><div class="sl-mark" aria-hidden="true">{{ section.settings.mark }}</div></div>
+  {%- assign p = section.settings.product -%}
+  {%- if p != blank -%}
+    <div class="sl-chipwrap"><a class="sl-chip" href="{{ p.url }}">{{ p.title }}<i aria-hidden="true"></i>{{ p.price | money_without_trailing_zeros }}</a></div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)", "default": "sl-hero.jpg" },
+    { "type": "text", "id": "alt", "label": "Texte alternatif", "default": "Bandou SAINT LOUP noué au poignet, main posée sur un cheval blanc" },
+    { "type": "text", "id": "mark", "label": "Grand logo", "default": "SAINT LOUP" },
+    { "type": "product", "id": "product", "label": "Produit (étiquette en bas à gauche)" }
+  ],
+  "presets": [{ "name": "SL · Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,28 @@
+<section class="sl sl-wrap sl-story sl-tight">
+  {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: section.settings.heading, class: 'sl-photo', sizes: '(min-width: 900px) 50vw, 100vw' -%}
+  <div class="sl-copy">
+    {%- render 'sl-img', image: section.settings.icon, fb: section.settings.icon_fb, alt: '', class: 'sl-sun' -%}
+    <h2>{{ section.settings.heading }}</h2>
+    {{ section.settings.text }}
+    {%- if section.settings.link_label != blank -%}
+      <a class="sl-caps" href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SL · Récit",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "image_fb", "label": "Photo par défaut (fichier du thème)", "default": "sl-sud_brut.jpg" },
+    { "type": "image_picker", "id": "icon", "label": "Pictogramme" },
+    { "type": "text", "id": "icon_fb", "label": "Pictogramme par défaut (fichier du thème)", "default": "sl-sun.png" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Le Sud brut" },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "text", "id": "link_label", "label": "Lien · texte", "default": "Notre histoire" },
+    { "type": "url", "id": "link_url", "label": "Lien · adresse" }
+  ],
+  "presets": [{ "name": "SL · Récit" }]
+}
+{% endschema %}

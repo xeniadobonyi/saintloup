@@ -1,0 +1,37 @@
+<footer class="sl sl-foot">
+  {%- render 'sl-img', image: section.settings.image, fb: section.settings.image_fb, alt: '' -%}
+  <div class="sl-shade"></div>
+  <div class="sl-inner sl-wrap">
+    {%- if section.settings.line != blank -%}<p class="sl-line">{{ section.settings.line }}</p>{%- endif -%}
+    <div class="sl-row">
+      <nav aria-label="Pied de page">
+        {%- for link in linklists[section.settings.menu].links -%}
+          {%- unless link.url contains '/search' -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endunless -%}
+        {%- endfor -%}
+      </nav>
+      <div class="sl-nl">
+        <p>{{ section.settings.nl_heading }}</p>
+        {%- render 'sl-newsletter', id: section.id -%}
+      </div>
+    </div>
+    <p class="sl-copy">© {{ 'now' | date: '%Y' }} {{ section.settings.copyright }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "SAINT LOUP · Pied de page",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image de fond" },
+    { "type": "text", "id": "image_fb", "label": "Image par défaut (fichier du thème)", "default": "sl-garrigue.jpg", "info": "Utilisée si aucune image n'est choisie ci-dessus." },
+    { "type": "text", "id": "line", "label": "Phrase", "default": "Le Sud brut" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer", "info": "Les liens vers la recherche sont masqués." },
+    { "type": "text", "id": "nl_heading", "label": "Titre newsletter", "default": "S'inscrire à la newsletter" },
+    { "type": "text", "id": "copyright", "label": "Copyright", "default": "SAINT LOUP" }
+  ],
+  "presets": [{ "name": "SAINT LOUP · Pied de page" }]
+}
+{% endschema %}

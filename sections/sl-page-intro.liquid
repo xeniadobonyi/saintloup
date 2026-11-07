@@ -1,0 +1,15 @@
+<section class="sl sl-wrap sl-page-intro">
+  <h1>{{ section.settings.heading | default: page.title | default: collection.title }}</h1>
+  {%- if section.settings.lede != blank -%}<p class="sl-lede">{{ section.settings.lede }}</p>{%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "SL · Titre de page",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre (sinon titre de la page)" },
+    { "type": "inline_richtext", "id": "lede", "label": "Texte" }
+  ],
+  "presets": [{ "name": "SL · Titre de page" }]
+}
+{% endschema %}

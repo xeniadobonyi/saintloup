@@ -1,0 +1,43 @@
+<section class="sl sl-wrap sl-hi-more">
+  {%- if section.settings.press_heading != blank -%}
+    <h2>{{ section.settings.press_heading }}</h2>
+    <div class="sl-c"><a href="{{ section.settings.press_url | default: '/pages/presse' }}" style="font-size:22px">{{ section.settings.press_link }}</a></div>
+  {%- endif -%}
+  <h2>{{ section.settings.partners_heading }}</h2>
+  <div class="sl-c">
+    <div class="sl-logos">
+      {%- for block in section.blocks -%}
+        <span {{ block.shopify_attributes }} style="display:contents">{%- render 'sl-img', image: block.settings.image, fb: block.settings.image_fb, alt: block.settings.alt -%}</span>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}
+      <p class="sl-note">{{ section.settings.note }}</p>
+      {%- render 'sl-newsletter', id: section.id, tag: 'histoire' -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SL · Presse & partenaires",
+  "settings": [
+    { "type": "text", "id": "press_heading", "label": "Presse · titre", "default": "Presse" },
+    { "type": "text", "id": "press_link", "label": "Presse · lien", "default": "SAINT LOUP est dans la presse (cliquer ici)" },
+    { "type": "url", "id": "press_url", "label": "Presse · adresse" },
+    { "type": "text", "id": "partners_heading", "label": "Partenaires · titre", "default": "Partenaires" },
+    { "type": "text", "id": "note", "label": "Texte newsletter", "default": "Engagez-vous, suivez notre aventure de relocalisation par email :" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo partenaire",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Logo" },
+        { "type": "text", "id": "image_fb", "label": "Logo par défaut (fichier du thème)" },
+        { "type": "text", "id": "alt", "label": "Nom" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SL · Presse & partenaires" }]
+}
+{% endschema %}
