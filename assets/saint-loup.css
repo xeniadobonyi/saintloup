@@ -671,3 +671,10 @@ aaa
 .sl-hero-link{position:absolute;inset:0;z-index:0}
 .sl-hero .sl-pin,.sl-hero .sl-chipwrap{z-index:1}
 
+/* Photo links: the photo itself never changes; the glass button brightens softly when the photo is hovered, fully when the button is */
+@media (hover: hover){
+  .sl-hero:hover .sl-chip,.sl-camp-link:hover .sl-chip{background:rgba(255,255,255,.26)}
+  .sl-hero .sl-chip:hover,.sl-camp-link .sl-chip:hover{background:rgba(255,255,255,.34)}
+  .sl-frame:hover .sl-tag{background:rgba(252,250,245,.74)}
+  .sl-frame .sl-tag:hover{background:rgba(252,250,245,.88)}
+}
