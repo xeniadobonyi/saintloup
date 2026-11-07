@@ -591,6 +591,9 @@ a.frame:hover .tag{background:rgba(252,250,245,.88)}
 .camp-link:hover .chip{background:rgba(255,255,255,.34)}
 .camp-link img{transition:opacity .5s ease}
 .camp-link:hover img{opacity:.94}
+/* Campaign button: same spot as the homepage photo labels (page gutter, 40px from the bottom) */
+.bo-camp figcaption{left:var(--gut-l);right:auto;bottom:40px;padding:0;max-width:none;margin:0}
+@media (max-width: 699px){ .bo-camp figcaption{bottom:16px} }
 </style>
 
 </head>
@@ -949,7 +952,7 @@ a.frame:hover .tag{background:rgba(252,250,245,.88)}
   </section>
   <a class="camp-link" href="#bandou"><figure class="bo-camp">
     <img src="img/ba-6.jpg" alt="Bandou porté dans les cheveux, dans un champ du Sud" loading="lazy">
-    <figcaption class="wrap"><span class="chip">Découvrir le Bandou</span></figcaption>
+    <figcaption><span class="chip">Découvrir le Bandou</span></figcaption>
   </figure></a>
   <section class="wrap bo-more" aria-labelledby="bo-more-h">
     <h2 id="bo-more-h" class="eyebrow">Aller plus loin</h2>
