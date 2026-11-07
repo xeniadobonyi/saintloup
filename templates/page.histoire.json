@@ -83,6 +83,54 @@
     "more": {
       "type": "sl-hi-more",
       "blocks": {
+        "pr_1": {
+          "type": "press",
+          "settings": {
+            "logo_fb": "sl-press-logo-midi-libre.png",
+            "alt": "Midi Libre",
+            "url": "https://www.instagram.com/p/DeTjRNGDVwk/"
+          }
+        },
+        "pr_2": {
+          "type": "press",
+          "settings": {
+            "logo_fb": "sl-press-logo-les-echos.png",
+            "alt": "Les Echos",
+            "url": "https://entrepreneurs.lesechos.fr/creation-entreprise/idees-success-stories/la-france-etait-leader-mondial-de-la-soierie-nous-avons-tout-laisse-a-labandon-il-relance-une-filiere-du-cocon-au-carre-de-soie-2254700"
+          }
+        },
+        "pr_3": {
+          "type": "press",
+          "settings": {
+            "logo_fb": "sl-press-france-3.png",
+            "alt": "France 3",
+            "url": "https://www.instagram.com/france3occitanie/reel/DcDoN5TjgXp/"
+          }
+        },
+        "pr_4": {
+          "type": "press",
+          "settings": {
+            "logo_fb": "sl-press-logo-radiofrance.png",
+            "alt": "ICI",
+            "url": "https://www.ici.fr/emissions/l-info-d-ici-ici-gard-lozere/video-cette-entreprise-des-cevennes-triple-sa-production-et-embauche-une-fileuse-pour-une-soie-100-francaise-9117690"
+          }
+        },
+        "pr_5": {
+          "type": "press",
+          "settings": {
+            "logo_fb": "sl-press-logo-le-progres.png",
+            "alt": "Le Progrès",
+            "url": "https://www.leprogres.fr/economie/2026/08/04/le-pont-d-arc-represente-sur-un-bandeau-de-soie-100-francais"
+          }
+        },
+        "pr_6": {
+          "type": "press",
+          "settings": {
+            "logo_fb": "sl-press-logo-objectif-gard.png",
+            "alt": "Objectif Gard",
+            "url": "https://www.objectifgard.com/economie/fait-du-jour-a-monoblet-la-soie-repasse-enfin-dans-les-mains-dune-fileuse-167736.php"
+          }
+        },
         "lg_1": {
           "type": "logo",
           "settings": {
@@ -99,6 +147,12 @@
         }
       },
       "block_order": [
+        "pr_1",
+        "pr_2",
+        "pr_3",
+        "pr_4",
+        "pr_5",
+        "pr_6",
         "lg_1",
         "lg_2"
       ],
