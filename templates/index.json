@@ -22,7 +22,7 @@
       "type": "sl-intro",
       "settings": {
         "heading": "Le premier fil de soie française depuis le siècle dernier",
-        "lede": "SAINT LOUP ressuscite le savoir-faire du fil de soie dans le Sud de la France.",
+        "lede": "SAINT LOUP ressuscite le savoir-faire de la soie dans le Sud de la France.",
         "show_newsletter": true,
         "note": "Soyez les premiers informés de nos nouvelles pièces :"
       }
@@ -125,7 +125,7 @@
         "s_3"
       ],
       "settings": {
-        "heading": "Un savoir-faire unique en France, du cocon au fil",
+        "heading": "Un savoir-faire unique en France",
         "link_label": "Notre savoir-faire",
         "link_url": "shopify://pages/savoir-faire"
       }
