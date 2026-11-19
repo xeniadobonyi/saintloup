@@ -2800,3 +2800,9 @@ html.sl-solid .sl-hdr {
 /* Histoire "dans la presse" link becomes a caps link */
 .sl-hi-more .sl-c a{font-size:var(--sl-t-caps)!important;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px;transition:border-color var(--sl-t-ease)}
 .sl-hi-more .sl-c a:hover{border-bottom-color:#C9C1B3}
+
+/* Wordmark (snippets/sl-wordmark.liquid): EB Garamond outlined to vector, hand-spaced.
+   Heights match the cap height of the previous text logo (header 1.2rem/600, hero clamp(56px,9.5vw,148px)/700). */
+.sl-wm{display:block;width:auto;fill:currentColor}
+.sl-logo .sl-wm,.sl-logo-drawer .sl-wm{height:15.5px}
+.sl-mark .sl-wm{height:clamp(42px,7.64vw,119px);filter:drop-shadow(0 2px 48px rgba(20,30,50,.22))}
