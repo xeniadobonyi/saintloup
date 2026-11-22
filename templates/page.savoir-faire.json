@@ -27,7 +27,7 @@
           "type": "step",
           "settings": {
             "title": "Cultiver les mûriers",
-            "text": "<p>Le ver à soie se nourrit exclusivement de feuilles de mûriers blancs. Il les aime tellement que son surnom, \"magnan\", signifie \"goinfre\" en occitan. Les mûriers de la soie SAINT LOUP, localisés dans le Piémont Cévenol, sont cultivés en bio.</p>",
+            "text": "<p>Le ver à soie se nourrit exclusivement de feuilles de mûriers blancs. Il les aime tellement que son surnom, <em>magnan</em>, signifie goinfre en occitan. Les mûriers de la soie SAINT LOUP, localisés dans le Piémont Cévenol, sont cultivés en bio.</p>",
             "location": "Localisation : Gard, France.",
             "image_fb": "sl-sf-1.jpg",
             "alt": "Gravure d’un mûrier",
@@ -39,7 +39,7 @@
           "type": "step",
           "settings": {
             "title": "Assembler les graines",
-            "text": "<p>Une femelle Bombyx pond 500 œufs, aussi appelés \"graines\". Ils sont sélectionnés et assemblés en amont de l'élevage. Les souches de la soie SAINT LOUP sont choisies pour leur origine cévenole et leur excellence, mesurée à leur taux de soie.</p>",
+            "text": "<p>Une femelle Bombyx pond 500 œufs, aussi appelés graines. Ils sont sélectionnés et assemblés en amont de l'élevage. Les souches de la soie SAINT LOUP sont choisies pour leur origine cévenole et leur excellence, mesurée à leur taux de soie.</p>",
             "location": "Localisation : Gard, France.",
             "image_fb": "sl-sf-2.jpg",
             "alt": "Gravure d’un sachet de graines de vers à soie",
@@ -50,7 +50,7 @@
         "st_3": {
           "type": "step",
           "settings": {
-            "title": "Elever les vers à soie",
+            "title": "Eduquer les vers à soie",
             "text": "<p>Il suffit d'un mois de gourmandise pour que les vers à soie grandissent de 2 millimètres à 8 centimètres environ, en se nourrisant de feuilles de mûrier fraiches trois à quatre fois par jour. Ils tissent ensuite un cocon pour s'y métamorphoser en papillon.</p>",
             "location": "Localisation : Gard, France.",
             "image_fb": "sl-sf-3.jpg",
@@ -63,7 +63,7 @@
           "type": "step",
           "settings": {
             "title": "Sélectionner les cocons",
-            "text": "<p>Les cocons des Bombyx sont composés d'un seul fil, continu, d'environ un kilomètre et demi de long. Les cocons de la soie SAINT LOUP sont sélectionnés pour garantir l'excellence du fil de soie qui est ensuite déroulé.</p>",
+            "text": "<p>Les cocons des Bombyx sont composés d'un seul fil continu d'environ un kilomètre et demi de long. Les cocons de la soie SAINT LOUP sont sélectionnés pour garantir l'excellence du fil de soie qui est ensuite déroulé.</p>",
             "location": "Localisation : Gard, France.",
             "image_fb": "sl-sf-4.jpg",
             "alt": "Gravure de trois cocons",
@@ -74,8 +74,8 @@
         "st_5": {
           "type": "step",
           "settings": {
-            "title": "Dévider les cocons",
-            "text": "<p>Les cocons sont dévidés à l'aide d'une machine unique en France. Elle permet de les dérouler sans les casser et de les assembler en un fil continu. La soie française ainsi obtenue, toujours en Cévennes, est le premier fil de soie française depuis le siècle dernier.</p>",
+            "title": "Dérouler les cocons",
+            "text": "<p>Les cocons sont dévidés à l'aide d'une machine unique en France. Elle permet de les dérouler sans les casser et de les assembler en un fil infini. Le fil de soie ainsi obtenu est le seul qui soit fabriqué en France depuis le siècle dernier.</p>",
             "location": "Localisation : Gard, France.",
             "image_fb": "sl-sf-5.jpg",
             "alt": "Gravure d’une machine à dévider",
@@ -87,7 +87,7 @@
           "type": "step",
           "settings": {
             "title": "Mouliner le fil",
-            "text": "<p>Les fils de soie sont assemblés, tordus et mis en bobines, afin de pouvoir être tissé de la façon la plus solide et la plus douce à la fois.</p>",
+            "text": "<p>Les fils de soie sont assemblés, retordus et mis en bobines, afin de pouvoir être tissé de la façon la plus solide et la plus douce à la fois.</p>",
             "location": "Localisation : Haute-Loire, France.",
             "image_fb": "sl-sf-6.jpg",
             "alt": "Gravure d’un moulin à soie",
@@ -99,7 +99,7 @@
           "type": "step",
           "settings": {
             "title": "Tisser",
-            "text": "<p>A l'ourdissage, les fils de chaine sont disposés à la verticale, parallèlement les uns aux autres. Sur le métier à tisser, ils sont croisés avec les fils de trame, à l'horizontale.</p>",
+            "text": "<p>A l'ourdissage, les fils de chaine sont disposés à la verticale, parallèlement les uns aux autres. Sur le métier à tisser, ils sont croisés avec les fils de trame, à l'horizontale. Notre tissage twill d'excellence est reconnaissable à ses côtes en diagonale.</p>",
             "location": "Localisation : Loire, France.",
             "image_fb": "sl-sf-7.jpg",
             "alt": "Gravure d’un métier à tisser",
@@ -123,7 +123,7 @@
           "type": "step",
           "settings": {
             "title": "Créer l'œuvre",
-            "text": "<p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa botanique modeste et la magie de ses papillons de soie.</p>",
+            "text": "<p>C'est à travers la main des artistes que le patrimoine du Sud brut s'exprime et se réinvente. Nos œuvres racontent le territoire qui s'étend du Pic Saint Loup aux Cévennes, son histoire, sa réalité contemporaine, sa botanique modeste et la magie de ses papillons de soie.</p>",
             "location": "Localisation : France.",
             "image_fb": "",
             "alt": "Papillon de soie peint à la main",
@@ -135,7 +135,7 @@
           "type": "step",
           "settings": {
             "title": "Imprimer",
-            "text": "<p>L'œuvre est imprimée sur la soie, qui est ensuite apprêtée. En fonction du design, les carrés de la soie SAINT LOUP sont réalisés au cadre \"à la lyonnaise\" ou en impression numérique.</p>",
+            "text": "<p>L'œuvre est imprimée sur la soie, qui est ensuite apprêtée. En fonction du design, les carrés de la soie SAINT LOUP sont réalisés au cadre à la lyonnaise ou en impression numérique adaptée aux créations à la main de nos artistes et aux dégradés vibrants si caractéristiques de nos pièces.</p>",
             "location": "Localisation : Loire, France.",
             "image_fb": "sl-sf-10.jpg",
             "alt": "Gravure d’une imprimante textile",
@@ -147,7 +147,7 @@
           "type": "step",
           "settings": {
             "title": "Roulotter les carrés",
-            "text": "<p>Le tissu de soie est découpé et les bords de chaque foulard sont roulés et cousus avec une grande délicatesse. Le roulottage des carrés de soie SAINT LOUP est réalisé à la main.</p>",
+            "text": "<p>Les bords de chaque foulard sont roulés et cousus avec une grande délicatesse. Le roulottage des carrés de soie SAINT LOUP est réalisé entièrement à la main ou en semi-artisanal.</p>",
             "location": "Localisation : Rhône, France.",
             "image_fb": "sl-sf-11.jpg",
             "alt": "Gravure de mains roulottant le bord d’un carré",
